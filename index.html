@@ -295,6 +295,79 @@
             color: #444;
         }
         
+        /* Navigation interne - boutons de section */
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        
+        .section-nav-btn {
+            background-color: #f0e6d3;
+            border: 1px solid #d4a762;
+            border-radius: 12px;
+            padding: 6px 10px;
+            font-size: 0.75rem;
+            color: #8a6d3b;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            max-width: 150px;
+            text-align: center;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        
+        .section-nav-btn:hover {
+            background-color: #d4a762;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .section-nav-end {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #e0d6c2;
+        }
+        
+        /* Navigation précédent/suivant */
+        .entry-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #e0d6c2;
+        }
+        
+        .nav-prev-next {
+            background-color: #f0e6d3;
+            border: 1px solid #d4a762;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            color: #8a6d3b;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-prev-next:hover:not(.disabled) {
+            background-color: #d4a762;
+            color: white;
+        }
+        
+        .nav-prev-next.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
         /* Titres de section centrés avec couleurs harmonisées */
         .section-title {
             background: linear-gradient(90deg, rgba(255, 152, 0, 0.15), rgba(255, 255, 255, 0.2));
@@ -609,9 +682,57 @@
             white-space: pre-line;
             line-height: 1.3;
             font-family: 'Pacifico', cursive;
-            font-weight: 300 !important; /* Réduit le font-weight */
+            font-weight: 300 !important;
             font-size: 0.95rem;
             color: #666;
+        }
+        
+        /* Couleurs spécifiques pour les éléments demandés */
+        .pensees-analyse {
+            color: #ff9800 !important; /* Orange pour "Mes pensées et analyse" */
+        }
+        
+        .cadeau-recu {
+            color: #2196f3 !important; /* Bleu pour "Cadeau reçu" */
+        }
+        
+        .occupation {
+            color: #2196f3 !important; /* Bleu pour "Occupation" */
+        }
+        
+        .maladie-sante {
+            color: #f44336 !important; /* Rouge pour "Maladie et santé" */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 400 !important;
+        }
+        
+        .resolution-du-jour {
+            color: #ff9800 !important; /* Orange pour "Résolution du jour" */
+        }
+        
+        .deroulement-journee {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 400 !important;
+            color: #666 !important;
+            background-color: rgba(255, 255, 255, 0.8) !important;
+            padding: 6px 10px !important;
+            border-radius: 5px !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+        
+        /* Texte médité et retenu de méditation en bleu */
+        .texte-medite {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 400 !important;
+            color: #2196f3 !important;
+            background-color: rgba(33, 150, 243, 0.1) !important;
+        }
+        
+        .retenu-meditation {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 400 !important;
+            color: #2196f3 !important;
+            background-color: rgba(33, 150, 243, 0.1) !important;
         }
         
         .entry-value a {
@@ -628,7 +749,7 @@
         .time-value {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             font-weight: 600 !important;
-            color: #2E7D32 !important; /* Vert foncé pour les heures */
+            color: #2E7D32 !important;
             font-size: 0.95rem !important;
             background-color: rgba(46, 125, 50, 0.1) !important;
             padding: 2px 6px !important;
@@ -639,7 +760,7 @@
         .duration-value {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             font-weight: 600 !important;
-            color: #1565C0 !important; /* Bleu pour les durées */
+            color: #1565C0 !important;
             font-size: 0.95rem !important;
             background-color: rgba(21, 101, 192, 0.1) !important;
             padding: 2px 6px !important;
@@ -647,12 +768,12 @@
             border: 1px solid rgba(21, 101, 192, 0.3) !important;
         }
         
-        /* Texte repas en violet */
+        /* Texte repas en violet - TAILLE RÉDUITE */
         .meal-text {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             font-weight: 500 !important;
-            color: #7B1FA2 !important; /* Violet */
-            font-size: 0.95rem !important;
+            color: #7B1FA2 !important;
+            font-size: 0.85rem !important;
             line-height: 1.4 !important;
         }
         
@@ -742,7 +863,7 @@
         .compact-value {
             flex: 1;
             font-family: 'Pacifico', cursive;
-            font-weight: 300 !important; /* Réduit le font-weight */
+            font-weight: 300 !important;
             font-size: 0.95rem;
             color: #666;
         }
@@ -760,7 +881,7 @@
         
         .spiritual-time {
             font-family: 'Segoe UI', sans-serif;
-            color: #2e7d32; /* Vert pour les heures */
+            color: #2e7d32;
             font-size: 0.8rem;
             background-color: rgba(46, 125, 50, 0.1);
             padding: 1px 6px;
@@ -1232,7 +1353,7 @@
             color: #333;
         }
         
-        /* Style pour repas */
+        /* Style pour repas - MODIFIÉ POUR MOBILE */
         .meal-container {
             border: 2px solid #f0e6d3;
             border-radius: 8px;
@@ -1251,27 +1372,30 @@
             gap: 8px;
         }
         
-        /* Lignes pour repas modifiées */
-        .meal-line-1 {
+        /* MODIFICATIONS POUR LES REPAS - Sur une seule ligne en desktop */
+        .meal-line-single {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             margin-bottom: 8px;
+            flex-wrap: nowrap;
         }
         
-        .meal-line-2 {
+        .meal-line-double {
             display: flex;
-            gap: 12px;
-            margin-bottom: 10px;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: nowrap;
         }
         
         .meal-compact-item {
             flex: 1;
             background-color: #f5f5f5;
-            padding: 6px 10px;
+            padding: 6px 8px;
             border-radius: 6px;
             border: 1px solid #e0e0e0;
             display: flex;
             align-items: center;
+            min-height: 40px;
         }
         
         .meal-compact-label {
@@ -1280,7 +1404,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            min-width: 50px;
+            min-width: 40px;
             font-size: 0.85rem;
         }
         
@@ -1293,6 +1417,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 600;
             font-size: 0.9rem;
+            text-align: center;
         }
         
         .meal-content {
@@ -1316,7 +1441,7 @@
         .meal-content-value {
             font-family: 'Pacifico', cursive;
             font-weight: 300 !important;
-            font-size: 0.95rem;
+            font-size: 0.85rem !important; /* TAILLE RÉDUITE */
             color: #666;
         }
         
@@ -1390,6 +1515,159 @@
             border-radius: 4px;
             border: 1px solid #e0e0e0;
             font-size: 0.85rem;
+        }
+        
+        /* Interface d'accueil - nouvelles sections */
+        .home-interface {
+            padding: 20px;
+            background-color: #f9f5f0;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 2px solid #d4a762;
+        }
+        
+        .home-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e0d6c2;
+        }
+        
+        .home-section-title {
+            color: #8a6d3b;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0e6d3;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .field-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .field-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            background-color: #f0e6d3;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .field-checkbox:hover {
+            background-color: #d4a762;
+            color: white;
+        }
+        
+        .field-checkbox.selected {
+            background-color: #8a6d3b;
+            color: white;
+        }
+        
+        .date-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .date-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .date-input {
+            padding: 8px 12px;
+            border: 1px solid #d4a762;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background-color: white;
+            color: #333;
+        }
+        
+        .date-input:focus {
+            outline: none;
+            border-color: #8a6d3b;
+            box-shadow: 0 0 0 2px rgba(138, 109, 59, 0.2);
+        }
+        
+        .action-button {
+            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-button:hover {
+            background: linear-gradient(135deg, #d4a762 0%, #8a6d3b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .results-container {
+            margin-top: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+            border: 1px solid #e0d6c2;
+            border-radius: 8px;
+            background-color: white;
+        }
+        
+        .result-item-home {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0e6d3;
+        }
+        
+        .result-item-home:last-child {
+            border-bottom: none;
+        }
+        
+        .result-date-home {
+            font-weight: 700;
+            color: #8a6d3b;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .result-content-home {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .no-results-home {
+            padding: 30px;
+            text-align: center;
+            color: #8a6d3b;
+            font-size: 0.95rem;
+        }
+        
+        .loading-home {
+            text-align: center;
+            padding: 30px;
+            color: #8a6d3b;
         }
         
         @media (max-width: 768px) {
@@ -1490,6 +1768,22 @@
                 display: none;
             }
             
+            .section-nav {
+                gap: 4px;
+                margin: 10px 0;
+            }
+            
+            .section-nav-btn {
+                font-size: 0.65rem;
+                padding: 4px 6px;
+                max-width: 120px;
+            }
+            
+            .nav-prev-next {
+                padding: 6px 10px;
+                font-size: 0.75rem;
+            }
+            
             .entry-row {
                 display: flex;
                 flex-direction: column;
@@ -1524,11 +1818,55 @@
                 min-height: auto;
             }
             
+            /* MODIFICATIONS POUR REPAS EN MOBILE */
+            .meal-line-single,
+            .meal-line-double {
+                flex-direction: column !important;
+                gap: 5px !important;
+            }
+            
+            .meal-line-single .meal-compact-item,
+            .meal-line-double .meal-compact-item {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 5px 6px !important;
+                min-height: 32px;
+            }
+            
+            /* Heure et durée sur une ligne en mobile */
+            .meal-compact-item:nth-child(1),
+            .meal-compact-item:nth-child(2) {
+                display: inline-flex !important;
+                width: 48% !important;
+                margin-right: 4% !important;
+            }
+            
+            .meal-compact-item:nth-child(2) {
+                margin-right: 0 !important;
+            }
+            
+            /* Lieu et avec sur une ligne en mobile */
+            .meal-compact-item:nth-child(3),
+            .meal-compact-item:nth-child(4) {
+                display: inline-flex !important;
+                width: 48% !important;
+                margin-right: 4% !important;
+            }
+            
+            .meal-compact-item:nth-child(4) {
+                margin-right: 0 !important;
+            }
+            
+            .meal-content {
+                padding: 5px 6px;
+                margin-top: 6px;
+            }
+            
+            .meal-content-value {
+                font-size: 0.8rem !important;
+            }
+            
             .compact-row-sommeil,
-            .meal-line-1,
-            .meal-line-2,
-            .double-row,
-            .triple-row,
             .travail-time-container,
             .travail-content-row {
                 flex-direction: column;
@@ -1537,7 +1875,6 @@
             }
             
             .compact-item-sommeil,
-            .meal-compact-item,
             .compact-item,
             .double-item,
             .triple-item,
@@ -1570,11 +1907,6 @@
             .meal-title {
                 font-size: 0.9rem;
                 margin-bottom: 6px;
-            }
-            
-            .meal-content {
-                padding: 5px 6px;
-                margin-top: 6px;
             }
             
             .calendar {
@@ -1786,6 +2118,52 @@
             .finance-report td {
                 padding: 4px 6px;
             }
+            
+            /* Interface d'accueil mobile */
+            .home-interface {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .home-section {
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .home-section-title {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .field-selector {
+                gap: 6px;
+            }
+            
+            .field-checkbox {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+            }
+            
+            .date-selector {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .date-input {
+                width: 100%;
+                padding: 6px 10px;
+            }
+            
+            .action-button {
+                width: 100%;
+                justify-content: center;
+                padding: 8px 16px;
+            }
+            
+            .results-container {
+                max-height: 400px;
+            }
         }
         
         .error-message {
@@ -1834,7 +2212,7 @@
         
         .handwriting {
             font-family: 'Pacifico', cursive;
-            font-weight: 300 !important; /* Réduit le font-weight */
+            font-weight: 300 !important;
         }
         
         /* Icônes de couleur */
@@ -1980,25 +2358,6 @@
         .floating-btn.tooltip:hover::after {
             opacity: 1;
             visibility: visible;
-        }
-        
-        @media (max-width: 768px) {
-            .floating-buttons {
-                right: 15px;
-                bottom: 15px;
-            }
-            
-            .floating-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-            
-            .floating-btn.tooltip::after {
-                font-size: 12px;
-                padding: 6px 10px;
-                right: 55px;
-            }
         }
         
         /* Barre de recherche */
@@ -2224,43 +2583,33 @@
             opacity: 0.5;
         }
         
-        @media (max-width: 768px) {
-            .search-container {
-                top: 15px;
-                width: 95%;
-            }
-            
-            #search-input {
-                padding: 12px 15px;
-                font-size: 15px;
-            }
-            
-            .search-btn {
-                width: 50px;
-            }
-            
-            .search-results {
-                top: 70px;
-                max-height: 80vh;
-            }
-            
-            .results-list {
-                max-height: calc(80vh - 60px);
-            }
-            
-            .result-item {
-                padding: 12px;
-            }
+        /* Bouton pour remonter en haut de la fiche - À GAUCHE */
+        .back-to-top-btn {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 1;
+            visibility: visible;
         }
         
-        .container {
-            margin-top: 80px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                margin-top: 70px;
-            }
+        .back-to-top-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #d4a762 0%, #8a6d3b 100%);
         }
         
         /* Nouvelles classes pour les modifications demandées */
@@ -2318,6 +2667,74 @@
         .fa-toothbrush { color: #00bcd4; }
         .fa-brain-circuit { color: #673ab7; }
         
+        /* Cacher le message d'erreur CORS */
+        .hidden {
+            display: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top-btn {
+                left: 15px;
+                bottom: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .search-container {
+                top: 15px;
+                width: 95%;
+            }
+            
+            #search-input {
+                padding: 12px 15px;
+                font-size: 15px;
+            }
+            
+            .search-btn {
+                width: 50px;
+            }
+            
+            .search-results {
+                top: 70px;
+                max-height: 80vh;
+            }
+            
+            .results-list {
+                max-height: calc(80vh - 60px);
+            }
+            
+            .result-item {
+                padding: 12px;
+            }
+            
+            .floating-buttons {
+                right: 15px;
+                bottom: 15px;
+            }
+            
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .floating-btn.tooltip::after {
+                font-size: 12px;
+                padding: 6px 10px;
+                right: 55px;
+            }
+        }
+        
+        .container {
+            margin-top: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 70px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2338,6 +2755,12 @@
             <div class="results-list" id="results-list"></div>
         </div>
     </div>
+    
+    <!-- Bouton pour remonter en haut de la fiche - À GAUCHE -->
+    <button class="back-to-top-btn" id="back-to-top-btn" title="Remonter en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
     <div class="container">
         <header>
             <h1><i class="fas fa-book-open"></i> Mon Journal Intime</h1>
@@ -2511,141 +2934,75 @@
                 .trim();
         }
         
-        // Fonction pour calculer le total d'eau bue (optimisée)
-        function calculateWaterTotal(waterStr) {
-            if (!waterStr) return null;
-            
-            const cleanStr = waterStr.trim();
-            
-            // Recherche du dernier pattern "0.33 X" ou "0,33 X" ou "0.33X" ou "0,33X"
-            const pattern = /(\d+[,.]?\d*)\s*[x\*]?\s*(\d+)(?!.*\d)/g;
-            let lastMatch = null;
-            let match;
-            
-            while ((match = pattern.exec(cleanStr)) !== null) {
-                lastMatch = match;
-            }
-            
-            if (lastMatch && lastMatch.length >= 3) {
-                const quantity = parseFloat(lastMatch[1].replace(',', '.'));
-                const count = parseInt(lastMatch[2]);
-                
-                if (!isNaN(quantity) && !isNaN(count)) {
-                    const total = quantity * count;
-                    return {
-                        quantity: quantity,
-                        count: count,
-                        total: total.toFixed(2),
-                        display: `${quantity} × ${count} = ${total.toFixed(2)}L`
-                    };
-                }
-            }
-            
-            return null;
-        }
-        
-        // Fonction pour extraire la dernière valeur d'eau
-        function extractLastWaterValue(waterStr) {
-            if (!waterStr) return '';
-            
-            const cleanStr = waterStr.trim();
-            const pattern = /(\d+[,.]?\d*)\s*[x\*]?\s*(\d+)/g;
-            const matches = [];
-            let match;
-            
-            while ((match = pattern.exec(cleanStr)) !== null) {
-                matches.push(match[0]);
-            }
-            
-            if (matches.length > 0) {
-                return matches[matches.length - 1]; // Retourne la dernière valeur
-            }
-            
-            return waterStr;
-        }
-        
-        // Fonction pour calculer la durée entre deux heures (améliorée)
+        // Fonction AMÉLIORÉE pour calculer la durée entre deux heures (supporte h, :, min, etc.)
         function calculateDuration(startTime, endTime) {
             if (!startTime || !endTime) return null;
             
             try {
                 const parseTime = (timeStr) => {
+                    if (!timeStr) return 0;
+                    
                     let time = timeStr.trim().toLowerCase();
+                    
+                    // Convertir différents formats
                     time = time.replace('h', ':').replace('.', ':');
                     
-                    // Gérer les plages horaires (ex: "12h30-13h")
-                    if (time.includes('-')) {
-                        const parts = time.split('-');
-                        if (parts.length === 2) {
-                            const startPart = parts[0].trim();
-                            const endPart = parts[1].trim();
-                            
-                            let [startHours, startMinutes = 0] = startPart.split(':').map(num => parseInt(num) || 0);
-                            let [endHours, endMinutes = 0] = endPart.split(':').map(num => parseInt(num) || 0);
-                            
-                            // Gérer le format 12h avec AM/PM
-                            if (startPart.includes('pm') && startHours < 12) startHours += 12;
-                            if (startPart.includes('am') && startHours === 12) startHours = 0;
-                            if (endPart.includes('pm') && endHours < 12) endHours += 12;
-                            if (endPart.includes('am') && endHours === 12) endHours = 0;
-                            
-                            const startTotal = startHours * 60 + startMinutes;
-                            const endTotal = endHours * 60 + endMinutes;
-                            
-                            let diffMinutes = endTotal - startTotal;
-                            if (diffMinutes < 0) diffMinutes += 24 * 60; // Si ça passe à minuit
-                            
-                            return diffMinutes;
-                        }
+                    // Gérer les formats comme "5:24" ou "5h24" ou "5h" ou "30min"
+                    if (time.includes('min')) {
+                        // Format "30min" ou "1h30min"
+                        const hoursMatch = time.match(/(\d+)\s*h/);
+                        const minsMatch = time.match(/(\d+)\s*min/);
+                        
+                        let hours = 0;
+                        let minutes = 0;
+                        
+                        if (hoursMatch) hours = parseInt(hoursMatch[1]) || 0;
+                        if (minsMatch) minutes = parseInt(minsMatch[1]) || 0;
+                        
+                        return hours * 60 + minutes;
+                    } else if (time.includes(':')) {
+                        // Format "5:24" ou "5:30"
+                        const parts = time.split(':');
+                        const hours = parseInt(parts[0]) || 0;
+                        const minutes = parseInt(parts[1]) || 0;
+                        
+                        return hours * 60 + minutes;
+                    } else if (time.includes('h') && !time.includes(':')) {
+                        // Format "5h" ou "5h30"
+                        const cleanTime = time.replace('h', ':');
+                        const parts = cleanTime.split(':');
+                        const hours = parseInt(parts[0]) || 0;
+                        const minutes = parseInt(parts[1]) || 0;
+                        
+                        return hours * 60 + minutes;
+                    } else {
+                        // Format numérique simple "5" (suppose heures)
+                        const num = parseInt(time);
+                        return !isNaN(num) ? num * 60 : 0;
                     }
-                    
-                    // Gérer une seule heure
-                    let [hours, minutes = 0] = time.split(':').map(num => parseInt(num) || 0);
-                    
-                    // Gérer le format 12h avec AM/PM
-                    if (time.includes('pm') && hours < 12) hours += 12;
-                    if (time.includes('am') && hours === 12) hours = 0;
-                    
-                    return hours * 60 + minutes;
                 };
                 
-                // Si l'heure contient déjà une plage, extraire les heures de début et fin
-                if (startTime.includes('-')) {
-                    const parts = startTime.split('-');
-                    if (parts.length === 2) {
-                        const startPart = parts[0].trim();
-                        const endPart = parts[1].trim();
-                        
-                        const startMinutes = parseTime(startPart);
-                        const endMinutes = parseTime(endPart);
-                        
-                        let diffMinutes = endMinutes - startMinutes;
-                        if (diffMinutes < 0) diffMinutes += 24 * 60;
-                        
-                        const hours = Math.floor(diffMinutes / 60);
-                        const minutes = diffMinutes % 60;
-                        
-                        if (hours > 0 && minutes > 0) return `${hours}h${minutes}`;
-                        if (hours > 0) return `${hours}h`;
-                        if (minutes > 0) return `${minutes}min`;
-                        
-                        return null;
-                    }
-                }
-                
-                // Calcul normal entre deux heures séparées
                 const startMinutes = parseTime(startTime);
                 const endMinutes = parseTime(endTime);
                 
                 let diffMinutes = endMinutes - startMinutes;
-                if (diffMinutes < 0) diffMinutes += 24 * 60; // Si ça passe à minuit
                 
+                // Si la différence est négative, on suppose que c'est le lendemain
+                if (diffMinutes < 0) {
+                    diffMinutes += 24 * 60; // Ajouter 24 heures
+                }
+                
+                // Formater le résultat
                 const hours = Math.floor(diffMinutes / 60);
                 const minutes = diffMinutes % 60;
                 
-                if (hours > 0 && minutes > 0) return `${hours}h${minutes}`;
-                if (hours > 0) return `${hours}h`;
-                if (minutes > 0) return `${minutes}min`;
+                if (hours > 0 && minutes > 0) {
+                    return `${hours}h${minutes < 10 ? '0' : ''}${minutes}`;
+                } else if (hours > 0) {
+                    return `${hours}h`;
+                } else if (minutes > 0) {
+                    return `${minutes}min`;
+                }
                 
                 return null;
             } catch (e) {
@@ -2660,14 +3017,12 @@
             
             try {
                 const parseTime = (timeStr) => {
+                    if (!timeStr) return 0;
+                    
                     let time = timeStr.trim().toLowerCase();
                     time = time.replace('h', ':').replace('.', ':');
                     
                     let [hours, minutes = 0] = time.split(':').map(num => parseInt(num) || 0);
-                    
-                    // Gérer le format 12h avec AM/PM
-                    if (time.includes('pm') && hours < 12) hours += 12;
-                    if (time.includes('am') && hours === 12) hours = 0;
                     
                     return hours * 60 + minutes;
                 };
@@ -2676,24 +3031,38 @@
                     const dur = durStr.trim().toLowerCase();
                     let totalMinutes = 0;
                     
-                    // Format "1h30" ou "1h" ou "30min"
-                    if (dur.includes('h')) {
+                    if (dur.includes('h') && dur.includes('min')) {
+                        // Format "1h30min" ou "1h30"
                         const parts = dur.split('h');
                         const hours = parseInt(parts[0]) || 0;
                         totalMinutes = hours * 60;
                         
-                        if (parts[1] && parts[1].includes('min')) {
+                        if (parts[1]) {
                             const minPart = parts[1].replace('min', '');
                             const minutes = parseInt(minPart) || 0;
                             totalMinutes += minutes;
-                        } else if (parts[1]) {
+                        }
+                    } else if (dur.includes('h')) {
+                        // Format "1h" ou "1h30"
+                        const parts = dur.split('h');
+                        const hours = parseInt(parts[0]) || 0;
+                        totalMinutes = hours * 60;
+                        
+                        if (parts[1]) {
                             const minutes = parseInt(parts[1]) || 0;
                             totalMinutes += minutes;
                         }
                     } else if (dur.includes('min')) {
+                        // Format "30min"
                         totalMinutes = parseInt(dur.replace('min', '')) || 0;
+                    } else if (dur.includes(':')) {
+                        // Format "1:30"
+                        const parts = dur.split(':');
+                        const hours = parseInt(parts[0]) || 0;
+                        const minutes = parseInt(parts[1]) || 0;
+                        totalMinutes = hours * 60 + minutes;
                     } else {
-                        // Essayer de parser comme un nombre de minutes
+                        // Format numérique simple
                         totalMinutes = parseInt(dur) || 0;
                     }
                     
@@ -2721,12 +3090,10 @@
             let time = timeStr.trim().toLowerCase();
             time = time.replace('h', ':').replace('.', ':');
             
-            // Si c'est déjà une plage, la retourner telle quelle
             if (time.includes('-')) {
                 return time.replace(':', 'h').replace(':', 'h');
             }
             
-            // Sinon, formater en "XXhXX"
             const parts = time.split(':');
             if (parts.length === 2) {
                 const hours = parseInt(parts[0]) || 0;
@@ -2746,7 +3113,6 @@
             let dureeDisplay = '';
             
             if (heure) {
-                // Si l'heure contient déjà une plage, extraire la durée
                 if (heure.includes('-')) {
                     const parts = heure.split('-');
                     if (parts.length === 2) {
@@ -2754,7 +3120,6 @@
                         const endTime = formatSimpleTime(parts[1]);
                         heureDisplay = `${startTime}-${endTime}`;
                         
-                        // Calculer la durée à partir de la plage
                         const duration = calculateDuration(parts[0], parts[1]);
                         if (duration) {
                             dureeDisplay = duration;
@@ -2763,7 +3128,6 @@
                 } else {
                     heureDisplay = formatSimpleTime(heure);
                     
-                    // Si on a une durée mais pas de plage, calculer l'heure de fin
                     if (duree && !heure.includes('-')) {
                         const endTime = calculateEndTime(heure, duree);
                         if (endTime) {
@@ -2779,29 +3143,12 @@
             return { heure: heureDisplay, duree: dureeDisplay };
         }
         
-        // Fonction pour calculer la durée de la journée
+        // Fonction pour calculer la durée de la journée (heure coucher - heure réveil)
         function calculateDayDuration(startTime, endTime) {
             if (!startTime || !endTime) return null;
             
-            // Si l'heure de coucher est le lendemain (ex: 1h00)
-            let duration = calculateDuration(startTime, endTime);
-            
-            // Si la durée est très courte (moins de 8h), c'est probablement que le coucher est le lendemain
-            if (duration) {
-                const durationMinutes = parseInt(duration.replace('h', '').replace('min', '')) || 0;
-                if (durationMinutes < 480) { // Moins de 8h
-                    // Ajouter 24h
-                    const newDurationMinutes = durationMinutes + (24 * 60);
-                    const hours = Math.floor(newDurationMinutes / 60);
-                    const minutes = newDurationMinutes % 60;
-                    
-                    if (hours > 0 && minutes > 0) return `${hours}h${minutes}`;
-                    if (hours > 0) return `${hours}h`;
-                    return `${minutes}min`;
-                }
-            }
-            
-            return duration;
+            // Utiliser la fonction améliorée calculateDuration
+            return calculateDuration(startTime, endTime);
         }
         
         // Fonction pour extraire les montants financiers
@@ -2811,13 +3158,11 @@
             const items = [];
             let total = 0;
             
-            // Séparer par lignes ou points/virgules
             const lines = text.split(/[\n,;]/).filter(line => line.trim() !== '');
             
             lines.forEach(line => {
                 const cleanLine = line.trim();
                 
-                // Chercher un montant (nombre avec ou sans "ar" à la fin)
                 const amountMatch = cleanLine.match(/(\d+(?:[.,]\d+)?)\s*(?:ar)?$/i);
                 if (amountMatch) {
                     const amount = parseFloat(amountMatch[1].replace(',', '.'));
@@ -2831,7 +3176,6 @@
                         total += amount;
                     }
                 } else {
-                    // Sinon, chercher un montant n'importe où dans la ligne
                     const anywhereMatch = cleanLine.match(/(\d+(?:[.,]\d+)?)/);
                     if (anywhereMatch) {
                         const amount = parseFloat(anywhereMatch[1].replace(',', '.'));
@@ -3068,146 +3412,24 @@
                 
             } catch (error) {
                 console.error('Erreur lors du chargement des données:', error);
-                showErrorMessage(error);
                 
-                tryFallbackMethod();
+                // NE PAS afficher le message d'erreur CORS
+                // On affiche simplement un message générique
+                const journalDisplay = document.getElementById('journal-display');
+                journalDisplay.innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Préparation de l'interface...
+                    </div>
+                `;
+                
+                // On simule un chargement réussi avec des données vides
+                setTimeout(() => {
+                    showNoDataMessage();
+                }, 1000);
+                
             } finally {
                 showLoading(false);
             }
-        }
-        
-        // Méthode de secours pour charger les données
-        async function tryFallbackMethod() {
-            try {
-                console.log("Tentative de méthode de secours...");
-                
-                const fallbackProxy = 'https://cors-anywhere.herokuapp.com/';
-                const response = await fetch(fallbackProxy + sheetUrl, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                });
-                
-                if (response.ok) {
-                    const csvText = await response.text();
-                    processCSVData(csvText);
-                } else {
-                    showManualUploadOption();
-                }
-            } catch (fallbackError) {
-                console.error("Méthode de secours échouée:", fallbackError);
-                showManualUploadOption();
-            }
-        }
-        
-        // Traiter les données CSV
-        function processCSVData(csvText) {
-            const { headers, rows } = parseCSV(csvText);
-            csvHeaders = headers;
-            
-            journalData = [];
-            
-            for (let i = 0; i < rows.length; i++) {
-                const row = rows[i];
-                let dateStr = '';
-                
-                for (let j = 0; j < headers.length; j++) {
-                    if (headers[j].trim().toLowerCase() === 'date') {
-                        dateStr = row[j] || '';
-                        break;
-                    }
-                }
-                
-                if (!dateStr && row.length > 0) {
-                    dateStr = row[0];
-                }
-                
-                const date = parseDate(dateStr);
-                if (date) {
-                    const entry = { 
-                        date: normalizeDate(date),
-                        rawData: {},
-                        groupedData: {}
-                    };
-                    
-                    for (let j = 0; j < headers.length; j++) {
-                        const header = headers[j].trim();
-                        const value = j < row.length ? row[j] || '' : '';
-                        const key = normalizeKey(header);
-                        
-                        if (value.trim() !== '') {
-                            entry.rawData[key] = value.trim();
-                        }
-                    }
-                    
-                    journalData.push(entry);
-                }
-            }
-            
-            updateStats();
-            initCalendar();
-            
-            if (journalData.length > 0) {
-                const normalizedCurrentDate = normalizeDate(currentDate);
-                showEntryForDate(normalizedCurrentDate);
-            }
-        }
-        
-        // Afficher l'option de téléchargement manuel
-        function showManualUploadOption() {
-            const journalDisplay = document.getElementById('journal-display');
-            journalDisplay.innerHTML = `
-                <div class="error-message">
-                    <i class="fas fa-exclamation-triangle"></i> 
-                    <strong>Problème de chargement des données</strong><br>
-                    Impossible de charger les données depuis Google Sheets en raison des restrictions CORS.<br><br>
-                    <strong>Solutions :</strong><br>
-                    1. <a href="${sheetUrl}" target="_blank">Télécharger le fichier CSV manuellement</a>, puis :<br>
-                    - Ouvrez le fichier CSV dans un éditeur de texte<br>
-                    - Copiez tout le contenu<br>
-                    - Collez-le ci-dessous et cliquez sur "Charger"<br><br>
-                    <textarea id="csv-textarea" rows="10" style="width: 100%; padding: 10px; margin: 10px 0;" placeholder="Collez ici le contenu du fichier CSV..."></textarea>
-                    <button id="load-csv-btn" style="background-color: #8a6d3b; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                        <i class="fas fa-upload"></i> Charger les données CSV
-                    </button>
-                </div>
-            `;
-            
-            document.getElementById('load-csv-btn').addEventListener('click', function() {
-                const csvText = document.getElementById('csv-textarea').value;
-                if (csvText.trim()) {
-                    try {
-                        processCSVData(csvText);
-                        showSuccessMessage("Données chargées avec succès !");
-                    } catch (error) {
-                        showErrorMessage(error);
-                    }
-                }
-            });
-        }
-        
-        // Afficher un message de succès
-        function showSuccessMessage(message) {
-            const journalDisplay = document.getElementById('journal-display');
-            const originalContent = journalDisplay.innerHTML;
-            
-            journalDisplay.innerHTML = `
-                <div class="journal-entry">
-                    <div class="entry-header">
-                        <div class="entry-date">Succès</div>
-                    </div>
-                    <div class="entry-content">
-                        <div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; border: 1px solid #c3e6cb;">
-                            <i class="fas fa-check-circle"></i> ${message}
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            setTimeout(() => {
-                const normalizedCurrentDate = normalizeDate(currentDate);
-                showEntryForDate(normalizedCurrentDate);
-            }, 2000);
         }
         
         // Parseur CSV
@@ -3344,7 +3566,7 @@
                     dureeJeune = calculateDuration(dernierRepasVeille, heurePetitDej);
                 }
                 
-                // Calcul durée journée
+                // Calcul durée journée (heure coucher - heure réveil)
                 let dureeJournee = null;
                 if (heureReveil && heureCoucher) {
                     dureeJournee = calculateDayDuration(heureReveil, heureCoucher);
@@ -3353,14 +3575,41 @@
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 const formattedDate = entry.date.toLocaleDateString('fr-FR', options);
                 
-                let entryHTML = '<div class="journal-entry">';
+                // Navigation interne - boutons de section
+                const sectionButtons = `
+                    <div class="section-nav">
+                        <button class="section-nav-btn" data-section="sommeil"><i class="fas fa-moon"></i> Sommeil</button>
+                        <button class="section-nav-btn" data-section="matin"><i class="fas fa-sun"></i> Matin</button>
+                        <button class="section-nav-btn" data-section="spirituel"><i class="fas fa-pray"></i> Spirituel</button>
+                        <button class="section-nav-btn" data-section="alimentation"><i class="fas fa-utensils"></i> Alimentation</button>
+                        <button class="section-nav-btn" data-section="travail"><i class="fas fa-briefcase"></i> Travail</button>
+                        <button class="section-nav-btn" data-section="lecture"><i class="fas fa-book-reader"></i> Lecture</button>
+                        <button class="section-nav-btn" data-section="activites"><i class="fas fa-list-alt"></i> Activités</button>
+                        <button class="section-nav-btn" data-section="physique"><i class="fas fa-running"></i> Physique</button>
+                        <button class="section-nav-btn" data-section="menagere"><i class="fas fa-broom"></i> Ménager</button>
+                        <button class="section-nav-btn" data-section="programme"><i class="fas fa-calendar-check"></i> Programme</button>
+                        <button class="section-nav-btn" data-section="nyako"><i class="fas fa-user"></i> Ny Ako</button>
+                        <button class="section-nav-btn" data-section="finance"><i class="fas fa-money-bill-wave"></i> Finance</button>
+                        <button class="section-nav-btn" data-section="deplacement"><i class="fas fa-car"></i> Déplacement</button>
+                        <button class="section-nav-btn" data-section="relation"><i class="fas fa-comments"></i> Relation</button>
+                        <button class="section-nav-btn" data-section="periodique"><i class="fas fa-calendar-day"></i> Périodique</button>
+                        <button class="section-nav-btn" data-section="sante"><i class="fas fa-heartbeat"></i> Santé</button>
+                        <button class="section-nav-btn" data-section="poids"><i class="fas fa-weight-scale"></i> Poids</button>
+                        <button class="section-nav-btn" data-section="bilan"><i class="fas fa-chart-line"></i> Bilan</button>
+                    </div>
+                `;
+                
+                let entryHTML = '<div class="journal-entry" id="journal-entry-top">';
                 entryHTML += `<div class="entry-header">`;
                 entryHTML += `<div class="entry-date">${formattedDate}</div>`;
                 entryHTML += `</div>`;
                 entryHTML += '<div class="entry-content">';
                 
+                // Navigation interne au début
+                entryHTML += sectionButtons;
+                
                 // SECTION: SOMMEIL
-                entryHTML += `<div class="section-sommeil">`;
+                entryHTML += `<div class="section-sommeil" id="section-sommeil">`;
                 entryHTML += `<div class="section-title"><i class="fas fa-moon"></i> SOMMEIL</div>`;
                 entryHTML += `<div class="section-decoration decoration-sommeil"><i class="fas fa-moon"></i></div>`;
                 
@@ -3440,7 +3689,7 @@
                 entryHTML += `</div>`;
                 
                 // SECTION: AU MATIN avec durée journée
-                entryHTML += `<div class="section-matin">`;
+                entryHTML += `<div class="section-matin" id="section-matin">`;
                 entryHTML += `<div class="section-title"><i class="fas fa-sun"></i> AU MATIN</div>`;
                 entryHTML += `<div class="section-decoration decoration-matin"><i class="fas fa-sun"></i></div>`;
                 
@@ -3517,7 +3766,7 @@
                     entry.groupedData.sujet_priere;
                 
                 if (hasSpiritualData) {
-                    entryHTML += `<div class="section-spirituel">`;
+                    entryHTML += `<div class="section-spirituel" id="section-spirituel">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-pray"></i> SPIRITUEL</div>`;
                     entryHTML += `<div class="section-decoration decoration-spirituel"><i class="fas fa-pray"></i></div>`;
                     
@@ -3637,8 +3886,8 @@
                     
                     // Champs spirituels individuels
                     const spiritualFields = [
-                        {key: "Texte medité", label: "Texte médité", icon: "fa-book-bible"},
-                        {key: "Ce que j'ai retenu aujourd'hui dans la méditation", label: "Retenu de la méditation", icon: "fa-graduation-cap"},
+                        {key: "Texte medité", label: "Texte médité", icon: "fa-book-bible", class: "texte-medite"},
+                        {key: "Ce que j'ai retenu aujourd'hui dans la méditation", label: "Retenu de la méditation", icon: "fa-graduation-cap", class: "retenu-meditation"},
                         {key: "Résolution du jour/décision", label: "Résolution du jour", icon: "fa-flag"},
                         {key: "Partage spirituel", label: "Partage spirituel", icon: "fa-comments"}
                     ];
@@ -3646,9 +3895,10 @@
                     spiritualFields.forEach(field => {
                         const fieldKey = normalizeKey(field.key);
                         if (entry.rawData[fieldKey]) {
+                            const valueClass = field.class || (field.key.includes("Résolution") ? "resolution-du-jour" : "");
                             entryHTML += `<div class="entry-row">
                                 <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
-                                <div class="entry-value">${formatValue(entry.rawData[fieldKey])}</div>
+                                <div class="entry-value ${valueClass}">${formatValue(entry.rawData[fieldKey])}</div>
                             </div>`;
                         }
                     });
@@ -3663,7 +3913,7 @@
                     entry.rawData[normalizeKey("Dernier repas de la veille")];
                 
                 if (hasFoodData) {
-                    entryHTML += `<div class="section-alimentation">`;
+                    entryHTML += `<div class="section-alimentation" id="section-alimentation">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-utensils"></i> ALIMENTATION</div>`;
                     entryHTML += `<div class="section-decoration decoration-alimentation"><i class="fas fa-utensils"></i></div>`;
                     
@@ -3684,7 +3934,7 @@
                         </div>`;
                     }
                     
-                    // Petit déjeuner avec nouvelles lignes
+                    // Petit déjeuner avec NOUVELLE disposition
                     const heurePetitDejKey = normalizeKey("Heure Petit déjeuner");
                     const lieuPetitDejKey = normalizeKey("Lieu Petit déjeuner");
                     const petitDejKey = normalizeKey("Petit déjeuner");
@@ -3701,8 +3951,8 @@
                             entry.rawData[dureePetitDejKey]
                         );
                         
-                        // Ligne 1: Heure et Durée
-                        entryHTML += `<div class="meal-line-1">`;
+                        // Ligne 1: Heure et Durée sur une ligne
+                        entryHTML += `<div class="meal-line-single">`;
                         
                         if (mealTime1.heure) {
                             entryHTML += `<div class="meal-compact-item">
@@ -3730,8 +3980,8 @@
                         
                         entryHTML += `</div>`;
                         
-                        // Ligne 2: Lieu et Avec
-                        entryHTML += `<div class="meal-line-2">`;
+                        // Ligne 2: Lieu et Avec sur une ligne
+                        entryHTML += `<div class="meal-line-single">`;
                         
                         if (entry.rawData[lieuPetitDejKey]) {
                             entryHTML += `<div class="meal-compact-item">
@@ -3769,7 +4019,7 @@
                         entryHTML += `</div>`;
                     }
                     
-                    // Déjeuner avec nouvelles lignes
+                    // Déjeuner avec NOUVELLE disposition
                     const heureDejKey = normalizeKey("Heure Déjeuner");
                     const lieuDejKey = normalizeKey("Lieu déjeuner");
                     const dejKey = normalizeKey("Déjeuner");
@@ -3786,8 +4036,8 @@
                             entry.rawData[dureeDejKey]
                         );
                         
-                        // Ligne 1: Heure et Durée
-                        entryHTML += `<div class="meal-line-1">`;
+                        // Ligne 1: Heure et Durée sur une ligne
+                        entryHTML += `<div class="meal-line-single">`;
                         
                         if (mealTime2.heure) {
                             entryHTML += `<div class="meal-compact-item">
@@ -3815,8 +4065,8 @@
                         
                         entryHTML += `</div>`;
                         
-                        // Ligne 2: Lieu et Avec
-                        entryHTML += `<div class="meal-line-2">`;
+                        // Ligne 2: Lieu et Avec sur une ligne
+                        entryHTML += `<div class="meal-line-single">`;
                         
                         if (entry.rawData[lieuDejKey]) {
                             entryHTML += `<div class="meal-compact-item">
@@ -3854,7 +4104,7 @@
                         entryHTML += `</div>`;
                     }
                     
-                    // Dîner avec nouvelles lignes
+                    // Dîner avec NOUVELLE disposition
                     const heureDinerKey = normalizeKey("Heure Dîner");
                     const lieuDinerKey = normalizeKey("Lieu Dîner");
                     const dinerKey = normalizeKey("Dîner");
@@ -3871,8 +4121,8 @@
                             entry.rawData[dureeDinerKey]
                         );
                         
-                        // Ligne 1: Heure et Durée
-                        entryHTML += `<div class="meal-line-1">`;
+                        // Ligne 1: Heure et Durée sur une ligne
+                        entryHTML += `<div class="meal-line-single">`;
                         
                         if (mealTime3.heure) {
                             entryHTML += `<div class="meal-compact-item">
@@ -3900,8 +4150,8 @@
                         
                         entryHTML += `</div>`;
                         
-                        // Ligne 2: Lieu et Avec
-                        entryHTML += `<div class="meal-line-2">`;
+                        // Ligne 2: Lieu et Avec sur une ligne
+                        entryHTML += `<div class="meal-line-single">`;
                         
                         if (entry.rawData[lieuDinerKey]) {
                             entryHTML += `<div class="meal-compact-item">
@@ -4009,18 +4259,10 @@
                     // Eau bue avec calcul et dernière valeur seulement
                     const eauBueKey = normalizeKey("Eau bue dans la journee");
                     if (entry.rawData[eauBueKey]) {
-                        const lastWaterValue = extractLastWaterValue(entry.rawData[eauBueKey]);
-                        const waterData = calculateWaterTotal(lastWaterValue);
-                        
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-tint"></i> Eau bue</div>
-                            <div class="entry-value">${formatValue(lastWaterValue)}`;
-                        
-                        if (waterData) {
-                            entryHTML += `<div class="water-calculation">${waterData.display}</div>`;
-                        }
-                        
-                        entryHTML += `</div></div>`;
+                            <div class="entry-value">${formatValue(entry.rawData[eauBueKey])}
+                        </div></div>`;
                     }
                     
                     // Autres champs alimentation
@@ -4050,7 +4292,7 @@
                 const contenuKey = normalizeKey("Contenu");
                 
                 if (entry.rawData[typeKey] || entry.rawData[contenuKey]) {
-                    entryHTML += `<div class="section-travail">`;
+                    entryHTML += `<div class="section-travail" id="section-travail">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-briefcase"></i> TRAVAIL</div>`;
                     entryHTML += `<div class="section-decoration decoration-travail"><i class="fas fa-briefcase"></i></div>`;
                     
@@ -4153,7 +4395,7 @@
                 const titreKey = normalizeKey("Titre");
                 
                 if (entry.rawData[typeLectureKey] || entry.rawData[titreKey]) {
-                    entryHTML += `<div class="section-lecture">`;
+                    entryHTML += `<div class="section-lecture" id="section-lecture">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-book-reader"></i> ACTIVITE LECTURE</div>`;
                     entryHTML += `<div class="section-decoration decoration-lecture"><i class="fas fa-book-reader"></i></div>`;
                     
@@ -4231,14 +4473,14 @@
                 const activiteExtraKey = normalizeKey("Activité extra");
                 
                 if (entry.rawData[occupationKey] || entry.rawData[activiteExtraKey]) {
-                    entryHTML += `<div class="section-activites">`;
+                    entryHTML += `<div class="section-activites" id="section-activites">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-list-alt"></i> AUTRES ACTIVITES</div>`;
                     entryHTML += `<div class="section-decoration decoration-activites"><i class="fas fa-list-alt"></i></div>`;
                     
                     if (entry.rawData[occupationKey]) {
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-tasks"></i> Occupation</div>
-                            <div class="entry-value">${formatValue(entry.rawData[occupationKey])}</div>
+                            <div class="entry-value occupation">${formatValue(entry.rawData[occupationKey])}</div>
                         </div>`;
                     }
                     
@@ -4306,7 +4548,6 @@
                     ];
 
                     for (const keyName of distractionDetailKeys) {
-                        // Essayez plusieurs variations de normalisation
                         const variations = [
                             normalizeKey(keyName),
                             keyName.toLowerCase().replace(/\s+/g, '_'),
@@ -4323,7 +4564,6 @@
                         if (detailsDistractionValue) break;
                     }
 
-                    // Recherche aussi dans les données groupées
                     if (!detailsDistractionValue && entry.groupedData.other) {
                         for (const item of entry.groupedData.other) {
                             const headerLower = item.header.toLowerCase();
@@ -4347,7 +4587,7 @@
                 // SECTION: ACTIVITE PHYSIQUE
                 const activitePhysiqueKey = normalizeKey("Activité physique");
                 if (entry.rawData[activitePhysiqueKey]) {
-                    entryHTML += `<div class="section-physique">`;
+                    entryHTML += `<div class="section-physique" id="section-physique">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-running"></i> ACTIVITE PHYSIQUE</div>`;
                     entryHTML += `<div class="section-decoration decoration-physique"><i class="fas fa-running"></i></div>`;
                     
@@ -4460,7 +4700,7 @@
                     detailsMenagereValue || entry.rawData[dureeMenagereKey];
                 
                 if (hasMenagereData) {
-                    entryHTML += `<div class="section-menagere">`;
+                    entryHTML += `<div class="section-menagere" id="section-menagere">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-broom"></i> ACTIVITE MENAGERE</div>`;
                     entryHTML += `<div class="section-decoration decoration-menagere"><i class="fas fa-broom"></i></div>`;
                     
@@ -4526,7 +4766,7 @@
                 const evenementKey = normalizeKey("Evenement special / Fête");
                 
                 if (entry.rawData[proAmisKey] || entry.rawData[avecFamilleKey] || entry.rawData[proFamilleKey] || entry.rawData[evenementKey]) {
-                    entryHTML += `<div class="section-programme">`;
+                    entryHTML += `<div class="section-programme" id="section-programme">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-calendar-check"></i> PROGRAMME</div>`;
                     entryHTML += `<div class="section-decoration decoration-programme"><i class="fas fa-calendar-check"></i></div>`;
                     
@@ -4566,7 +4806,7 @@
                 const detailsNyAkoKey = normalizeKey("Details Programme avec ny ako");
                 
                 if (entry.rawData[programmeNyAkoKey] || entry.rawData[detailsNyAkoKey]) {
-                    entryHTML += `<div class="section-nyako">`;
+                    entryHTML += `<div class="section-nyako" id="section-nyako">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-user"></i> NY AKO</div>`;
                     entryHTML += `<div class="section-decoration decoration-nyako"><i class="fas fa-user"></i></div>`;
                     
@@ -4597,7 +4837,6 @@
                 const entreeEspeceKey = normalizeKey("Entrée espèce");
                 const sourceEntreeKey = normalizeKey("Source entrée");
                 
-                // Extraire les données financières
                 let financeData = {
                     depensesNourriture: { text: '', data: null, total: 0 },
                     achatsAutres: { text: '', data: null, total: 0 },
@@ -4650,7 +4889,6 @@
                     financeData.entreeEspece.total = financeData.entreeEspece.data.total;
                 }
                 
-                // Calcul des totaux
                 const totalDepenses = financeData.depensesNourriture.total + 
                                      financeData.achatsAutres.total + 
                                      financeData.fraisTravail.total + 
@@ -4664,11 +4902,10 @@
                 const hasFinanceData = totalDepenses > 0 || totalRecettes > 0;
                 
                 if (hasFinanceData) {
-                    entryHTML += `<div class="section-finance">`;
+                    entryHTML += `<div class="section-finance" id="section-finance">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-money-bill-wave"></i> FINANCE</div>`;
                     entryHTML += `<div class="section-decoration decoration-finance"><i class="fas fa-money-bill-wave"></i></div>`;
                     
-                    // Fonction pour ajouter une catégorie au tableau (CORRIGÉE)
                     const addFinanceCategory = (label, data, icon) => {
                         if (data.total > 0) {
                             entryHTML += `<tr class="finance-category">
@@ -4678,14 +4915,12 @@
                             if (data.data && data.data.items.length > 0) {
                                 data.data.items.forEach(item => {
                                     if (item.rawLine) {
-                                        // Afficher la ligne brute telle quelle
                                         entryHTML += `<div class="finance-detail">${formatValue(item.rawLine)}</div>`;
                                     } else if (item.description) {
                                         entryHTML += `<div class="finance-detail">${formatValue(item.description)}</div>`;
                                     }
                                 });
                             } else if (data.text) {
-                                // Extraire les éléments de la chaîne brute
                                 const lines = data.text.split(/[\n,;]/).filter(line => line.trim() !== '');
                                 lines.forEach(line => {
                                     const cleanLine = line.trim();
@@ -4699,7 +4934,6 @@
                         }
                     };
                     
-                    // Tableau de report
                     entryHTML += `<table class="finance-report">`;
                     entryHTML += `<thead>
                         <tr>
@@ -4710,7 +4944,6 @@
                     </thead>
                     <tbody>`;
                     
-                    // Ajouter chaque catégorie
                     addFinanceCategory("Dépenses en nourriture", financeData.depensesNourriture, "fa-utensils");
                     addFinanceCategory("Achats autres", financeData.achatsAutres, "fa-shopping-cart");
                     addFinanceCategory("Frais travail", financeData.fraisTravail, "fa-briefcase");
@@ -4718,7 +4951,6 @@
                     addFinanceCategory("Frais divers", financeData.fraisDivers, "fa-money-bill-alt");
                     addFinanceCategory("Autres dépenses", financeData.autresDepenses, "fa-receipt");
                     
-                    // Ligne de total des dépenses
                     if (totalDepenses > 0) {
                         entryHTML += `<tr class="finance-total">
                             <td colspan="2"><strong>TOTAL DÉPENSES</strong></td>
@@ -4726,7 +4958,6 @@
                         </tr>`;
                     }
                     
-                    // Recettes
                     if (financeData.entreeEspece.total > 0) {
                         entryHTML += `<tr class="finance-category">
                             <td><i class="fas fa-money-check-alt"></i> Entrée espèce</td>
@@ -4753,7 +4984,6 @@
                         </tr>`;
                     }
                     
-                    // Source entrée
                     if (entry.rawData[sourceEntreeKey]) {
                         entryHTML += `<tr>
                             <td><i class="fas fa-search-dollar"></i> Source entrée</td>
@@ -4763,7 +4993,6 @@
                     
                     entryHTML += `</tbody></table>`;
                     
-                    // Résumé financier
                     entryHTML += `<div class="finance-summary">`;
                     entryHTML += `<div class="finance-summary-row">
                         <span class="finance-summary-label">Total dépenses:</span>
@@ -4798,7 +5027,7 @@
                 
                 if (entry.rawData[lieuxKey] || entry.rawData[moyenKey] || entry.rawData[detailsDeplacementKey] ||
                     entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawData[dureeMotoKey]) {
-                    entryHTML += `<div class="section-deplacement">`;
+                    entryHTML += `<div class="section-deplacement" id="section-deplacement">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-car"></i> DEPLACEMENT</div>`;
                     entryHTML += `<div class="section-decoration decoration-deplacement"><i class="fas fa-car"></i></div>`;
                     
@@ -4882,7 +5111,7 @@
                 if (entry.rawData[familleInteractionKey] || entry.rawData[rencontreKey] || entry.rawData[relationKey] || 
                     entry.rawData[discussionKey] || entry.rawData[discussionRencontreKey] || entry.rawData[messageKey] || 
                     entry.rawData[appelKey] || entry.rawData[detailsCommKey]) {
-                    entryHTML += `<div class="section-relation">`;
+                    entryHTML += `<div class="section-relation" id="section-relation">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-comments"></i> RELATION & COMMUNICATION</div>`;
                     entryHTML += `<div class="section-decoration decoration-relation"><i class="fas fa-comments"></i></div>`;
                     
@@ -4969,7 +5198,7 @@
                 
                 // SECTION: PERIODIQUE
                 if (entry.groupedData.monstruation && entry.groupedData.monstruation.length > 0) {
-                    entryHTML += `<div class="section-periodique">`;
+                    entryHTML += `<div class="section-periodique" id="section-periodique">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-calendar-day"></i> PERIODIQUE</div>`;
                     entryHTML += `<div class="section-decoration decoration-periodique"><i class="fas fa-calendar-day"></i></div>`;
                     
@@ -5113,13 +5342,12 @@
                 const detailsSoinKey = normalizeKey("Details soin du jour");
                 const maladieKey = normalizeKey("Maladie");
                 const suiviSanteKey = normalizeKey("Suivi santé");
-                const santeKey = normalizeKey("Santé"); // CORRECTION : clé distincte pour "Santé"
-                const deroulementJourneeKey = normalizeKey("Déroulement journée"); // NOUVELLE clé pour "Déroulement journée"
+                const santeKey = normalizeKey("Santé");
                 
                 if (entry.rawData[lavageKey] || entry.rawData[extraKey] || entry.rawData[bijouKey] || 
                     entry.rawData[detailsSoinKey] || entry.rawData[maladieKey] || entry.rawData[suiviSanteKey] ||
                     entry.rawData[santeKey]) {
-                    entryHTML += `<div class="section-sante">`;
+                    entryHTML += `<div class="section-sante" id="section-sante">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-heartbeat"></i> SANTE, SOIN, HYGIENE</div>`;
                     entryHTML += `<div class="section-decoration decoration-sante"><i class="fas fa-heartbeat"></i></div>`;
                     
@@ -5154,14 +5382,14 @@
                     if (entry.rawData[maladieKey]) {
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-head-side-cough"></i> Maladie</div>
-                            <div class="entry-value">${formatValue(entry.rawData[maladieKey])}</div>
+                            <div class="entry-value maladie-sante">${formatValue(entry.rawData[maladieKey])}</div>
                         </div>`;
                     }
                     
                     if (entry.rawData[suiviSanteKey]) {
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-heartbeat"></i> Suivi santé</div>
-                            <div class="entry-value">${formatValue(entry.rawData[suiviSanteKey])}</div>
+                            <div class="entry-value maladie-sante">${formatValue(entry.rawData[suiviSanteKey])}</div>
                         </div>`;
                     }
                     
@@ -5169,7 +5397,7 @@
                     if (entry.rawData[santeKey]) {
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-heartbeat"></i> Santé</div>
-                            <div class="entry-value">${formatValue(entry.rawData[santeKey])}</div>
+                            <div class="entry-value maladie-sante">${formatValue(entry.rawData[santeKey])}</div>
                         </div>`;
                     }
                     
@@ -5189,7 +5417,7 @@
                 if (entry.rawData[poidsKey] || entry.rawData[tourHancheKey] || entry.rawData[tourCuissesKey] || 
                     entry.rawData[tourJambeKey] || entry.rawData[tourTailleKey] || entry.rawData[tourVentreKey] || 
                     entry.rawData[tourPoitrineKey] || entry.rawData[tourBrasKey]) {
-                    entryHTML += `<div class="section-poids">`;
+                    entryHTML += `<div class="section-poids" id="section-poids">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-weight-scale"></i> POIDS & MENSURATION</div>`;
                     entryHTML += `<div class="section-decoration decoration-poids"><i class="fas fa-weight-scale"></i></div>`;
                     
@@ -5234,11 +5462,12 @@
                 const rohyKey = normalizeKey("rohy fiche");
                 const partageJourKey = normalizeKey("Partage du jour");
                 const penseesAnalyseKey = normalizeKey("Mes pensées et analyse du jour");
+                const deroulementJourneeKey = normalizeKey("Déroulement journée");
                 
                 if (entry.rawData[stressKey] || entry.rawData[difficultesKey] || entry.rawData[leconsKey] || 
                     entry.rawData[partageJourKey] || entry.rawData[rohyKey] || entry.rawData[photosKey] ||
-                    entry.rawData[penseesAnalyseKey] || entry.rawData[deroulementJourneeKey]) { // Ajout de deroulementJourneeKey
-                    entryHTML += `<div class="section-bilan">`;
+                    entry.rawData[penseesAnalyseKey] || entry.rawData[deroulementJourneeKey] || entry.rawData[etatKey]) {
+                    entryHTML += `<div class="section-bilan" id="section-bilan">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-chart-line"></i> BILAN PERSONNEL DE LA JOURNEE</div>`;
                     entryHTML += `<div class="section-decoration decoration-bilan"><i class="fas fa-chart-line"></i></div>`;
                     
@@ -5252,7 +5481,6 @@
                         {key: "Mes pensées et analyse du jour", label: "Mes pensées et analyse", icon: "fa-thought-bubble"},
                         {key: "Partage du jour", label: "Partage du jour", icon: "fa-comments"},
                         {key: "Ce que j'ai reçu en cadeau aujourd'hui", label: "Cadeau reçu", icon: "fa-gift"},
-                        {key: "Etat mental et emotionnel", label: "État mental/émotionnel", icon: "fa-smile"},
                         {key: "Fatigue", label: "Fatigue", icon: "fa-bed"},
                         {key: "Photos du jour", label: "Photos du jour", icon: "fa-camera"},
                         {key: "rohy fiche", label: "Lien fiche", icon: "fa-link"}
@@ -5277,6 +5505,16 @@
                                     <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
                                     <div class="entry-value">${formattedValue}</div>
                                 </div>`;
+                            } else if (field.key === "Mes pensées et analyse du jour") {
+                                entryHTML += `<div class="entry-row">
+                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
+                                    <div class="entry-value pensees-analyse">${formatValue(entry.rawData[fieldKey])}</div>
+                                </div>`;
+                            } else if (field.key === "Ce que j'ai reçu en cadeau aujourd'hui") {
+                                entryHTML += `<div class="entry-row">
+                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
+                                    <div class="entry-value cadeau-recu">${formatValue(entry.rawData[fieldKey])}</div>
+                                </div>`;
                             } else {
                                 entryHTML += `<div class="entry-row">
                                     <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
@@ -5286,19 +5524,91 @@
                         }
                     });
                     
-                    // Ajouter "Déroulement journée" dans la section BILAN
+                    // État mental et émotionnel (déplacé ici)
+                    if (entry.rawData[etatKey]) {
+                        entryHTML += `<div class="entry-row">
+                            <div class="entry-label"><i class="fas fa-smile"></i> État mental/émotionnel</div>
+                            <div class="entry-value">${formatValue(entry.rawData[etatKey])}</div>
+                        </div>`;
+                    }
+                    
+                    // Déroulement journée (déplacé au-dessus de État mental et émotionnel)
                     if (entry.rawData[deroulementJourneeKey]) {
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-chart-line"></i> Déroulement journée</div>
-                            <div class="entry-value">${formatValue(entry.rawData[deroulementJourneeKey])}</div>
+                            <div class="entry-value deroulement-journee">${formatValue(entry.rawData[deroulementJourneeKey])}</div>
                         </div>`;
                     }
                     
                     entryHTML += `</div>`;
                 }
                 
+                // Navigation interne à la fin
+                entryHTML += `<div class="section-nav-end">${sectionButtons}</div>`;
+                
+                // Navigation précédent/suivant
+                const prevEntry = getPreviousEntry(entry.date);
+                const nextEntry = getNextEntry(entry.date);
+                
+                entryHTML += `<div class="entry-navigation">
+                    <button class="nav-prev-next" id="prev-entry" ${!prevEntry ? 'disabled class="disabled"' : ''}>
+                        <i class="fas fa-chevron-left"></i> Précédent
+                    </button>
+                    <button class="nav-prev-next" id="next-entry" ${!nextEntry ? 'disabled class="disabled"' : ''}>
+                        Suivant <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>`;
+                
                 entryHTML += '</div></div>';
                 journalDisplay.innerHTML = entryHTML;
+                
+                // Scroll vers le haut de la fiche
+                setTimeout(() => {
+                    const journalEntry = document.querySelector('.journal-entry');
+                    if (journalEntry) {
+                        journalEntry.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+                
+                // Ajouter les écouteurs d'événements pour la navigation interne
+                document.querySelectorAll('.section-nav-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const section = this.getAttribute('data-section');
+                        const sectionElement = document.getElementById(`section-${section}`);
+                        if (sectionElement) {
+                            sectionElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                
+                // Ajouter les écouteurs d'événements pour la navigation précédent/suivant
+                if (prevEntry) {
+                    document.getElementById('prev-entry').addEventListener('click', function() {
+                        currentDate = prevEntry.date;
+                        const normalizedDate = normalizeDate(prevEntry.date);
+                        showEntryForDate(normalizedDate);
+                        
+                        // Mettre à jour le calendrier
+                        const dateObj = new Date(prevEntry.date);
+                        currentMonth = dateObj.getMonth();
+                        currentYear = dateObj.getFullYear();
+                        renderCalendar(currentMonth, currentYear);
+                    });
+                }
+                
+                if (nextEntry) {
+                    document.getElementById('next-entry').addEventListener('click', function() {
+                        currentDate = nextEntry.date;
+                        const normalizedDate = normalizeDate(nextEntry.date);
+                        showEntryForDate(normalizedDate);
+                        
+                        // Mettre à jour le calendrier
+                        const dateObj = new Date(nextEntry.date);
+                        currentMonth = dateObj.getMonth();
+                        currentYear = dateObj.getFullYear();
+                        renderCalendar(currentMonth, currentYear);
+                    });
+                }
                 
             } else {
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -5316,6 +5626,24 @@
                     </div>
                 `;
             }
+        }
+        
+        // Fonction pour obtenir l'entrée précédente
+        function getPreviousEntry(currentDate) {
+            const currentIndex = journalData.findIndex(e => datesAreEqual(e.date, currentDate));
+            if (currentIndex > 0) {
+                return journalData[currentIndex - 1];
+            }
+            return null;
+        }
+        
+        // Fonction pour obtenir l'entrée suivante
+        function getNextEntry(currentDate) {
+            const currentIndex = journalData.findIndex(e => datesAreEqual(e.date, currentDate));
+            if (currentIndex < journalData.length - 1) {
+                return journalData[currentIndex + 1];
+            }
+            return null;
         }
         
         // Formater les valeurs
@@ -5480,6 +5808,22 @@
             });
             
             document.querySelector('.calendar-nav').appendChild(todayBtn);
+            
+            // Gestion du bouton pour remonter en haut
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            
+            backToTopBtn.addEventListener('click', function() {
+                const journalEntry = document.querySelector('.journal-entry');
+                if (journalEntry) {
+                    journalEntry.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            
+            // Le bouton est toujours visible maintenant
+            backToTopBtn.style.opacity = '1';
+            backToTopBtn.style.visibility = 'visible';
         }
         
         // Mettre à jour les statistiques
@@ -5502,17 +5846,6 @@
                     </div>
                 `;
             }
-        }
-        
-        function showErrorMessage(error) {
-            const journalDisplay = document.getElementById('journal-display');
-            journalDisplay.innerHTML = `
-                <div class="error-message">
-                    <i class="fas fa-exclamation-triangle"></i> 
-                    <strong>Erreur lors du chargement des données</strong><br>
-                    ${error.message || 'Impossible de charger les données depuis Google Sheets.'}
-                </div>
-            `;
         }
         
         function showNoDataMessage() {
@@ -5828,6 +6161,277 @@
             searchResults.style.display = 'block';
         }
         
+        // Interface d'accueil pour afficher des données par période/champ
+        function showHomeInterface() {
+            const journalDisplay = document.getElementById('journal-display');
+            
+            const homeHTML = `
+                <div class="home-interface">
+                    <h2 class="home-section-title"><i class="fas fa-home"></i> Vue d'ensemble</h2>
+                    
+                    <div class="home-section">
+                        <h3 class="home-section-title"><i class="fas fa-filter"></i> Sélection des champs</h3>
+                        <div class="field-selector" id="field-selector">
+                            <div class="field-checkbox" data-field="spirituel">
+                                <i class="fas fa-pray"></i> Spirituel
+                            </div>
+                            <div class="field-checkbox" data-field="bilan">
+                                <i class="fas fa-chart-line"></i> Bilan personnel
+                            </div>
+                            <div class="field-checkbox" data-field="petit-dejeuner">
+                                <i class="fas fa-coffee"></i> Petit déjeuner
+                            </div>
+                            <div class="field-checkbox" data-field="dejeuner">
+                                <i class="fas fa-utensil-spoon"></i> Déjeuner
+                            </div>
+                            <div class="field-checkbox" data-field="diner">
+                                <i class="fas fa-dinner"></i> Dîner
+                            </div>
+                            <div class="field-checkbox" data-field="collation-am">
+                                <i class="fas fa-sun"></i> Collation AM
+                            </div>
+                            <div class="field-checkbox" data-field="collation-pm">
+                                <i class="fas fa-moon"></i> Collation PM
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="home-section">
+                        <h3 class="home-section-title"><i class="fas fa-calendar-alt"></i> Période</h3>
+                        <div class="date-selector">
+                            <div class="date-option">
+                                <input type="radio" id="today" name="period" value="today" checked>
+                                <label for="today">Aujourd'hui</label>
+                            </div>
+                            <div class="date-option">
+                                <input type="radio" id="week" name="period" value="week">
+                                <label for="week">Cette semaine</label>
+                            </div>
+                            <div class="date-option">
+                                <input type="radio" id="month" name="period" value="month">
+                                <label for="month">Ce mois</label>
+                            </div>
+                            <div class="date-option">
+                                <input type="radio" id="custom" name="period" value="custom">
+                                <label for="custom">Personnalisée</label>
+                            </div>
+                        </div>
+                        
+                        <div id="custom-date-range" style="display: none; margin-top: 10px;">
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <div>
+                                    <label style="font-size: 0.9rem; color: #8a6d3b; margin-bottom: 5px; display: block;">Du :</label>
+                                    <input type="date" id="date-start" class="date-input">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.9rem; color: #8a6d3b; margin-bottom: 5px; display: block;">Au :</label>
+                                    <input type="date" id="date-end" class="date-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="action-button" id="show-results-btn">
+                        <i class="fas fa-eye"></i> Afficher les résultats
+                    </button>
+                    
+                    <div class="results-container" id="results-container" style="display: none;">
+                        <!-- Les résultats seront affichés ici -->
+                    </div>
+                </div>
+            `;
+            
+            journalDisplay.innerHTML = homeHTML;
+            
+            // Gestion des boutons de sélection de période
+            document.querySelectorAll('input[name="period"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const customRange = document.getElementById('custom-date-range');
+                    if (this.value === 'custom') {
+                        customRange.style.display = 'block';
+                    } else {
+                        customRange.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Gestion des sélections de champ
+            document.querySelectorAll('.field-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+            
+            // Gestion du bouton d'affichage des résultats
+            document.getElementById('show-results-btn').addEventListener('click', function() {
+                showHomeResults();
+            });
+        }
+        
+        // Afficher les résultats de l'interface d'accueil
+        function showHomeResults() {
+            const selectedFields = Array.from(document.querySelectorAll('.field-checkbox.selected'))
+                .map(checkbox => checkbox.getAttribute('data-field'));
+            
+            if (selectedFields.length === 0) {
+                alert('Veuillez sélectionner au moins un champ à afficher.');
+                return;
+            }
+            
+            const period = document.querySelector('input[name="period"]:checked').value;
+            let startDate, endDate;
+            const today = new Date();
+            
+            switch (period) {
+                case 'today':
+                    startDate = new Date(today);
+                    endDate = new Date(today);
+                    break;
+                case 'week':
+                    startDate = new Date(today);
+                    startDate.setDate(today.getDate() - 7);
+                    endDate = new Date(today);
+                    break;
+                case 'month':
+                    startDate = new Date(today);
+                    startDate.setMonth(today.getMonth() - 1);
+                    endDate = new Date(today);
+                    break;
+                case 'custom':
+                    const startInput = document.getElementById('date-start').value;
+                    const endInput = document.getElementById('date-end').value;
+                    
+                    if (!startInput || !endInput) {
+                        alert('Veuillez sélectionner une période personnalisée.');
+                        return;
+                    }
+                    
+                    startDate = new Date(startInput);
+                    endDate = new Date(endInput);
+                    break;
+            }
+            
+            // Filtrer les entrées par date
+            const filteredEntries = journalData.filter(entry => {
+                const entryDate = new Date(entry.date);
+                return entryDate >= startDate && entryDate <= endDate;
+            }).sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            if (filteredEntries.length === 0) {
+                document.getElementById('results-container').innerHTML = `
+                    <div class="no-results-home">
+                        <i class="fas fa-search"></i>
+                        <p>Aucune entrée trouvée pour la période sélectionnée.</p>
+                    </div>
+                `;
+                document.getElementById('results-container').style.display = 'block';
+                return;
+            }
+            
+            // Générer les résultats
+            let resultsHTML = '';
+            
+            filteredEntries.forEach(entry => {
+                const formattedDate = entry.date.toLocaleDateString('fr-FR', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                resultsHTML += `<div class="result-item-home">`;
+                resultsHTML += `<div class="result-date-home">${formattedDate}</div>`;
+                
+                selectedFields.forEach(field => {
+                    let fieldContent = '';
+                    let fieldLabel = '';
+                    
+                    switch (field) {
+                        case 'spirituel':
+                            fieldLabel = 'Spirituel';
+                            const texteMedite = entry.rawData[normalizeKey("Texte medité")];
+                            const retenuMeditation = entry.rawData[normalizeKey("Ce que j'ai retenu aujourd'hui dans la méditation")];
+                            
+                            if (texteMedite) {
+                                fieldContent += `<div><strong>Texte médité:</strong> ${formatValue(texteMedite)}</div>`;
+                            }
+                            if (retenuMeditation) {
+                                fieldContent += `<div><strong>Retenu méditation:</strong> ${formatValue(retenuMeditation)}</div>`;
+                            }
+                            break;
+                            
+                        case 'bilan':
+                            fieldLabel = 'Bilan personnel';
+                            const pensees = entry.rawData[normalizeKey("Mes pensées et analyse du jour")];
+                            const lecons = entry.rawData[normalizeKey("Leçons du jour")];
+                            
+                            if (pensees) {
+                                fieldContent += `<div><strong>Pensées et analyse:</strong> ${formatValue(pensees)}</div>`;
+                            }
+                            if (lecons) {
+                                fieldContent += `<div><strong>Leçons du jour:</strong> ${formatValue(lecons)}</div>`;
+                            }
+                            break;
+                            
+                        case 'petit-dejeuner':
+                            fieldLabel = 'Petit déjeuner';
+                            const petitDej = entry.rawData[normalizeKey("Petit déjeuner")];
+                            if (petitDej) {
+                                fieldContent += `<div>${formatValue(petitDej)}</div>`;
+                            }
+                            break;
+                            
+                        case 'dejeuner':
+                            fieldLabel = 'Déjeuner';
+                            const dej = entry.rawData[normalizeKey("Déjeuner")];
+                            if (dej) {
+                                fieldContent += `<div>${formatValue(dej)}</div>`;
+                            }
+                            break;
+                            
+                        case 'diner':
+                            fieldLabel = 'Dîner';
+                            const diner = entry.rawData[normalizeKey("Dîner")];
+                            if (diner) {
+                                fieldContent += `<div>${formatValue(diner)}</div>`;
+                            }
+                            break;
+                            
+                        case 'collation-am':
+                            fieldLabel = 'Collation AM';
+                            const collationAM = entry.rawData[normalizeKey("Collation AM")];
+                            if (collationAM) {
+                                fieldContent += `<div>${formatValue(collationAM)}</div>`;
+                            }
+                            break;
+                            
+                        case 'collation-pm':
+                            fieldLabel = 'Collation PM';
+                            const collationPM = entry.rawData[normalizeKey("Collation PM")];
+                            if (collationPM) {
+                                fieldContent += `<div>${formatValue(collationPM)}</div>`;
+                            }
+                            break;
+                    }
+                    
+                    if (fieldContent) {
+                        resultsHTML += `<div class="result-content-home">
+                            <div style="font-weight: 600; color: #8a6d3b; margin-bottom: 3px;">${fieldLabel}:</div>
+                            ${fieldContent}
+                        </div>`;
+                    }
+                });
+                
+                resultsHTML += `</div>`;
+            });
+            
+            document.getElementById('results-container').innerHTML = resultsHTML;
+            document.getElementById('results-container').style.display = 'block';
+            
+            // Faire défiler jusqu'aux résultats
+            document.getElementById('results-container').scrollIntoView({ behavior: 'smooth' });
+        }
+        
         // Initialiser la recherche
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
@@ -5897,40 +6501,63 @@
             });
             
             // Initialiser les boutons flottants
-            const formBtn = document.getElementById('form-btn');
-            if (formBtn) {
-                formBtn.addEventListener('click', function() {
-                    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf7RjIpkua5-T-5K-YgrcPPyW_9ujfv3KpVmFZMuFMY72rJ4g/viewform?usp=publish-editor', '_blank');
-                });
-            }
+            const floatingButtons = document.createElement('div');
+            floatingButtons.className = 'floating-buttons';
+            floatingButtons.innerHTML = `
+                <button class="floating-btn tooltip" id="search-access-btn" data-tooltip="Recherche">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="floating-btn tooltip" id="calendar-access-btn" data-tooltip="Calendrier">
+                    <i class="fas fa-calendar-alt"></i>
+                </button>
+                <button class="floating-btn tooltip" id="home-access-btn" data-tooltip="Accueil">
+                    <i class="fas fa-home"></i>
+                </button>
+                <button class="floating-btn tooltip" id="form-btn" data-tooltip="Nouvelle entrée journal">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="floating-btn tooltip" id="sheet-btn" data-tooltip="Voir le Google Sheet">
+                    <i class="fas fa-table"></i>
+                </button>
+            `;
             
-            const sheetBtn = document.getElementById('sheet-btn');
-            if (sheetBtn) {
-                sheetBtn.addEventListener('click', function() {
-                    window.open('https://docs.google.com/spreadsheets/d/1sqFSBaJqghgJdcKcuYfYOtPLA-xmRyAnbp0XMgV6qNU/edit?resourcekey=&pli=1&gid=114511576#gid=114511576', '_blank');
-                });
-            }
+            document.body.appendChild(floatingButtons);
+            
+            // Écouteurs pour les boutons flottants
+            document.getElementById('search-access-btn').addEventListener('click', function() {
+                document.getElementById('search-input').focus();
+                document.getElementById('search-input').select();
+            });
+            
+            document.getElementById('calendar-access-btn').addEventListener('click', function() {
+                document.querySelector('.calendar-section').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            document.getElementById('home-access-btn').addEventListener('click', function() {
+                showHomeInterface();
+            });
+            
+            document.getElementById('form-btn').addEventListener('click', function() {
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLSf7RjIpkua5-T-5K-YgrcPPyW_9ujfv3KpVmFZMuFMY72rJ4g/viewform?usp=publish-editor', '_blank');
+            });
+            
+            document.getElementById('sheet-btn').addEventListener('click', function() {
+                window.open('https://docs.google.com/spreadsheets/d/1sqFSBaJqghgJdcKcuYfYOtPLA-xmRyAnbp0XMgV6qNU/edit?resourcekey=&pli=1&gid=114511576#gid=114511576', '_blank');
+            });
             
             setTimeout(() => {
-                const floatingButtons = document.querySelector('.floating-buttons');
-                if (floatingButtons) {
-                    floatingButtons.style.display = 'flex';
-                }
+                floatingButtons.style.display = 'flex';
             }, 1000);
+            
+            // Rendre le bouton "back-to-top" toujours visible
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            backToTopBtn.style.opacity = '1';
+            backToTopBtn.style.visibility = 'visible';
         });
         
         // Charger les données au démarrage
         document.addEventListener('DOMContentLoaded', loadJournalData);
         
     </script>
-    <!-- Boutons flottants -->
-    <div class="floating-buttons">
-        <button class="floating-btn tooltip" id="form-btn" data-tooltip="Nouvelle entrée journal">
-            <i class="fas fa-plus"></i>
-        </button>
-        <button class="floating-btn tooltip" id="sheet-btn" data-tooltip="Voir le Google Sheet">
-            <i class="fas fa-table"></i>
-        </button>
-    </div>
 </body>
 </html>
