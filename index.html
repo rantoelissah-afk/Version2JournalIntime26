@@ -15,7 +15,7 @@
         }
         
         body {
-            background-color: #f9f5f0;
+            background-color: #fff5f7;
             color: #333;
             line-height: 1.4;
             padding: 10px;
@@ -34,7 +34,7 @@
         }
         
         header {
-            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
             color: white;
             padding: 25px 35px;
             text-align: center;
@@ -63,8 +63,8 @@
             flex: 1;
             min-width: 280px;
             padding: 25px;
-            background-color: #fefcf8;
-            border-right: 1px solid #eee;
+            background-color: #fff9fb;
+            border-right: 1px solid #f0f0f0;
         }
         
         .journal-section {
@@ -76,17 +76,17 @@
             background-image: repeating-linear-gradient(
                 transparent,
                 transparent 27px,
-                rgba(180, 180, 200, 0.08) 27px,
-                rgba(180, 180, 200, 0.08) 28px
+                rgba(233, 30, 99, 0.05) 27px,
+                rgba(233, 30, 99, 0.05) 28px
             );
             background-position: 0 25px;
         }
         
         h2 {
-            color: #8a6d3b;
+            color: #e91e63;
             margin-bottom: 15px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #f0e6d3;
+            border-bottom: 2px solid #fce4ec;
             font-size: 1.6rem;
         }
         
@@ -107,7 +107,7 @@
         .month-year {
             font-size: 1.4rem;
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
         }
         
         .calendar-nav {
@@ -116,7 +116,7 @@
         }
         
         .nav-btn {
-            background-color: #f0e6d3;
+            background-color: #fce4ec;
             border: none;
             width: 36px;
             height: 36px;
@@ -125,13 +125,13 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: #8a6d3b;
+            color: #e91e63;
             font-size: 1.1rem;
             transition: all 0.3s;
         }
         
         .nav-btn:hover {
-            background-color: #d4a762;
+            background-color: #f8bbd9;
             color: white;
         }
         
@@ -141,7 +141,7 @@
             margin-bottom: 8px;
             text-align: center;
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
             font-size: 0.9rem;
         }
         
@@ -167,7 +167,7 @@
         }
         
         .day:hover {
-            background-color: #f0e6d3;
+            background-color: #fce4ec;
         }
         
         .day.empty {
@@ -176,13 +176,13 @@
         }
         
         .day.today {
-            background-color: #d4a762;
+            background-color: #f8bbd9;
             color: white;
             font-weight: 700;
         }
         
         .day.has-entry {
-            background-color: #8a6d3b;
+            background-color: #e91e63;
             color: white;
             position: relative;
         }
@@ -194,14 +194,14 @@
             right: 2px;
             width: 5px;
             height: 5px;
-            background-color: #ffd700;
+            background-color: #ffeb3b;
             border-radius: 50%;
         }
         
         .day.selected {
-            border: 2px solid #8a6d3b;
-            background-color: #f9f5f0;
-            color: #8a6d3b;
+            border: 2px solid #e91e63;
+            background-color: #fff9fb;
+            color: #e91e63;
             font-weight: 700;
         }
         
@@ -209,8 +209,8 @@
             font-size: 0.7rem;
             font-weight: bold;
             margin-top: 2px;
-            color: #ffcc00 !important;
-            background-color: rgba(255, 204, 0, 0.2) !important;
+            color: #ffeb3b !important;
+            background-color: rgba(255, 235, 59, 0.2) !important;
             padding: 1px 4px;
             border-radius: 3px;
             display: inline-block;
@@ -240,7 +240,7 @@
         .loading {
             text-align: center;
             padding: 35px;
-            color: #8a6d3b;
+            color: #e91e63;
             font-size: 1.1rem;
         }
         
@@ -253,7 +253,7 @@
             border-radius: 8px;
             padding: 20px 25px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-left: 6px solid #d4a762;
+            border-left: 6px solid #f8bbd9;
             margin-bottom: 15px;
             position: relative;
         }
@@ -265,7 +265,7 @@
             top: 0;
             bottom: 0;
             width: 6px;
-            background: linear-gradient(to bottom, #d4a762, #8a6d3b);
+            background: linear-gradient(to bottom, #f8bbd9, #e91e63);
             border-radius: 6px 0 0 6px;
         }
         
@@ -275,13 +275,13 @@
             align-items: center;
             margin-bottom: 12px;
             padding-bottom: 10px;
-            border-bottom: 2px dashed #e0d6c2;
+            border-bottom: 2px dashed #f0f0f0;
         }
         
         .entry-date {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #8a6d3b;
+            color: #e91e63;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
@@ -305,12 +305,12 @@
         }
         
         .section-nav-btn {
-            background-color: #f0e6d3;
-            border: 1px solid #d4a762;
+            background: linear-gradient(135deg, var(--color1, #4CAF50), var(--color2, #2196F3));
+            border: none;
             border-radius: 12px;
             padding: 6px 10px;
             font-size: 0.75rem;
-            color: #8a6d3b;
+            color: white;
             cursor: pointer;
             transition: all 0.3s;
             white-space: nowrap;
@@ -321,18 +321,18 @@
             align-items: center;
             justify-content: center;
             gap: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .section-nav-btn:hover {
-            background-color: #d4a762;
-            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .section-nav-end {
             margin-top: 20px;
             padding-top: 15px;
-            border-top: 1px dashed #e0d6c2;
+            border-top: 1px dashed #f0f0f0;
         }
         
         /* Navigation précédent/suivant */
@@ -341,43 +341,46 @@
             justify-content: space-between;
             margin-top: 20px;
             padding-top: 15px;
-            border-top: 1px dashed #e0d6c2;
+            border-top: 1px dashed #f0f0f0;
         }
         
         .nav-prev-next {
-            background-color: #f0e6d3;
-            border: 1px solid #d4a762;
+            background: linear-gradient(135deg, #e91e63, #f8bbd9);
+            border: none;
             border-radius: 20px;
             padding: 8px 15px;
             font-size: 0.85rem;
-            color: #8a6d3b;
+            color: white;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 2px 5px rgba(233, 30, 99, 0.2);
         }
         
         .nav-prev-next:hover:not(.disabled) {
-            background-color: #d4a762;
-            color: white;
+            background: linear-gradient(135deg, #f8bbd9, #e91e63);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(233, 30, 99, 0.3);
         }
         
         .nav-prev-next.disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            background: #ccc;
         }
         
         /* Titres de section centrés avec couleurs harmonisées */
         .section-title {
-            background: linear-gradient(90deg, rgba(255, 152, 0, 0.15), rgba(255, 255, 255, 0.2));
+            background: linear-gradient(90deg, rgba(233, 30, 99, 0.15), rgba(255, 255, 255, 0.2));
             padding: 8px 12px;
             margin: 12px 0 8px 0;
             border-radius: 6px;
-            color: #ff9800;
+            color: #e91e63;
             font-weight: 700;
             font-size: 1rem;
-            border-left: 4px solid #ff9800;
+            border-left: 4px solid #e91e63;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -388,53 +391,54 @@
         
         .section-title i {
             font-size: 1.2rem;
+            color: inherit !important;
         }
         
-        /* Couleurs de fond des sections avec titres correspondants */
+        /* COULEURS MULTICOLORES POUR LES SECTIONS */
         .section-sommeil {
-            background-color: rgba(141, 110, 99, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(141, 110, 99, 0.3);
-        }
-        
-        .section-sommeil .section-title {
-            background: linear-gradient(90deg, rgba(141, 110, 99, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #8d6e63 !important;
-            border-left-color: #8d6e63 !important;
-        }
-        
-        .section-matin {
-            background-color: rgba(255, 193, 7, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(255, 193, 7, 0.3);
-        }
-        
-        .section-matin .section-title {
-            background: linear-gradient(90deg, rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #ffc107 !important;
-            border-left-color: #ffc107 !important;
-        }
-        
-        .section-spirituel {
-            background-color: rgba(156, 39, 176, 0.15) !important;
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
             border: 2px solid rgba(156, 39, 176, 0.3);
         }
         
-        .section-spirituel .section-title {
+        .section-sommeil .section-title {
             background: linear-gradient(90deg, rgba(156, 39, 176, 0.3), rgba(255, 255, 255, 0.2)) !important;
             color: #9c27b0 !important;
             border-left-color: #9c27b0 !important;
         }
         
+        .section-matin {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .section-matin .section-title {
+            background: linear-gradient(90deg, rgba(255, 152, 0, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #ff9800 !important;
+            border-left-color: #ff9800 !important;
+        }
+        
+        .section-spirituel {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(33, 150, 243, 0.3);
+        }
+        
+        .section-spirituel .section-title {
+            background: linear-gradient(90deg, rgba(33, 150, 243, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #2196f3 !important;
+            border-left-color: #2196f3 !important;
+        }
+        
         .section-alimentation {
-            background-color: rgba(244, 67, 54, 0.15) !important;
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
@@ -448,77 +452,77 @@
         }
         
         .section-travail {
-            background-color: rgba(121, 85, 72, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(121, 85, 72, 0.3);
-        }
-        
-        .section-travail .section-title {
-            background: linear-gradient(90deg, rgba(121, 85, 72, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #795548 !important;
-            border-left-color: #795548 !important;
-        }
-        
-        .section-lecture {
-            background-color: rgba(33, 150, 243, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(33, 150, 243, 0.3);
-        }
-        
-        .section-lecture .section-title {
-            background: linear-gradient(90deg, rgba(33, 150, 243, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #2196f3 !important;
-            border-left-color: #2196f3 !important;
-        }
-        
-        .section-activites {
-            background-color: rgba(0, 150, 136, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(0, 150, 136, 0.3);
-        }
-        
-        .section-activites .section-title {
-            background: linear-gradient(90deg, rgba(0, 150, 136, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #009688 !important;
-            border-left-color: #009688 !important;
-        }
-        
-        .section-physique {
-            background-color: rgba(76, 175, 80, 0.15) !important;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
             border: 2px solid rgba(76, 175, 80, 0.3);
         }
         
-        .section-physique .section-title {
+        .section-travail .section-title {
             background: linear-gradient(90deg, rgba(76, 175, 80, 0.3), rgba(255, 255, 255, 0.2)) !important;
             color: #4caf50 !important;
             border-left-color: #4caf50 !important;
         }
         
-        .section-menagere {
-            background-color: rgba(96, 125, 139, 0.15) !important;
+        .section-lecture {
+            background: linear-gradient(135deg, rgba(121, 85, 72, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
-            border: 2px solid rgba(96, 125, 139, 0.3);
+            border: 2px solid rgba(121, 85, 72, 0.3);
+        }
+        
+        .section-lecture .section-title {
+            background: linear-gradient(90deg, rgba(121, 85, 72, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #795548 !important;
+            border-left-color: #795548 !important;
+        }
+        
+        .section-activites {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .section-activites .section-title {
+            background: linear-gradient(90deg, rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #ffc107 !important;
+            border-left-color: #ffc107 !important;
+        }
+        
+        .section-physique {
+            background: linear-gradient(135deg, rgba(0, 150, 136, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(0, 150, 136, 0.3);
+        }
+        
+        .section-physique .section-title {
+            background: linear-gradient(90deg, rgba(0, 150, 136, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #009688 !important;
+            border-left-color: #009688 !important;
+        }
+        
+        .section-menagere {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(156, 39, 176, 0.3);
         }
         
         .section-menagere .section-title {
-            background: linear-gradient(90deg, rgba(96, 125, 139, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #607d8b !important;
-            border-left-color: #607d8b !important;
+            background: linear-gradient(90deg, rgba(156, 39, 176, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #9c27b0 !important;
+            border-left-color: #9c27b0 !important;
         }
         
         .section-programme {
-            background-color: rgba(255, 87, 34, 0.15) !important;
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
@@ -532,7 +536,7 @@
         }
         
         .section-nyako {
-            background-color: rgba(103, 58, 183, 0.15) !important;
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
@@ -546,7 +550,7 @@
         }
         
         .section-finance {
-            background-color: rgba(139, 195, 74, 0.15) !important;
+            background: linear-gradient(135deg, rgba(139, 195, 74, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
@@ -560,87 +564,87 @@
         }
         
         .section-deplacement {
-            background-color: rgba(255, 193, 7, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(255, 193, 7, 0.3);
-        }
-        
-        .section-deplacement .section-title {
-            background: linear-gradient(90deg, rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #ffc107 !important;
-            border-left-color: #ffc107 !important;
-        }
-        
-        .section-relation {
-            background-color: rgba(0, 188, 212, 0.15) !important;
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
             border: 2px solid rgba(0, 188, 212, 0.3);
         }
         
-        .section-relation .section-title {
+        .section-deplacement .section-title {
             background: linear-gradient(90deg, rgba(0, 188, 212, 0.3), rgba(255, 255, 255, 0.2)) !important;
             color: #00bcd4 !important;
             border-left-color: #00bcd4 !important;
         }
         
-        .section-periodique {
-            background-color: rgba(255, 64, 129, 0.15) !important;
+        .section-relation {
+            background: linear-gradient(135deg, rgba(255, 64, 129, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
             border: 2px solid rgba(255, 64, 129, 0.3);
         }
         
-        .section-periodique .section-title {
+        .section-relation .section-title {
             background: linear-gradient(90deg, rgba(255, 64, 129, 0.3), rgba(255, 255, 255, 0.2)) !important;
             color: #ff4081 !important;
             border-left-color: #ff4081 !important;
         }
         
-        .section-sante {
-            background-color: rgba(233, 30, 99, 0.15) !important;
+        .section-periodique {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
             border: 2px solid rgba(233, 30, 99, 0.3);
         }
         
-        .section-sante .section-title {
+        .section-periodique .section-title {
             background: linear-gradient(90deg, rgba(233, 30, 99, 0.3), rgba(255, 255, 255, 0.2)) !important;
             color: #e91e63 !important;
             border-left-color: #e91e63 !important;
         }
         
-        .section-poids {
-            background-color: rgba(156, 39, 176, 0.15) !important;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 2px solid rgba(156, 39, 176, 0.3);
-        }
-        
-        .section-poids .section-title {
-            background: linear-gradient(90deg, rgba(156, 39, 176, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: #9c27b0 !important;
-            border-left-color: #9c27b0 !important;
-        }
-        
-        .section-bilan {
-            background-color: rgba(76, 175, 80, 0.15) !important;
+        .section-sante {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(255, 255, 255, 0.2)) !important;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 18px;
             border: 2px solid rgba(76, 175, 80, 0.3);
         }
         
-        .section-bilan .section-title {
+        .section-sante .section-title {
             background: linear-gradient(90deg, rgba(76, 175, 80, 0.3), rgba(255, 255, 255, 0.2)) !important;
             color: #4caf50 !important;
             border-left-color: #4caf50 !important;
+        }
+        
+        .section-poids {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .section-poids .section-title {
+            background: linear-gradient(90deg, rgba(255, 152, 0, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #ff9800 !important;
+            border-left-color: #ff9800 !important;
+        }
+        
+        .section-bilan {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(255, 255, 255, 0.2)) !important;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 2px solid rgba(33, 150, 243, 0.3);
+        }
+        
+        .section-bilan .section-title {
+            background: linear-gradient(90deg, rgba(33, 150, 243, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: #2196f3 !important;
+            border-left-color: #2196f3 !important;
         }
         
         .entry-row {
@@ -658,7 +662,6 @@
         .entry-label {
             flex: 0 0 170px;
             font-weight: 600;
-            color: #8a6d3b;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -672,13 +675,86 @@
             text-align: center;
         }
         
+        /* COULEURS DES LABELS PAR SECTION - CORRIGÉ */
+        .section-sommeil .entry-label {
+            color: #9c27b0 !important;
+        }
+        
+        .section-matin .entry-label {
+            color: #ff9800 !important;
+        }
+        
+        .section-spirituel .entry-label {
+            color: #2196f3 !important;
+        }
+        
+        .section-alimentation .entry-label {
+            color: #f44336 !important;
+        }
+        
+        .section-travail .entry-label {
+            color: #4caf50 !important;
+        }
+        
+        .section-lecture .entry-label {
+            color: #795548 !important;
+        }
+        
+        .section-activites .entry-label {
+            color: #ffc107 !important;
+        }
+        
+        .section-physique .entry-label {
+            color: #009688 !important;
+        }
+        
+        .section-menagere .entry-label {
+            color: #9c27b0 !important;
+        }
+        
+        .section-programme .entry-label {
+            color: #ff5722 !important;
+        }
+        
+        .section-nyako .entry-label {
+            color: #673ab7 !important;
+        }
+        
+        .section-finance .entry-label {
+            color: #8bc34a !important;
+        }
+        
+        .section-deplacement .entry-label {
+            color: #00bcd4 !important;
+        }
+        
+        .section-relation .entry-label {
+            color: #ff4081 !important;
+        }
+        
+        .section-periodique .entry-label {
+            color: #e91e63 !important;
+        }
+        
+        .section-sante .entry-label {
+            color: #4caf50 !important;
+        }
+        
+        .section-poids .entry-label {
+            color: #ff9800 !important;
+        }
+        
+        .section-bilan .entry-label {
+            color: #2196f3 !important;
+        }
+        
         /* Texte handwriting plus léger */
         .entry-value {
             flex: 1;
             background-color: rgba(255, 255, 255, 0.7);
             padding: 4px 8px;
             border-radius: 4px;
-            border: 1px solid #f0e6d3;
+            border: 1px solid #fce4ec;
             white-space: pre-line;
             line-height: 1.3;
             font-family: 'Pacifico', cursive;
@@ -689,25 +765,25 @@
         
         /* Couleurs spécifiques pour les éléments demandés */
         .pensees-analyse {
-            color: #ff9800 !important; /* Orange pour "Mes pensées et analyse" */
+            color: #ff9800 !important;
         }
         
         .cadeau-recu {
-            color: #2196f3 !important; /* Bleu pour "Cadeau reçu" */
+            color: #2196f3 !important;
         }
         
         .occupation {
-            color: #2196f3 !important; /* Bleu pour "Occupation" */
+            color: #2196f3 !important;
         }
         
         .maladie-sante {
-            color: #f44336 !important; /* Rouge pour "Maladie et santé" */
+            color: #f44336 !important;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             font-weight: 400 !important;
         }
         
         .resolution-du-jour {
-            color: #ff9800 !important; /* Orange pour "Résolution du jour" */
+            color: #ff9800 !important;
         }
         
         .deroulement-journee {
@@ -736,13 +812,13 @@
         }
         
         .entry-value a {
-            color: #8a6d3b;
+            color: #e91e63;
             text-decoration: underline;
             font-weight: 600;
         }
         
         .entry-value a:hover {
-            color: #d4a762;
+            color: #f8bbd9;
         }
         
         /* COULEURS MODIFIÉES - Heures en vert, durées en bleu */
@@ -800,7 +876,6 @@
         
         .compact-label-sommeil {
             font-weight: 600;
-            color: #8a6d3b;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -848,7 +923,6 @@
         
         .compact-label {
             font-weight: 600;
-            color: #8a6d3b;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -872,7 +946,6 @@
         .spiritual-item {
             font-size: 0.85rem;
             font-weight: 500;
-            color: #8a6d3b;
             margin-bottom: 3px;
             display: flex;
             justify-content: space-between;
@@ -952,7 +1025,7 @@
         .no-entry i {
             font-size: 3.5rem;
             margin-bottom: 15px;
-            color: #e0d6c2;
+            color: #fce4ec;
         }
         
         .no-entry p {
@@ -966,12 +1039,12 @@
             color: #999;
             text-align: center;
             padding: 8px;
-            background-color: #f9f5f0;
+            background-color: #fff9fb;
             border-radius: 6px;
         }
         
         .data-source a {
-            color: #8a6d3b;
+            color: #e91e63;
             text-decoration: none;
             font-weight: 600;
         }
@@ -983,14 +1056,14 @@
         .stats {
             margin-top: 15px;
             padding: 10px;
-            background-color: #f9f5f0;
+            background-color: #fff9fb;
             border-radius: 6px;
             font-size: 0.8rem;
         }
         
         .stats span {
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
         }
         
         /* Style pour menstruation */
@@ -1033,7 +1106,7 @@
             background: rgba(255, 255, 255, 0.8);
             padding: 3px 6px;
             border-radius: 4px;
-            border: 1px solid #f0e6d3;
+            border: 1px solid #fce4ec;
         }
         
         .emoji-icon {
@@ -1091,7 +1164,7 @@
         
         .finance-report th {
             background-color: rgba(139, 195, 74, 0.2);
-            color: #8a6d3b;
+            color: #e91e63;
             font-weight: 600;
             padding: 8px;
             text-align: left;
@@ -1156,7 +1229,7 @@
         
         .finance-summary-label {
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
         }
         
         .finance-summary-value {
@@ -1176,21 +1249,21 @@
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #8d6e63;
+            color: #9c27b0;
         }
         
         .decoration-matin {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #ffc107;
+            color: #ff9800;
         }
         
         .decoration-spirituel {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #9c27b0;
+            color: #2196f3;
         }
         
         .decoration-alimentation {
@@ -1204,35 +1277,35 @@
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #795548;
+            color: #4caf50;
         }
         
         .decoration-lecture {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #2196f3;
+            color: #795548;
         }
         
         .decoration-activites {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #009688;
+            color: #ffc107;
         }
         
         .decoration-physique {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #4caf50;
+            color: #009688;
         }
         
         .decoration-menagere {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #607d8b;
+            color: #9c27b0;
         }
         
         .decoration-programme {
@@ -1260,42 +1333,42 @@
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #ffc107;
+            color: #00bcd4;
         }
         
         .decoration-relation {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #00bcd4;
+            color: #ff4081;
         }
         
         .decoration-periodique {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #ff4081;
+            color: #e91e63;
         }
         
         .decoration-sante {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #e91e63;
+            color: #4caf50;
         }
         
         .decoration-poids {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #9c27b0;
+            color: #ff9800;
         }
         
         .decoration-bilan {
             top: 5px;
             right: 10px;
             font-size: 3.5rem;
-            color: #4caf50;
+            color: #2196f3;
         }
         
         /* Labels ménagers */
@@ -1343,7 +1416,7 @@
         .measurement-label {
             font-size: 0.8rem;
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
             margin-bottom: 4px;
         }
         
@@ -1355,7 +1428,7 @@
         
         /* Style pour repas - MODIFIÉ POUR MOBILE */
         .meal-container {
-            border: 2px solid #f0e6d3;
+            border: 2px solid #fce4ec;
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 15px;
@@ -1364,7 +1437,7 @@
         
         .meal-title {
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
             margin-bottom: 8px;
             font-size: 1rem;
             display: flex;
@@ -1400,7 +1473,6 @@
         
         .meal-compact-label {
             font-weight: 600;
-            color: #8a6d3b;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -1424,13 +1496,12 @@
             background-color: #ffffff;
             padding: 8px 12px;
             border-radius: 6px;
-            border: 1px solid #f0e6d3;
+            border: 1px solid #fce4ec;
             margin-top: 8px;
         }
         
         .meal-content-label {
             font-weight: 600;
-            color: #8a6d3b;
             margin-bottom: 4px;
             font-size: 0.9rem;
             display: flex;
@@ -1441,7 +1512,7 @@
         .meal-content-value {
             font-family: 'Pacifico', cursive;
             font-weight: 300 !important;
-            font-size: 0.85rem !important; /* TAILLE RÉDUITE */
+            font-size: 0.85rem !important;
             color: #666;
         }
         
@@ -1520,10 +1591,10 @@
         /* Interface d'accueil - nouvelles sections */
         .home-interface {
             padding: 20px;
-            background-color: #f9f5f0;
+            background-color: #fff9fb;
             border-radius: 10px;
             margin-bottom: 25px;
-            border: 2px solid #d4a762;
+            border: 2px solid #f8bbd9;
         }
         
         .home-section {
@@ -1532,14 +1603,14 @@
             padding: 15px;
             margin-bottom: 15px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border: 1px solid #e0d6c2;
+            border: 1px solid #f0f0f0;
         }
         
         .home-section-title {
-            color: #8a6d3b;
+            color: #e91e63;
             margin-bottom: 15px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #f0e6d3;
+            border-bottom: 2px solid #fce4ec;
             font-size: 1.2rem;
             display: flex;
             align-items: center;
@@ -1558,7 +1629,7 @@
             align-items: center;
             gap: 5px;
             font-size: 0.9rem;
-            background-color: #f0e6d3;
+            background-color: #fce4ec;
             padding: 6px 10px;
             border-radius: 6px;
             cursor: pointer;
@@ -1566,12 +1637,12 @@
         }
         
         .field-checkbox:hover {
-            background-color: #d4a762;
+            background-color: #f8bbd9;
             color: white;
         }
         
         .field-checkbox.selected {
-            background-color: #8a6d3b;
+            background-color: #e91e63;
             color: white;
         }
         
@@ -1592,7 +1663,7 @@
         
         .date-input {
             padding: 8px 12px;
-            border: 1px solid #d4a762;
+            border: 1px solid #f8bbd9;
             border-radius: 6px;
             font-size: 0.9rem;
             background-color: white;
@@ -1601,12 +1672,12 @@
         
         .date-input:focus {
             outline: none;
-            border-color: #8a6d3b;
-            box-shadow: 0 0 0 2px rgba(138, 109, 59, 0.2);
+            border-color: #e91e63;
+            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
         }
         
         .action-button {
-            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -1621,7 +1692,7 @@
         }
         
         .action-button:hover {
-            background: linear-gradient(135deg, #d4a762 0%, #8a6d3b 100%);
+            background: linear-gradient(135deg, #f8bbd9 0%, #e91e63 100%);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
@@ -1630,14 +1701,14 @@
             margin-top: 20px;
             max-height: 500px;
             overflow-y: auto;
-            border: 1px solid #e0d6c2;
+            border: 1px solid #f0f0f0;
             border-radius: 8px;
             background-color: white;
         }
         
         .result-item-home {
             padding: 12px 15px;
-            border-bottom: 1px solid #f0e6d3;
+            border-bottom: 1px solid #fce4ec;
         }
         
         .result-item-home:last-child {
@@ -1646,7 +1717,7 @@
         
         .result-date-home {
             font-weight: 700;
-            color: #8a6d3b;
+            color: #e91e63;
             margin-bottom: 5px;
             font-size: 0.95rem;
         }
@@ -1660,14 +1731,14 @@
         .no-results-home {
             padding: 30px;
             text-align: center;
-            color: #8a6d3b;
+            color: #e91e63;
             font-size: 0.95rem;
         }
         
         .loading-home {
             text-align: center;
             padding: 30px;
-            color: #8a6d3b;
+            color: #e91e63;
         }
         
         @media (max-width: 768px) {
@@ -1728,7 +1799,7 @@
             }
             
             .journal-entry {
-                border-left: 2px solid #d4a762;
+                border-left: 2px solid #f8bbd9;
                 padding: 10px 8px;
                 margin-bottom: 10px;
             }
@@ -1800,7 +1871,7 @@
                 max-width: 100% !important;
                 padding: 4px 0 2px 0;
                 font-size: 0.8rem !important;
-                border-bottom: 1px dashed #e0d6c2;
+                border-bottom: 1px dashed #fce4ec;
                 margin-bottom: 3px;
             }
             
@@ -2215,89 +2286,16 @@
             font-weight: 300 !important;
         }
         
-        /* Icônes de couleur */
-        .fa-moon { color: #8d6e63; }
-        .fa-sun { color: #ffc107; }
-        .fa-pray { color: #9c27b0; }
-        .fa-utensils { color: #f44336; }
-        .fa-briefcase { color: #795548; }
-        .fa-book-reader { color: #2196f3; }
-        .fa-list-alt { color: #009688; }
-        .fa-running { color: #4caf50; }
-        .fa-broom { color: #607d8b; }
-        .fa-calendar-check { color: #ff5722; }
-        .fa-user { color: #673ab7; }
-        .fa-money-bill-wave { color: #8bc34a; }
-        .fa-car { color: #ffc107; }
-        .fa-map-marker-alt { color: #e91e63; }
-        .fa-comments { color: #00bcd4; }
-        .fa-calendar-day { color: #ff4081; }
-        .fa-heartbeat { color: #f44336; }
-        .fa-weight-scale { color: #9c27b0; }
-        .fa-chart-line { color: #4caf50; }
-        .fa-bed { color: #8d6e63; }
-        .fa-cloud-moon { color: #9c27b0; }
-        .fa-clock { color: #607d8b; }
-        .fa-star { color: #ffc107; }
-        .fa-tasks { color: #009688; }
-        .fa-bullseye { color: #f44336; }
-        .fa-spa { color: #9c27b0; }
-        .fa-hands-praying { color: #673ab7; }
-        .fa-book-bible { color: #795548; }
-        .fa-brain { color: #f44336; }
-        .fa-flag { color: #4caf50; }
-        .fa-church { color: #8a6d3b; }
-        .fa-graduation-cap { color: #f44336; }
-        .fa-hands { color: #ffc107; }
-        .fa-coffee { color: #795548; }
-        .fa-utensil-spoon { color: #f44336; }
-        .fa-dinner { color: #9c27b0; }
-        .fa-apple-alt { color: #4caf50; }
-        .fa-plus-circle { color: #ffc107; }
-        .fa-info-circle { color: #2196f3; }
-        .fa-tint { color: #00bcd4; }
-        .fa-glass { color: #8a6d3b; }
-        .fa-wine-bottle { color: #673ab7; }
-        .fa-clipboard-list { color: #009688; }
-        .fa-bookmark { color: #ff5722; }
-        .fa-file-alt { color: #607d8b; }
-        .fa-hourglass { color: #ffc107; }
-        .fa-heading { color: #2196f3; }
-        .fa-sticky-note { color: #8bc34a; }
-        .fa-tv { color: #9c27b0; }
-        .fa-home { color: #795548; }
-        .fa-user-friends { color: #00bcd4; }
-        .fa-users { color: #ff4081; }
-        .fa-calendar-star { color: #ffc107; }
-        .fa-calendar { color: #2196f3; }
-        .fa-shopping-cart { color: #4caf50; }
-        .fa-receipt { color: #607d8b; }
-        .fa-map-marked-alt { color: #f44336; }
-        .fa-bus { color: #ffc107; }
-        .fa-route { color: #009688; }
-        .fa-handshake { color: #9c27b0; }
-        .fa-heart { color: #e91e63; }
-        .fa-comment-dots { color: #00bcd4; }
-        .fa-female { color: #ff4081; }
-        .fa-glasses { color: #2196f3; }
-        .fa-bug { color: #4caf50; }
-        .fa-bolt { color: #ffc107; }
-        .fa-credit-card { color: #8a6d3b; }
-        .fa-shower { color: #00bcd4; }
-        .fa-gem { color: #ffc107; }
-        .fa-head-side-cough { color: #f44336; }
-        .fa-ruler { color: #607d8b; }
-        .fa-exclamation-triangle { color: #ffc107; }
-        .fa-times-circle { color: #f44336; }
-        .fa-ellipsis-h { color: #9c27b0; }
-        .fa-gift { color: #ff4081; }
-        .fa-smile { color: #ffc107; }
-        .fa-camera { color: #2196f3; }
-        .fa-link { color: #009688; }
-        .fa-clock-o { color: #795548; }
-        .fa-list-ol { color: #8a6d3b; }
-        .fa-user-clock { color: #00bcd4; }
-
+        /* Icônes de couleur - COULEUR NOIRE POUR LES ÉMOJIS DES BOUTONS */
+        .section-nav-btn i {
+            color: black !important;
+        }
+        
+        /* COULEURS DES BOUTONS FLOTTANTS - ICÔNES BLANCHES */
+        .floating-btn i {
+            color: white !important;
+        }
+        
         /* Boutons flottants */
         .floating-buttons {
             position: fixed;
@@ -2313,8 +2311,6 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
-            color: white;
             border: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             cursor: pointer;
@@ -2329,7 +2325,6 @@
         .floating-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, #d4a762 0%, #8a6d3b 100%);
         }
         
         .floating-btn.tooltip {
@@ -2360,6 +2355,52 @@
             visibility: visible;
         }
         
+        /* COULEURS DES BOUTONS FLOTTANTS */
+        #search-access-btn {
+            background: linear-gradient(135deg, #2196F3, #64B5F6);
+            color: white;
+        }
+        
+        #calendar-access-btn {
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            color: white;
+        }
+        
+        #home-access-btn {
+            background: linear-gradient(135deg, #FF9800, #FFB74D);
+            color: white;
+        }
+        
+        #form-btn {
+            background: linear-gradient(135deg, #E91E63, #F48FB1);
+            color: white;
+        }
+        
+        #sheet-btn {
+            background: linear-gradient(135deg, #9C27B0, #CE93D8);
+            color: white;
+        }
+        
+        #search-access-btn:hover {
+            background: linear-gradient(135deg, #64B5F6, #2196F3);
+        }
+        
+        #calendar-access-btn:hover {
+            background: linear-gradient(135deg, #81C784, #4CAF50);
+        }
+        
+        #home-access-btn:hover {
+            background: linear-gradient(135deg, #FFB74D, #FF9800);
+        }
+        
+        #form-btn:hover {
+            background: linear-gradient(135deg, #F48FB1, #E91E63);
+        }
+        
+        #sheet-btn:hover {
+            background: linear-gradient(135deg, #CE93D8, #9C27B0);
+        }
+        
         /* Barre de recherche */
         .search-container {
             position: fixed;
@@ -2379,7 +2420,7 @@
             border-radius: 30px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             overflow: hidden;
-            border: 2px solid #d4a762;
+            border: 2px solid #f8bbd9;
         }
         
         #search-input {
@@ -2394,7 +2435,7 @@
         
         .search-btn {
             width: 60px;
-            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
             border: none;
             color: white;
             cursor: pointer;
@@ -2406,7 +2447,7 @@
         }
         
         .search-btn:hover {
-            background: linear-gradient(135deg, #d4a762 0%, #8a6d3b 100%);
+            background: linear-gradient(135deg, #f8bbd9 0%, #e91e63 100%);
         }
         
         /* Suggestions */
@@ -2436,11 +2477,11 @@
         }
         
         .suggestion-item:hover {
-            background-color: #f9f5f0;
+            background-color: #fff9fb;
         }
         
         .suggestion-item i {
-            color: #8a6d3b;
+            color: #e91e63;
             font-size: 14px;
         }
         
@@ -2452,8 +2493,8 @@
         
         .suggestion-date {
             font-size: 12px;
-            color: #8a6d3b;
-            background: #f0e6d3;
+            color: #e91e63;
+            background: #fce4ec;
             padding: 2px 8px;
             border-radius: 10px;
             font-weight: 600;
@@ -2474,11 +2515,11 @@
             z-index: 1003;
             display: none;
             overflow: hidden;
-            border: 2px solid #d4a762;
+            border: 2px solid #f8bbd9;
         }
         
         .results-header {
-            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
             color: white;
             padding: 15px 20px;
             display: flex;
@@ -2520,23 +2561,23 @@
         }
         
         .result-item {
-            background: #f9f5f0;
+            background: #fff9fb;
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 15px;
-            border-left: 4px solid #d4a762;
+            border-left: 4px solid #f8bbd9;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .result-item:hover {
-            background: #f0e6d3;
+            background: #fce4ec;
             transform: translateX(5px);
         }
         
         .result-date {
             font-weight: 700;
-            color: #8a6d3b;
+            color: #e91e63;
             font-size: 16px;
             margin-bottom: 8px;
             display: flex;
@@ -2556,16 +2597,16 @@
             padding: 2px 4px;
             border-radius: 3px;
             font-weight: 600;
-            color: #8a6d3b;
+            color: #e91e63;
         }
         
         .result-matches {
             font-size: 12px;
-            color: #8a6d3b;
+            color: #e91e63;
             display: flex;
             align-items: center;
             gap: 5px;
-            background: rgba(138, 109, 59, 0.1);
+            background: rgba(233, 30, 99, 0.1);
             padding: 4px 10px;
             border-radius: 12px;
             width: fit-content;
@@ -2574,7 +2615,7 @@
         .no-results {
             text-align: center;
             padding: 40px;
-            color: #8a6d3b;
+            color: #e91e63;
         }
         
         .no-results i {
@@ -2591,7 +2632,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8a6d3b 0%, #d4a762 100%);
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
             color: white;
             border: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -2609,7 +2650,11 @@
         .back-to-top-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, #d4a762 0%, #8a6d3b 100%);
+            background: linear-gradient(135deg, #f8bbd9 0%, #e91e63 100%);
+        }
+        
+        .back-to-top-btn i {
+            color: white !important;
         }
         
         /* Nouvelles classes pour les modifications demandées */
@@ -2724,6 +2769,18 @@
                 padding: 6px 10px;
                 right: 55px;
             }
+            
+            /* NOUVEAU STYLE POUR RELATION EN MOBILE - chaque champ sur sa propre ligne */
+            .section-relation .compact-row {
+                flex-direction: column !important;
+            }
+            
+            .section-relation .triple-item,
+            .section-relation .double-item {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-bottom: 5px;
+            }
         }
         
         .container {
@@ -2735,9 +2792,96 @@
                 margin-top: 70px;
             }
         }
+        
+        /* Écran de mot de passe */
+        .password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .password-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .password-box h2 {
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #f8bbd9;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: #e91e63;
+        }
+        
+        .password-btn {
+            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .password-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .password-error {
+            color: #f44336;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <!-- Écran de mot de passe -->
+    <div class="password-screen" id="password-screen">
+        <div class="password-box">
+            <h2><i class="fas fa-lock"></i> Journal Intime Personnel</h2>
+            <p style="color: #666; margin-bottom: 20px;">Ce journal est protégé par un mot de passe. Veuillez entrer le mot de passe pour continuer.</p>
+            <input type="password" class="password-input" id="password-input" placeholder="Entrez le mot de passe...">
+            <button class="password-btn" id="password-btn">
+                <i class="fas fa-unlock"></i> Accéder au journal
+            </button>
+            <div class="password-error" id="password-error">
+                Mot de passe incorrect. Veuillez réessayer.
+            </div>
+        </div>
+    </div>
+    
     <!-- Barre de recherche flottante -->
     <div class="search-container">
         <div class="search-box">
@@ -2815,6 +2959,32 @@
     </div>
 
     <script>
+        // Vérification du mot de passe
+        const PASSWORD = "rantou02";
+        const passwordScreen = document.getElementById('password-screen');
+        const passwordInput = document.getElementById('password-input');
+        const passwordBtn = document.getElementById('password-btn');
+        const passwordError = document.getElementById('password-error');
+        
+        function checkPassword() {
+            if (passwordInput.value === PASSWORD) {
+                passwordScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                initializeJournal();
+            } else {
+                passwordError.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+        
+        passwordBtn.addEventListener('click', checkPassword);
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
         // Variables globales
         let journalData = [];
         let currentDate = new Date();
@@ -3413,8 +3583,6 @@
             } catch (error) {
                 console.error('Erreur lors du chargement des données:', error);
                 
-                // NE PAS afficher le message d'erreur CORS
-                // On affiche simplement un message générique
                 const journalDisplay = document.getElementById('journal-display');
                 journalDisplay.innerHTML = `
                     <div class="loading">
@@ -3422,7 +3590,6 @@
                     </div>
                 `;
                 
-                // On simule un chargement réussi avec des données vides
                 setTimeout(() => {
                     showNoDataMessage();
                 }, 1000);
@@ -3578,24 +3745,24 @@
                 // Navigation interne - boutons de section
                 const sectionButtons = `
                     <div class="section-nav">
-                        <button class="section-nav-btn" data-section="sommeil"><i class="fas fa-moon"></i> Sommeil</button>
-                        <button class="section-nav-btn" data-section="matin"><i class="fas fa-sun"></i> Matin</button>
-                        <button class="section-nav-btn" data-section="spirituel"><i class="fas fa-pray"></i> Spirituel</button>
-                        <button class="section-nav-btn" data-section="alimentation"><i class="fas fa-utensils"></i> Alimentation</button>
-                        <button class="section-nav-btn" data-section="travail"><i class="fas fa-briefcase"></i> Travail</button>
-                        <button class="section-nav-btn" data-section="lecture"><i class="fas fa-book-reader"></i> Lecture</button>
-                        <button class="section-nav-btn" data-section="activites"><i class="fas fa-list-alt"></i> Activités</button>
-                        <button class="section-nav-btn" data-section="physique"><i class="fas fa-running"></i> Physique</button>
-                        <button class="section-nav-btn" data-section="menagere"><i class="fas fa-broom"></i> Ménager</button>
-                        <button class="section-nav-btn" data-section="programme"><i class="fas fa-calendar-check"></i> Programme</button>
-                        <button class="section-nav-btn" data-section="nyako"><i class="fas fa-user"></i> Ny Ako</button>
-                        <button class="section-nav-btn" data-section="finance"><i class="fas fa-money-bill-wave"></i> Finance</button>
-                        <button class="section-nav-btn" data-section="deplacement"><i class="fas fa-car"></i> Déplacement</button>
-                        <button class="section-nav-btn" data-section="relation"><i class="fas fa-comments"></i> Relation</button>
-                        <button class="section-nav-btn" data-section="periodique"><i class="fas fa-calendar-day"></i> Périodique</button>
-                        <button class="section-nav-btn" data-section="sante"><i class="fas fa-heartbeat"></i> Santé</button>
-                        <button class="section-nav-btn" data-section="poids"><i class="fas fa-weight-scale"></i> Poids</button>
-                        <button class="section-nav-btn" data-section="bilan"><i class="fas fa-chart-line"></i> Bilan</button>
+                        <button class="section-nav-btn" data-section="sommeil" style="--color1: #9c27b0; --color2: #ce93d8;"><i class="fas fa-moon"></i> Sommeil</button>
+                        <button class="section-nav-btn" data-section="matin" style="--color1: #ff9800; --color2: #ffb74d;"><i class="fas fa-sun"></i> Matin</button>
+                        <button class="section-nav-btn" data-section="spirituel" style="--color1: #2196f3; --color2: #64b5f6;"><i class="fas fa-pray"></i> Spirituel</button>
+                        <button class="section-nav-btn" data-section="alimentation" style="--color1: #f44336; --color2: #ef9a9a;"><i class="fas fa-utensils"></i> Alimentation</button>
+                        <button class="section-nav-btn" data-section="travail" style="--color1: #4caf50; --color2: #81c784;"><i class="fas fa-briefcase"></i> Travail</button>
+                        <button class="section-nav-btn" data-section="lecture" style="--color1: #795548; --color2: #a1887f;"><i class="fas fa-book-reader"></i> Lecture</button>
+                        <button class="section-nav-btn" data-section="activites" style="--color1: #ffc107; --color2: #ffd54f;"><i class="fas fa-list-alt"></i> Activités</button>
+                        <button class="section-nav-btn" data-section="physique" style="--color1: #009688; --color2: #4db6ac;"><i class="fas fa-running"></i> Physique</button>
+                        <button class="section-nav-btn" data-section="menagere" style="--color1: #9c27b0; --color2: #ce93d8;"><i class="fas fa-broom"></i> Ménager</button>
+                        <button class="section-nav-btn" data-section="programme" style="--color1: #ff5722; --color2: #ff8a65;"><i class="fas fa-calendar-check"></i> Programme</button>
+                        <button class="section-nav-btn" data-section="nyako" style="--color1: #673ab7; --color2: #9575cd;"><i class="fas fa-user"></i> Ny Ako</button>
+                        <button class="section-nav-btn" data-section="finance" style="--color1: #8bc34a; --color2: #aed581;"><i class="fas fa-money-bill-wave"></i> Finance</button>
+                        <button class="section-nav-btn" data-section="deplacement" style="--color1: #00bcd4; --color2: #4dd0e1;"><i class="fas fa-car"></i> Déplacement</button>
+                        <button class="section-nav-btn" data-section="relation" style="--color1: #ff4081; --color2: #f8bbd9;"><i class="fas fa-comments"></i> Relation</button>
+                        <button class="section-nav-btn" data-section="periodique" style="--color1: #e91e63; --color2: #f48fb1;"><i class="fas fa-calendar-day"></i> Périodique</button>
+                        <button class="section-nav-btn" data-section="sante" style="--color1: #4caf50; --color2: #81c784;"><i class="fas fa-heartbeat"></i> Santé</button>
+                        <button class="section-nav-btn" data-section="poids" style="--color1: #ff9800; --color2: #ffb74d;"><i class="fas fa-weight-scale"></i> Poids</button>
+                        <button class="section-nav-btn" data-section="bilan" style="--color1: #2196f3; --color2: #64b5f6;"><i class="fas fa-chart-line"></i> Bilan</button>
                     </div>
                 `;
                 
@@ -5098,7 +5265,7 @@
                     entryHTML += `</div>`;
                 }
                 
-                // SECTION: RELATION & COMMUNICATION
+                // SECTION: RELATION & COMMUNICATION - AMÉLIORÉE
                 const familleInteractionKey = normalizeKey("Famille interaction");
                 const rencontreKey = normalizeKey("Rencontre du jour");
                 const relationKey = normalizeKey("Relation avec mmr");
@@ -5150,9 +5317,10 @@
                         </div>`;
                     }
                     
-                    // Message, Appel, Détails comm
+                    // Message, Appel, Détails comm - AMÉLIORÉ POUR MOBILE
                     if (entry.rawData[messageKey] || entry.rawData[appelKey] || entry.rawData[detailsCommKey]) {
-                        entryHTML += `<div class="triple-row">`;
+                        // Sur desktop: sur une ligne
+                        entryHTML += `<div class="triple-row desktop-only">`;
                         
                         if (entry.rawData[messageKey]) {
                             entryHTML += `<div class="triple-item">
@@ -5187,6 +5355,32 @@
                             entryHTML += `<div class="triple-item">
                                 <div class="compact-label"><i class="fas fa-info-circle"></i> Détails comm</div>
                                 <div class="compact-value"></div>
+                            </div>`;
+                        }
+                        
+                        entryHTML += `</div>`;
+                        
+                        // Sur mobile: chaque champ sur sa propre ligne
+                        entryHTML += `<div class="mobile-only">`;
+                        
+                        if (entry.rawData[messageKey]) {
+                            entryHTML += `<div class="entry-row mobile-relation-row">
+                                <div class="entry-label"><i class="fas fa-sms"></i> Message</div>
+                                <div class="entry-value">${entry.rawData[messageKey]}</div>
+                            </div>`;
+                        }
+                        
+                        if (entry.rawData[appelKey]) {
+                            entryHTML += `<div class="entry-row mobile-relation-row">
+                                <div class="entry-label"><i class="fas fa-phone"></i> Appel</div>
+                                <div class="entry-value">${entry.rawData[appelKey]}</div>
+                            </div>`;
+                        }
+                        
+                        if (entry.rawData[detailsCommKey]) {
+                            entryHTML += `<div class="entry-row mobile-relation-row">
+                                <div class="entry-label"><i class="fas fa-info-circle"></i> Détails comm</div>
+                                <div class="entry-value">${formatValue(entry.rawData[detailsCommKey])}</div>
                             </div>`;
                         }
                         
@@ -5562,9 +5756,9 @@
                 entryHTML += '</div></div>';
                 journalDisplay.innerHTML = entryHTML;
                 
-                // Scroll vers le haut de la fiche
+                // Scroll vers le haut de la fiche - CORRIGÉ
                 setTimeout(() => {
-                    const journalEntry = document.querySelector('.journal-entry');
+                    const journalEntry = document.getElementById('journal-entry-top');
                     if (journalEntry) {
                         journalEntry.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
@@ -5809,11 +6003,11 @@
             
             document.querySelector('.calendar-nav').appendChild(todayBtn);
             
-            // Gestion du bouton pour remonter en haut
+            // Gestion du bouton pour remonter en haut - CORRIGÉ
             const backToTopBtn = document.getElementById('back-to-top-btn');
             
             backToTopBtn.addEventListener('click', function() {
-                const journalEntry = document.querySelector('.journal-entry');
+                const journalEntry = document.getElementById('journal-entry-top');
                 if (journalEntry) {
                     journalEntry.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
@@ -6173,7 +6367,7 @@
                         <h3 class="home-section-title"><i class="fas fa-filter"></i> Sélection des champs</h3>
                         <div class="field-selector" id="field-selector">
                             <div class="field-checkbox" data-field="spirituel">
-                                <i class="fas fa-pray"></i> Spirituel
+                                <i class="fas fa-pray"></i> Activités spirituelles
                             </div>
                             <div class="field-checkbox" data-field="bilan">
                                 <i class="fas fa-chart-line"></i> Bilan personnel
@@ -6192,6 +6386,54 @@
                             </div>
                             <div class="field-checkbox" data-field="collation-pm">
                                 <i class="fas fa-moon"></i> Collation PM
+                            </div>
+                            <div class="field-checkbox" data-field="sommeil">
+                                <i class="fas fa-moon"></i> Sommeil
+                            </div>
+                            <div class="field-checkbox" data-field="matin">
+                                <i class="fas fa-sun"></i> Au matin
+                            </div>
+                            <div class="field-checkbox" data-field="alimentation">
+                                <i class="fas fa-utensils"></i> Alimentation
+                            </div>
+                            <div class="field-checkbox" data-field="travail">
+                                <i class="fas fa-briefcase"></i> Travail
+                            </div>
+                            <div class="field-checkbox" data-field="lecture">
+                                <i class="fas fa-book-reader"></i> Lecture
+                            </div>
+                            <div class="field-checkbox" data-field="activites">
+                                <i class="fas fa-list-alt"></i> Autres activités
+                            </div>
+                            <div class="field-checkbox" data-field="physique">
+                                <i class="fas fa-running"></i> Activité physique
+                            </div>
+                            <div class="field-checkbox" data-field="menagere">
+                                <i class="fas fa-broom"></i> Ménagère
+                            </div>
+                            <div class="field-checkbox" data-field="programme">
+                                <i class="fas fa-calendar-check"></i> Programme
+                            </div>
+                            <div class="field-checkbox" data-field="nyako">
+                                <i class="fas fa-user"></i> Ny Ako
+                            </div>
+                            <div class="field-checkbox" data-field="finance">
+                                <i class="fas fa-money-bill-wave"></i> Finance
+                            </div>
+                            <div class="field-checkbox" data-field="deplacement">
+                                <i class="fas fa-car"></i> Déplacement
+                            </div>
+                            <div class="field-checkbox" data-field="relation">
+                                <i class="fas fa-comments"></i> Relation & Comm
+                            </div>
+                            <div class="field-checkbox" data-field="periodique">
+                                <i class="fas fa-calendar-day"></i> Périodique
+                            </div>
+                            <div class="field-checkbox" data-field="sante">
+                                <i class="fas fa-heartbeat"></i> Santé
+                            </div>
+                            <div class="field-checkbox" data-field="poids">
+                                <i class="fas fa-weight-scale"></i> Poids
                             </div>
                         </div>
                     </div>
@@ -6220,11 +6462,11 @@
                         <div id="custom-date-range" style="display: none; margin-top: 10px;">
                             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                                 <div>
-                                    <label style="font-size: 0.9rem; color: #8a6d3b; margin-bottom: 5px; display: block;">Du :</label>
+                                    <label style="font-size: 0.9rem; color: #e91e63; margin-bottom: 5px; display: block;">Du :</label>
                                     <input type="date" id="date-start" class="date-input">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.9rem; color: #8a6d3b; margin-bottom: 5px; display: block;">Au :</label>
+                                    <label style="font-size: 0.9rem; color: #e91e63; margin-bottom: 5px; display: block;">Au :</label>
                                     <input type="date" id="date-end" class="date-input">
                                 </div>
                             </div>
@@ -6348,9 +6590,20 @@
                     
                     switch (field) {
                         case 'spirituel':
-                            fieldLabel = 'Spirituel';
+                            fieldLabel = 'Activités spirituelles';
                             const texteMedite = entry.rawData[normalizeKey("Texte medité")];
                             const retenuMeditation = entry.rawData[normalizeKey("Ce que j'ai retenu aujourd'hui dans la méditation")];
+                            const activitesSpirituelles = entry.groupedData.activite_spirituel;
+                            
+                            if (activitesSpirituelles && activitesSpirituelles.length > 0) {
+                                activitesSpirituelles.forEach((item, index) => {
+                                    if (item.value && item.value.trim() !== '') {
+                                        const match = item.header.match(/\[([^\]]+)\]/);
+                                        const activityName = match ? match[1] : `Activité ${index + 1}`;
+                                        fieldContent += `<div><strong>${activityName}:</strong> ${formatValue(item.value)}</div>`;
+                                    }
+                                });
+                            }
                             
                             if (texteMedite) {
                                 fieldContent += `<div><strong>Texte médité:</strong> ${formatValue(texteMedite)}</div>`;
@@ -6364,12 +6617,16 @@
                             fieldLabel = 'Bilan personnel';
                             const pensees = entry.rawData[normalizeKey("Mes pensées et analyse du jour")];
                             const lecons = entry.rawData[normalizeKey("Leçons du jour")];
+                            const deroulement = entry.rawData[normalizeKey("Déroulement journée")];
                             
                             if (pensees) {
                                 fieldContent += `<div><strong>Pensées et analyse:</strong> ${formatValue(pensees)}</div>`;
                             }
                             if (lecons) {
                                 fieldContent += `<div><strong>Leçons du jour:</strong> ${formatValue(lecons)}</div>`;
+                            }
+                            if (deroulement) {
+                                fieldContent += `<div><strong>Déroulement journée:</strong> ${formatValue(deroulement)}</div>`;
                             }
                             break;
                             
@@ -6412,11 +6669,72 @@
                                 fieldContent += `<div>${formatValue(collationPM)}</div>`;
                             }
                             break;
+                            
+                        case 'sommeil':
+                            fieldLabel = 'Sommeil';
+                            const reveil = entry.rawData[normalizeKey("Heure de réveil")];
+                            const coucher = entry.rawData[normalizeKey("Heure de coucher")];
+                            const qualite = entry.rawData[normalizeKey("Qualité de sommeil la veille")];
+                            
+                            if (reveil) fieldContent += `<div><strong>Réveil:</strong> ${reveil}</div>`;
+                            if (coucher) fieldContent += `<div><strong>Coucher:</strong> ${coucher}</div>`;
+                            if (qualite) fieldContent += `<div><strong>Qualité:</strong> ${qualite}</div>`;
+                            break;
+                            
+                        case 'matin':
+                            fieldLabel = 'Au matin';
+                            const auReveil = entry.groupedData.au_reveil;
+                            const misAuPoint = entry.rawData[normalizeKey("Mis au point")];
+                            
+                            if (auReveil && auReveil.length > 0) {
+                                auReveil.forEach((item, index) => {
+                                    if (item.value && item.value.trim() !== '') {
+                                        fieldContent += `<div>${index + 1}- ${formatValue(item.value)}</div>`;
+                                    }
+                                });
+                            }
+                            if (misAuPoint) {
+                                fieldContent += `<div><strong>Mis au point:</strong> ${formatValue(misAuPoint)}</div>`;
+                            }
+                            break;
+                            
+                        default:
+                            // Pour les autres sections, afficher les principaux champs
+                            const sectionKey = normalizeKey(field);
+                            fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                            
+                            // Chercher les principaux champs de cette section
+                            const mainFields = {
+                                'alimentation': ['Petit déjeuner', 'Déjeuner', 'Dîner', 'Collation AM', 'Collation PM'],
+                                'travail': ['Type', 'Contenu', 'Heure Travail'],
+                                'lecture': ['type de lecture', 'Titre', 'Détails lecture'],
+                                'activites': ['Occupation', 'Activité extra'],
+                                'physique': ['Activité physique', 'Durée activité physique'],
+                                'menagere': ['Durée activités ménagère'],
+                                'programme': ['Pro avec des amis', 'Avec la famille', 'Evenement special / Fête'],
+                                'nyako': ['Programme avec ny ako'],
+                                'finance': ['Dépenses en nourriture', 'Entrée espèce'],
+                                'deplacement': ['Lieux du jour', 'Moyen de locomotion'],
+                                'relation': ['Famille interaction', 'Rencontre du jour', 'Relation avec mmr'],
+                                'periodique': ['Monstruation'],
+                                'sante': ['Lavage', 'Maladie', 'Santé'],
+                                'poids': ['Poids', 'Tour de taille']
+                            };
+                            
+                            if (mainFields[field]) {
+                                mainFields[field].forEach(subField => {
+                                    const key = normalizeKey(subField);
+                                    if (entry.rawData[key]) {
+                                        fieldContent += `<div><strong>${subField}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                                    }
+                                });
+                            }
+                            break;
                     }
                     
                     if (fieldContent) {
                         resultsHTML += `<div class="result-content-home">
-                            <div style="font-weight: 600; color: #8a6d3b; margin-bottom: 3px;">${fieldLabel}:</div>
+                            <div style="font-weight: 600; color: #e91e63; margin-bottom: 3px;">${fieldLabel}:</div>
                             ${fieldContent}
                         </div>`;
                     }
@@ -6433,7 +6751,7 @@
         }
         
         // Initialiser la recherche
-        document.addEventListener('DOMContentLoaded', function() {
+        function initializeSearch() {
             setTimeout(() => {
                 if (journalData.length > 0) {
                     buildSearchIndex();
@@ -6553,10 +6871,16 @@
             const backToTopBtn = document.getElementById('back-to-top-btn');
             backToTopBtn.style.opacity = '1';
             backToTopBtn.style.visibility = 'visible';
-        });
+        }
         
-        // Charger les données au démarrage
-        document.addEventListener('DOMContentLoaded', loadJournalData);
+        // Initialiser le journal après le mot de passe
+        function initializeJournal() {
+            loadJournalData();
+            initializeSearch();
+        }
+        
+        // Charger les données au démarrage (maintenant après le mot de passe)
+        passwordInput.focus();
         
     </script>
 </body>
