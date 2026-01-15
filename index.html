@@ -1741,6 +1741,50 @@
             color: #e91e63;
         }
         
+        /* COULEURS DES ÉMOJIS DANS LES FICHES */
+        .section-nav-btn i,
+        .section-title i,
+        .entry-label i,
+        .compact-label i,
+        .meal-title i,
+        .meal-content-label i,
+        .compact-label-sommeil i,
+        .compact-label-sommeil,
+        .menstruation-emoji,
+        .emoji-icon,
+        .spiritual-time::before,
+        .menagere-time i,
+        .finance-report i,
+        .prayer-status,
+        .star {
+            color: inherit !important;
+        }
+        
+        /* ÉMOJIS AVEC COULEURS CORRESPONDANTES À LEUR SECTION */
+        .section-sommeil i { color: #9c27b0 !important; }
+        .section-matin i { color: #ff9800 !important; }
+        .section-spirituel i { color: #2196f3 !important; }
+        .section-alimentation i { color: #f44336 !important; }
+        .section-travail i { color: #4caf50 !important; }
+        .section-lecture i { color: #795548 !important; }
+        .section-activites i { color: #ffc107 !important; }
+        .section-physique i { color: #009688 !important; }
+        .section-menagere i { color: #9c27b0 !important; }
+        .section-programme i { color: #ff5722 !important; }
+        .section-nyako i { color: #673ab7 !important; }
+        .section-finance i { color: #8bc34a !important; }
+        .section-deplacement i { color: #00bcd4 !important; }
+        .section-relation i { color: #ff4081 !important; }
+        .section-periodique i { color: #e91e63 !important; }
+        .section-sante i { color: #4caf50 !important; }
+        .section-poids i { color: #ff9800 !important; }
+        .section-bilan i { color: #2196f3 !important; }
+        
+        /* LES BOUTONS DE NAVIGATION GARDENT LEURS ÉMOJIS NOIRS */
+        .section-nav-btn i {
+            color: black !important;
+        }
+        
         @media (max-width: 768px) {
             * {
                 box-sizing: border-box;
@@ -2234,6 +2278,32 @@
             
             .results-container {
                 max-height: 400px;
+            }
+            
+            /* Message et appel sur une même ligne en mobile */
+            .section-relation .triple-row {
+                flex-direction: column !important;
+            }
+            
+            .section-relation .triple-item {
+                width: 100% !important;
+                margin-bottom: 5px !important;
+            }
+            
+            /* Détails comm sur une ligne en dessous */
+            .relation-message-appel {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .relation-message-appel > div {
+                width: 100%;
+            }
+            
+            .relation-details-comm {
+                margin-top: 5px;
+                width: 100%;
             }
         }
         
@@ -2864,6 +2934,43 @@
             font-size: 14px;
             display: none;
         }
+        
+        /* Styles pour le calcul de l'eau bue */
+        .eau-bue-calculation {
+            margin-top: 5px;
+            padding: 5px 8px;
+            background-color: rgba(0, 188, 212, 0.1);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #0097a7;
+            border-left: 2px solid #00bcd4;
+        }
+        
+        .eau-bue-result {
+            font-weight: 600;
+            color: #007c91;
+        }
+        
+        /* Style pour message et appel sur une même ligne */
+        .relation-message-appel {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+        
+        .relation-message-appel .triple-item {
+            flex: 1;
+        }
+        
+        .relation-details-comm {
+            margin-top: 6px;
+            width: 100%;
+        }
+        
+        /* Styles pour les champs cachés dans certaines sections */
+        .hidden-field {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -3437,6 +3544,36 @@
             }
             
             return '';
+        }
+        
+        // FONCTION POUR CALCULER L'EAU BUE
+        function calculateWaterDrunk(value) {
+            if (!value) return { lastValue: null, totalLiters: null, display: '' };
+            
+            // Chercher les motifs comme "0.33 1", "0.33 2", etc.
+            const pattern = /(\d+(?:\.\d+)?)\s+(\d+)/g;
+            const matches = [...value.matchAll(pattern)];
+            
+            if (matches.length === 0) {
+                return { lastValue: null, totalLiters: null, display: value };
+            }
+            
+            // Prendre la dernière valeur
+            const lastMatch = matches[matches.length - 1];
+            const quantity = parseFloat(lastMatch[1]);
+            const count = parseInt(lastMatch[2]);
+            
+            if (isNaN(quantity) || isNaN(count)) {
+                return { lastValue: null, totalLiters: null, display: value };
+            }
+            
+            const totalLiters = quantity * count;
+            
+            return {
+                lastValue: `${quantity} ${count}`,
+                totalLiters: totalLiters,
+                display: `${value}<div class="eau-bue-calculation">Dernière valeur: <span class="eau-bue-result">${quantity} ${count}</span> | Total bu: <span class="eau-bue-result">${totalLiters.toFixed(2)}L</span></div>`
+            };
         }
         
         // Fonction pour charger les données depuis Google Sheets
@@ -4426,9 +4563,10 @@
                     // Eau bue avec calcul et dernière valeur seulement
                     const eauBueKey = normalizeKey("Eau bue dans la journee");
                     if (entry.rawData[eauBueKey]) {
+                        const waterCalculation = calculateWaterDrunk(entry.rawData[eauBueKey]);
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-tint"></i> Eau bue</div>
-                            <div class="entry-value">${formatValue(entry.rawData[eauBueKey])}
+                            <div class="entry-value">${waterCalculation.display || formatValue(entry.rawData[eauBueKey])}
                         </div></div>`;
                     }
                     
@@ -5317,10 +5455,9 @@
                         </div>`;
                     }
                     
-                    // Message, Appel, Détails comm - AMÉLIORÉ POUR MOBILE
+                    // Message et Appel sur une même ligne, Détails comm sur une ligne en dessous
                     if (entry.rawData[messageKey] || entry.rawData[appelKey] || entry.rawData[detailsCommKey]) {
-                        // Sur desktop: sur une ligne
-                        entryHTML += `<div class="triple-row desktop-only">`;
+                        entryHTML += `<div class="relation-message-appel">`;
                         
                         if (entry.rawData[messageKey]) {
                             entryHTML += `<div class="triple-item">
@@ -5346,45 +5483,16 @@
                             </div>`;
                         }
                         
-                        if (entry.rawData[detailsCommKey]) {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-info-circle"></i> Détails comm</div>
-                                <div class="compact-value">${formatValue(entry.rawData[detailsCommKey])}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-info-circle"></i> Détails comm</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
                         entryHTML += `</div>`;
                         
-                        // Sur mobile: chaque champ sur sa propre ligne
-                        entryHTML += `<div class="mobile-only">`;
-                        
-                        if (entry.rawData[messageKey]) {
-                            entryHTML += `<div class="entry-row mobile-relation-row">
-                                <div class="entry-label"><i class="fas fa-sms"></i> Message</div>
-                                <div class="entry-value">${entry.rawData[messageKey]}</div>
-                            </div>`;
-                        }
-                        
-                        if (entry.rawData[appelKey]) {
-                            entryHTML += `<div class="entry-row mobile-relation-row">
-                                <div class="entry-label"><i class="fas fa-phone"></i> Appel</div>
-                                <div class="entry-value">${entry.rawData[appelKey]}</div>
-                            </div>`;
-                        }
-                        
                         if (entry.rawData[detailsCommKey]) {
-                            entryHTML += `<div class="entry-row mobile-relation-row">
-                                <div class="entry-label"><i class="fas fa-info-circle"></i> Détails comm</div>
-                                <div class="entry-value">${formatValue(entry.rawData[detailsCommKey])}</div>
+                            entryHTML += `<div class="relation-details-comm">
+                                <div class="triple-item">
+                                    <div class="compact-label"><i class="fas fa-info-circle"></i> Détails comm</div>
+                                    <div class="compact-value">${formatValue(entry.rawData[detailsCommKey])}</div>
+                                </div>
                             </div>`;
                         }
-                        
-                        entryHTML += `</div>`;
                     }
                     
                     entryHTML += `</div>`;
