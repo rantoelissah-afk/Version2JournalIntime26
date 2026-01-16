@@ -763,13 +763,40 @@
             color: #666;
         }
         
-        /* Couleurs spécifiques pour les éléments demandés */
-        .pensees-analyse {
-            color: #ff9800 !important;
+        /* NOUVELLE COULEUR VERT POMME pour cadeau reçu, texte médité et retenu */
+        .cadeau-recu {
+            color: #4CAF50 !important; /* Vert pomme */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 500 !important;
+            background-color: rgba(76, 175, 80, 0.1) !important;
+            padding: 6px 10px !important;
+            border-radius: 5px !important;
+            border: 1px solid rgba(76, 175, 80, 0.3) !important;
         }
         
-        .cadeau-recu {
-            color: #2196f3 !important;
+        .texte-medite {
+            color: #4CAF50 !important; /* Vert pomme */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 500 !important;
+            background-color: rgba(76, 175, 80, 0.1) !important;
+            padding: 6px 10px !important;
+            border-radius: 5px !important;
+            border: 1px solid rgba(76, 175, 80, 0.3) !important;
+        }
+        
+        .retenu-meditation {
+            color: #4CAF50 !important; /* Vert pomme */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-weight: 500 !important;
+            background-color: rgba(76, 175, 80, 0.1) !important;
+            padding: 6px 10px !important;
+            border-radius: 5px !important;
+            border: 1px solid rgba(76, 175, 80, 0.3) !important;
+        }
+        
+        /* Couleurs spécifiques pour les autres éléments */
+        .pensees-analyse {
+            color: #ff9800 !important;
         }
         
         .occupation {
@@ -794,21 +821,6 @@
             padding: 6px 10px !important;
             border-radius: 5px !important;
             border: 1px solid #e0e0e0 !important;
-        }
-        
-        /* Texte médité et retenu de méditation en bleu */
-        .texte-medite {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-weight: 400 !important;
-            color: #2196f3 !important;
-            background-color: rgba(33, 150, 243, 0.1) !important;
-        }
-        
-        .retenu-meditation {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-weight: 400 !important;
-            color: #2196f3 !important;
-            background-color: rgba(33, 150, 243, 0.1) !important;
         }
         
         .entry-value a {
@@ -1741,7 +1753,7 @@
             color: #e91e63;
         }
         
-        /* COULEURS DES ÉMOJIS DANS LES FICHES */
+        /* COULEURS DES ÉMOJIS DANS LES FICHES - MODIFIÉ: les émojis gardent leur couleur d'origine */
         .section-nav-btn i,
         .section-title i,
         .entry-label i,
@@ -1759,26 +1771,6 @@
         .star {
             color: inherit !important;
         }
-        
-        /* ÉMOJIS AVEC COULEURS CORRESPONDANTES À LEUR SECTION */
-        .section-sommeil i { color: #9c27b0 !important; }
-        .section-matin i { color: #ff9800 !important; }
-        .section-spirituel i { color: #2196f3 !important; }
-        .section-alimentation i { color: #f44336 !important; }
-        .section-travail i { color: #4caf50 !important; }
-        .section-lecture i { color: #795548 !important; }
-        .section-activites i { color: #ffc107 !important; }
-        .section-physique i { color: #009688 !important; }
-        .section-menagere i { color: #9c27b0 !important; }
-        .section-programme i { color: #ff5722 !important; }
-        .section-nyako i { color: #673ab7 !important; }
-        .section-finance i { color: #8bc34a !important; }
-        .section-deplacement i { color: #00bcd4 !important; }
-        .section-relation i { color: #ff4081 !important; }
-        .section-periodique i { color: #e91e63 !important; }
-        .section-sante i { color: #4caf50 !important; }
-        .section-poids i { color: #ff9800 !important; }
-        .section-bilan i { color: #2196f3 !important; }
         
         /* LES BOUTONS DE NAVIGATION GARDENT LEURS ÉMOJIS NOIRS */
         .section-nav-btn i {
@@ -2392,11 +2384,6 @@
             position: relative;
         }
         
-        .floating-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        }
-        
         .floating-btn.tooltip {
             position: relative;
         }
@@ -2971,6 +2958,305 @@
         .hidden-field {
             display: none;
         }
+/* APERÇU PHOTOS DU JOUR - 7x7cm CHACUN */
+.photos-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 253, 245, 0.9), rgba(255, 253, 245, 0.95));
+    border-radius: 12px;
+    border: 3px solid #FFD700;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+    justify-content: center;
+}
+
+.photo-preview-item {
+    position: relative;
+    text-align: center;
+    width: 7cm; /* 7 cm de largeur */
+    height: 7cm; /* 7 cm de hauteur */
+    flex-shrink: 0;
+}
+
+.photo-thumbnail-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    border: 4px solid #FFD700;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    text-decoration: none;
+}
+
+.photo-thumbnail-link:hover {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    border-color: #FFA500;
+}
+
+.photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.photo-thumbnail-link:hover .photo-thumbnail {
+    transform: scale(1.15);
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: white;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    text-align: center;
+    backdrop-filter: blur(2px);
+}
+
+.photo-thumbnail-link:hover .photo-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photo-info {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #666;
+    word-break: break-word;
+    line-height: 1.3;
+    padding: 0 5px;
+    font-weight: 500;
+}
+
+/* MODAL PHOTO */
+.photo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    max-width: 95%;
+    max-height: 95%;
+    position: relative;
+    text-align: center;
+}
+
+.modal-photo {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 3001;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-caption {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* GALLERY CONTROLS */
+.gallery-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.gallery-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    pointer-events: all;
+}
+
+.gallery-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.gallery-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* RESPONSIVE POUR PHOTOS */
+@media (max-width: 768px) {
+    .photos-preview-container {
+        gap: 15px;
+        padding: 15px;
+        margin: 15px 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .photo-preview-item {
+        width: 7cm;
+        height: 7cm;
+        flex-shrink: 0;
+        margin-bottom: 15px;
+    }
+    
+    .photo-thumbnail-link {
+        width: 7cm;
+        height: 7cm;
+        border-radius: 12px;
+        border: 3px solid #FFD700;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .photo-thumbnail-link:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: #FFA500;
+    }
+    
+    .photo-info {
+        font-size: 0.85rem;
+        margin-top: 10px;
+        line-height: 1.3;
+        color: #555;
+        text-align: center;
+        padding: 0 8px;
+        max-width: 7cm;
+        word-break: break-word;
+    }
+    
+    .photo-overlay {
+        padding: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+        backdrop-filter: blur(3px);
+    }
+    
+    .gallery-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+    
+    .close-modal {
+        top: 20px;
+        right: 20px;
+        font-size: 32px;
+        width: 45px;
+        height: 45px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        transition: background 0.3s;
+    }
+    
+    .close-modal:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .modal-caption {
+        font-size: 0.95rem;
+        max-width: 90%;
+        padding: 12px 18px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    
+    .gallery-counter {
+        bottom: 25px;
+        padding: 6px 12px;
+        font-size: 0.95rem;
+        background: rgba(0, 0, 0, 0.6);
+    }
+}
     </style>
 </head>
 <body>
@@ -3064,7 +3350,23 @@
             </section>
         </div>
     </div>
-
+    <!-- Modal pour aperçu photo -->
+    <div id="photoModal" class="photo-modal">
+        <button class="close-modal">&times;</button>
+        <div class="gallery-controls">
+            <button class="gallery-btn prev-btn" id="prevPhotoBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-btn next-btn" id="nextPhotoBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="modal-content">
+            <img class="modal-photo" id="modalPhoto" src="" alt="Photo">
+            <div class="modal-caption" id="modalCaption"></div>
+            <div class="gallery-counter" id="galleryCounter"></div>
+        </div>
+    </div>
     <script>
         // Vérification du mot de passe
         const PASSWORD = "rantou02";
@@ -3427,7 +3729,153 @@
             // Utiliser la fonction améliorée calculateDuration
             return calculateDuration(startTime, endTime);
         }
+        // Fonction pour extraire les URLs de photos
+function extractPhotoUrls(text) {
+    if (!text || typeof text !== 'string') return [];
+    
+    // Nettoyer le texte
+    let cleanText = text.trim();
+    cleanText = cleanText.replace(/["']/g, '');
+    
+    // Expressions régulières pour trouver des URLs
+    const urlPatterns = [
+        /(https?:\/\/[^\s<>"]+\.(?:jpg|jpeg|png|gif|webp|bmp|JPG|JPEG|PNG|GIF|WEBP|BMP))/gi,
+        /(https?:\/\/drive\.google\.com\/[^\s<>"]+)/gi,
+        /(https?:\/\/photos\.app\.goo\.gl\/[^\s<>"]+)/gi,
+        /(https?:\/\/[^\s<>"]+\.google\.com\/[^\s<>"]+)/gi
+    ];
+    
+    const urls = new Set();
+    
+    // Chercher avec chaque pattern
+    urlPatterns.forEach(pattern => {
+        const matches = cleanText.match(pattern);
+        if (matches) {
+            matches.forEach(url => {
+                const cleanUrl = url.replace(/[,\s;]+$/, '').trim();
+                if (cleanUrl.length > 10) {
+                    urls.add(cleanUrl);
+                }
+            });
+        }
+    });
+    
+    // Chercher les URLs entre parenthèses ou crochets
+    const bracketPattern = /\[(https?:\/\/[^\]]+)\]/g;
+    let bracketMatch;
+    while ((bracketMatch = bracketPattern.exec(cleanText)) !== null) {
+        urls.add(bracketMatch[1].trim());
+    }
+    
+    return Array.from(urls);
+}
+
+// Fonction pour générer une vignette Google Drive
+function generateDriveThumbnail(url) {
+    if (!url || typeof url !== 'string') return '';
+    
+    if (url.includes('drive.google.com')) {
+        // Fichier Google Drive
+        if (url.includes('/file/d/')) {
+            const fileId = url.split('/file/d/')[1].split('/')[0];
+            return `https://drive.google.com/thumbnail?sz=w400&id=${fileId}`;
+        }
+        // Lien direct avec id=
+        else if (url.includes('id=')) {
+            const fileId = url.split('id=')[1].split('&')[0];
+            return `https://drive.google.com/thumbnail?sz=w400&id=${fileId}`;
+        }
+        // Lien /open?id=
+        else if (url.includes('/open?id=')) {
+            const fileId = url.split('/open?id=')[1];
+            return `https://drive.google.com/thumbnail?sz=w400&id=${fileId}`;
+        }
+    }
+    
+    // Pour les autres URLs, utiliser l'URL directe
+    return url;
+}
+
+// Fonction pour déterminer le type de fichier
+function getFileType(url) {
+    if (!url) return 'unknown';
+    
+    const lowerUrl = url.toLowerCase();
+    
+    if (lowerUrl.includes('drive.google.com')) {
+        if (lowerUrl.includes('/folders/')) {
+            return 'folder';
+        }
+        return 'drive';
+    }
+    
+    if (lowerUrl.includes('.jpg') || lowerUrl.includes('.jpeg')) return 'jpg';
+    if (lowerUrl.includes('.png')) return 'png';
+    if (lowerUrl.includes('.gif')) return 'gif';
+    if (lowerUrl.includes('.webp')) return 'webp';
+    if (lowerUrl.includes('.bmp')) return 'bmp';
+    
+    return 'unknown';
+}
+
+// Fonction pour générer un aperçu de photo
+function generatePhotoPreview(photoUrls) {
+    if (!photoUrls || photoUrls.length === 0) return '';
+    
+    let html = '<div class="photos-preview-container">';
+    
+    photoUrls.forEach((url, index) => {
+        const cleanUrl = url.trim();
+        const thumbnailUrl = generateDriveThumbnail(cleanUrl);
+        const fileType = getFileType(cleanUrl);
+        const fileName = cleanUrl.split('/').pop() || `Photo ${index + 1}`;
         
+        // Pour les dossiers Google Drive
+        if (fileType === 'folder') {
+            html += `
+                <div class="photo-preview-item">
+                    <a href="${cleanUrl}" target="_blank" class="photo-thumbnail-link" title="Ouvrir le dossier Google Drive">
+                        <img src="https://img.icons8.com/color/96/000000/google-drive-folder.png" 
+                             alt="Dossier Google Drive" 
+                             class="photo-thumbnail"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/150/4CAF50/ffffff?text=📁'">
+                        <div class="photo-overlay">📁 Dossier Drive</div>
+                    </a>
+                    <div class="photo-info">Dossier ${index + 1}</div>
+                </div>
+            `;
+        }
+        // Pour les fichiers images
+        else {
+            html += `
+                <div class="photo-preview-item">
+                    <a href="${cleanUrl}" target="_blank" class="photo-thumbnail-link" 
+                       data-index="${index}" 
+                       data-url="${cleanUrl}"
+                       data-thumbnail="${thumbnailUrl}"
+                       title="${fileName}">
+                        <img src="${thumbnailUrl}" 
+                             alt="Photo ${index + 1}" 
+                             class="photo-thumbnail"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/150/cccccc/666666?text=Image'">
+                        <div class="photo-overlay">📸 Photo ${index + 1}</div>
+                    </a>
+                    <div class="photo-info">${fileName.substring(0, 20)}${fileName.length > 20 ? '...' : ''}</div>
+                </div>
+            `;
+        }
+    });
+    
+    html += '</div>';
+    
+    // Ajouter un message d'information
+    html += `<div style="font-size:0.85rem; color:#666; margin-top:10px; display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-info-circle"></i>
+                <span>${photoUrls.length} photo${photoUrls.length > 1 ? 's' : ''} - Cliquez pour agrandir</span>
+            </div>`;
+    
+    return html;
+}
         // Fonction pour extraire les montants financiers
         function extractFinancialAmounts(text) {
             if (!text) return { items: [], total: 0 };
@@ -3576,6 +4024,35 @@
             };
         }
         
+        // FONCTION POUR AJOUTER LES UNITÉS AUTOMATIQUEMENT
+        function addUnits(value, fieldName) {
+            if (!value) return '';
+            
+            let val = value.trim();
+            
+            // Si la valeur contient déjà une unité, ne rien ajouter
+            if (/\d+\s*(kg|g|cm|mm|m|l|ml|ar)$/i.test(val)) {
+                return val;
+            }
+            
+            // Pour le poids
+            if (fieldName.includes('poids') || fieldName.includes('Poids')) {
+                if (/^\d+(\.\d+)?$/.test(val)) {
+                    return val + 'kg';
+                }
+            }
+            
+            // Pour les mensurations
+            if (fieldName.includes('tour') || fieldName.includes('Tour') || 
+                fieldName.includes('mensuration') || fieldName.includes('Mensuration')) {
+                if (/^\d+(\.\d+)?$/.test(val)) {
+                    return val + 'cm';
+                }
+            }
+            
+            return val;
+        }
+        
         // Fonction pour charger les données depuis Google Sheets
         async function loadJournalData() {
             try {
@@ -3663,7 +4140,9 @@
                                 const key = normalizeKey(header);
                                 
                                 if (value !== '' && value.trim() !== '') {
-                                    entry.rawData[key] = value.trim();
+                                    // Appliquer l'ajout d'unités automatique
+                                    const processedValue = addUnits(value.trim(), header);
+                                    entry.rawData[key] = processedValue;
                                     
                                     let grouped = false;
                                     for (const [groupName, pattern] of Object.entries(columnGroups)) {
@@ -3674,7 +4153,7 @@
                                             entry.groupedData[groupName].push({
                                                 key: key,
                                                 header: header,
-                                                value: value.trim()
+                                                value: processedValue
                                             });
                                             grouped = true;
                                             break;
@@ -3688,7 +4167,7 @@
                                         entry.groupedData.other.push({
                                             key: key,
                                             header: header,
-                                            value: value.trim()
+                                            value: processedValue
                                         });
                                     }
                                 }
@@ -5706,7 +6185,7 @@
                     entryHTML += `</div>`;
                 }
                 
-                // SECTION: POIDS & MENSURATION
+                // SECTION: POIDS & MENSURATION (avec ajout automatique d'unités)
                 const poidsKey = normalizeKey("Poids");
                 const tourHancheKey = normalizeKey("Tour de hanche");
                 const tourCuissesKey = normalizeKey("Tour du haut des cuisse");
@@ -5766,9 +6245,18 @@
                 const penseesAnalyseKey = normalizeKey("Mes pensées et analyse du jour");
                 const deroulementJourneeKey = normalizeKey("Déroulement journée");
                 
+                // Déroulement journée à part
+                if (entry.rawData[deroulementJourneeKey]) {
+                    entryHTML += `<div class="entry-row">
+                        <div class="entry-label"><i class="fas fa-calendar-day"></i> DÉROULEMENT JOURNÉE</div>
+                        <div class="entry-value deroulement-journee">${formatValue(entry.rawData[deroulementJourneeKey])}</div>
+                    </div>`;
+                }
+                
                 if (entry.rawData[stressKey] || entry.rawData[difficultesKey] || entry.rawData[leconsKey] || 
                     entry.rawData[partageJourKey] || entry.rawData[rohyKey] || entry.rawData[photosKey] ||
-                    entry.rawData[penseesAnalyseKey] || entry.rawData[deroulementJourneeKey] || entry.rawData[etatKey]) {
+                    entry.rawData[penseesAnalyseKey] || entry.rawData[cadeauKey] || entry.rawData[etatKey] ||
+                    entry.rawData[erreurKey] || entry.rawData[inhabituelKey] || entry.rawData[autresChoseKey]) {
                     entryHTML += `<div class="section-bilan" id="section-bilan">`;
                     entryHTML += `<div class="section-title"><i class="fas fa-chart-line"></i> BILAN PERSONNEL DE LA JOURNEE</div>`;
                     entryHTML += `<div class="section-decoration decoration-bilan"><i class="fas fa-chart-line"></i></div>`;
@@ -5782,63 +6270,82 @@
                         {key: "Autres chose", label: "Autres choses", icon: "fa-ellipsis-h"},
                         {key: "Mes pensées et analyse du jour", label: "Mes pensées et analyse", icon: "fa-thought-bubble"},
                         {key: "Partage du jour", label: "Partage du jour", icon: "fa-comments"},
-                        {key: "Ce que j'ai reçu en cadeau aujourd'hui", label: "Cadeau reçu", icon: "fa-gift"},
+                        {key: "Ce que j'ai reçu en cadeau aujourd'hui", label: "Cadeau reçu", icon: "fa-gift", class: "cadeau-recu"},
                         {key: "Fatigue", label: "Fatigue", icon: "fa-bed"},
                         {key: "Photos du jour", label: "Photos du jour", icon: "fa-camera"},
                         {key: "rohy fiche", label: "Lien fiche", icon: "fa-link"}
                     ];
                     
                     bilanFields.forEach(field => {
-                        const fieldKey = normalizeKey(field.key);
-                        if (entry.rawData[fieldKey]) {
-                            if (field.key === "Fatigue") {
-                                const fatigueStars = createStars(entry.rawData[fieldKey]);
-                                entryHTML += `<div class="entry-row">
-                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
-                                    <div class="entry-value">${fatigueStars || entry.rawData[fieldKey]}</div>
-                                </div>`;
-                            } else if (field.key === "rohy fiche") {
-                                const urls = entry.rawData[fieldKey].match(/https?:\/\/[^\s]+/g) || [];
-                                let formattedValue = formatValue(entry.rawData[fieldKey]);
-                                urls.forEach(url => {
-                                    formattedValue = formattedValue.replace(url, `<a href="${url}" target="_blank">${url}</a>`);
-                                });
-                                entryHTML += `<div class="entry-row">
-                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
-                                    <div class="entry-value">${formattedValue}</div>
-                                </div>`;
-                            } else if (field.key === "Mes pensées et analyse du jour") {
-                                entryHTML += `<div class="entry-row">
-                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
-                                    <div class="entry-value pensees-analyse">${formatValue(entry.rawData[fieldKey])}</div>
-                                </div>`;
-                            } else if (field.key === "Ce que j'ai reçu en cadeau aujourd'hui") {
-                                entryHTML += `<div class="entry-row">
-                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
-                                    <div class="entry-value cadeau-recu">${formatValue(entry.rawData[fieldKey])}</div>
-                                </div>`;
-                            } else {
-                                entryHTML += `<div class="entry-row">
-                                    <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
-                                    <div class="entry-value">${formatValue(entry.rawData[fieldKey])}</div>
-                                </div>`;
-                            }
-                        }
-                    });
+    const fieldKey = normalizeKey(field.key);
+    if (entry.rawData[fieldKey]) {
+        if (field.key === "Fatigue") {
+            const fatigueStars = createStars(entry.rawData[fieldKey]);
+            entryHTML += `<div class="entry-row">
+                <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
+                <div class="entry-value">${fatigueStars || entry.rawData[fieldKey]}</div>
+            </div>`;
+        } else if (field.key === "rohy fiche") {
+            const urls = entry.rawData[fieldKey].match(/https?:\/\/[^\s]+/g) || [];
+            let formattedValue = formatValue(entry.rawData[fieldKey]);
+            urls.forEach(url => {
+                formattedValue = formattedValue.replace(url, `<a href="${url}" target="_blank">${url}</a>`);
+            });
+            entryHTML += `<div class="entry-row">
+                <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
+                <div class="entry-value">${formattedValue}</div>
+            </div>`;
+        } else if (field.key === "Photos du jour") {
+            // Photos du jour avec aperçu
+            const photosContent = entry.rawData[fieldKey];
+            const photoUrls = extractPhotoUrls(photosContent);
+            
+            entryHTML += `<div class="entry-row">
+                <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
+                <div class="entry-value">`;
+            
+            if (photoUrls.length > 0) {
+                // Afficher l'aperçu des photos
+                entryHTML += generatePhotoPreview(photoUrls);
+            } else {
+                // Fallback: afficher le texte original
+                entryHTML += formatValue(photosContent);
+            }
+            
+            entryHTML += `</div></div>`;
+        } else {
+            const valueClass = field.class || "";
+            entryHTML += `<div class="entry-row">
+                <div class="entry-label"><i class="fas ${field.icon}"></i> ${field.label}</div>
+                <div class="entry-value ${valueClass}">${formatValue(entry.rawData[fieldKey])}</div>
+            </div>`;
+        }
+    }
+});
                     
-                    // État mental et émotionnel (déplacé ici)
+                    // Rêve la veille (déjà dans section SOMMEIL, mais on l'ajoute si manquant)
+                    const reveKey = normalizeKey("Rêve la veille");
+                    if (entry.rawData[reveKey] && !document.querySelector('.section-sommeil .entry-row:has(.entry-label i.fa-cloud-moon)')) {
+                        entryHTML += `<div class="entry-row">
+                            <div class="entry-label"><i class="fas fa-cloud-moon"></i> Rêve la veille</div>
+                            <div class="entry-value">${formatValue(entry.rawData[reveKey])}</div>
+                        </div>`;
+                    }
+                    
+                    // Nuit la veille (déjà dans section SOMMEIL, mais on l'ajoute si manquant)
+                    const nuitKey = normalizeKey("Nuit la veille");
+                    if (entry.rawData[nuitKey] && !document.querySelector('.section-sommeil .entry-row:has(.entry-label i.fa-star)')) {
+                        entryHTML += `<div class="entry-row">
+                            <div class="entry-label"><i class="fas fa-star"></i> Nuit la veille</div>
+                            <div class="entry-value">${formatValue(entry.rawData[nuitKey])}</div>
+                        </div>`;
+                    }
+                    
+                    // État mental et émotionnel
                     if (entry.rawData[etatKey]) {
                         entryHTML += `<div class="entry-row">
                             <div class="entry-label"><i class="fas fa-smile"></i> État mental/émotionnel</div>
                             <div class="entry-value">${formatValue(entry.rawData[etatKey])}</div>
-                        </div>`;
-                    }
-                    
-                    // Déroulement journée (déplacé au-dessus de État mental et émotionnel)
-                    if (entry.rawData[deroulementJourneeKey]) {
-                        entryHTML += `<div class="entry-row">
-                            <div class="entry-label"><i class="fas fa-chart-line"></i> Déroulement journée</div>
-                            <div class="entry-value deroulement-journee">${formatValue(entry.rawData[deroulementJourneeKey])}</div>
                         </div>`;
                     }
                     
@@ -5864,7 +6371,7 @@
                 entryHTML += '</div></div>';
                 journalDisplay.innerHTML = entryHTML;
                 
-                // Scroll vers le haut de la fiche - CORRIGÉ
+                // Scroll vers le haut de la fiche
                 setTimeout(() => {
                     const journalEntry = document.getElementById('journal-entry-top');
                     if (journalEntry) {
@@ -6040,7 +6547,7 @@
                 calendarHTML += `
                     <div class="${dayClass}" data-date="${dateKey}">
                         ${i}
-                        ${weight ? `<div class="day-weight">${weight}kg</div>` : ''}
+                        ${weight ? `<div class="day-weight">${weight}</div>` : ''}
                         ${hasMenstruation ? `<div class="day-menstruation">🩸</div>` : ''}
                     </div>
                 `;
@@ -6111,7 +6618,7 @@
             
             document.querySelector('.calendar-nav').appendChild(todayBtn);
             
-            // Gestion du bouton pour remonter en haut - CORRIGÉ
+            // Gestion du bouton pour remonter en haut
             const backToTopBtn = document.getElementById('back-to-top-btn');
             
             backToTopBtn.addEventListener('click', function() {
@@ -6475,73 +6982,28 @@
                         <h3 class="home-section-title"><i class="fas fa-filter"></i> Sélection des champs</h3>
                         <div class="field-selector" id="field-selector">
                             <div class="field-checkbox" data-field="spirituel">
-                                <i class="fas fa-pray"></i> Activités spirituelles
+                                <i class="fas fa-pray"></i> Spirituel
                             </div>
                             <div class="field-checkbox" data-field="bilan">
                                 <i class="fas fa-chart-line"></i> Bilan personnel
                             </div>
-                            <div class="field-checkbox" data-field="petit-dejeuner">
-                                <i class="fas fa-coffee"></i> Petit déjeuner
-                            </div>
-                            <div class="field-checkbox" data-field="dejeuner">
-                                <i class="fas fa-utensil-spoon"></i> Déjeuner
-                            </div>
-                            <div class="field-checkbox" data-field="diner">
-                                <i class="fas fa-dinner"></i> Dîner
-                            </div>
-                            <div class="field-checkbox" data-field="collation-am">
-                                <i class="fas fa-sun"></i> Collation AM
-                            </div>
-                            <div class="field-checkbox" data-field="collation-pm">
-                                <i class="fas fa-moon"></i> Collation PM
-                            </div>
-                            <div class="field-checkbox" data-field="sommeil">
-                                <i class="fas fa-moon"></i> Sommeil
-                            </div>
-                            <div class="field-checkbox" data-field="matin">
-                                <i class="fas fa-sun"></i> Au matin
-                            </div>
-                            <div class="field-checkbox" data-field="alimentation">
-                                <i class="fas fa-utensils"></i> Alimentation
-                            </div>
-                            <div class="field-checkbox" data-field="travail">
-                                <i class="fas fa-briefcase"></i> Travail
-                            </div>
-                            <div class="field-checkbox" data-field="lecture">
-                                <i class="fas fa-book-reader"></i> Lecture
-                            </div>
-                            <div class="field-checkbox" data-field="activites">
-                                <i class="fas fa-list-alt"></i> Autres activités
-                            </div>
-                            <div class="field-checkbox" data-field="physique">
-                                <i class="fas fa-running"></i> Activité physique
-                            </div>
-                            <div class="field-checkbox" data-field="menagere">
-                                <i class="fas fa-broom"></i> Ménagère
-                            </div>
-                            <div class="field-checkbox" data-field="programme">
-                                <i class="fas fa-calendar-check"></i> Programme
-                            </div>
-                            <div class="field-checkbox" data-field="nyako">
-                                <i class="fas fa-user"></i> Ny Ako
-                            </div>
                             <div class="field-checkbox" data-field="finance">
                                 <i class="fas fa-money-bill-wave"></i> Finance
                             </div>
-                            <div class="field-checkbox" data-field="deplacement">
-                                <i class="fas fa-car"></i> Déplacement
-                            </div>
-                            <div class="field-checkbox" data-field="relation">
-                                <i class="fas fa-comments"></i> Relation & Comm
-                            </div>
-                            <div class="field-checkbox" data-field="periodique">
-                                <i class="fas fa-calendar-day"></i> Périodique
+                            <div class="field-checkbox" data-field="poids">
+                                <i class="fas fa-weight-scale"></i> Poids & Mensurations
                             </div>
                             <div class="field-checkbox" data-field="sante">
                                 <i class="fas fa-heartbeat"></i> Santé
                             </div>
-                            <div class="field-checkbox" data-field="poids">
-                                <i class="fas fa-weight-scale"></i> Poids
+                            <div class="field-checkbox" data-field="alimentation">
+                                <i class="fas fa-utensils"></i> Alimentation
+                            </div>
+                            <div class="field-checkbox" data-field="relation">
+                                <i class="fas fa-comments"></i> Relation
+                            </div>
+                            <div class="field-checkbox" data-field="periodique">
+                                <i class="fas fa-calendar-day"></i> Périodique
                             </div>
                         </div>
                     </div>
@@ -6698,145 +7160,188 @@
                     
                     switch (field) {
                         case 'spirituel':
-                            fieldLabel = 'Activités spirituelles';
-                            const texteMedite = entry.rawData[normalizeKey("Texte medité")];
-                            const retenuMeditation = entry.rawData[normalizeKey("Ce que j'ai retenu aujourd'hui dans la méditation")];
-                            const activitesSpirituelles = entry.groupedData.activite_spirituel;
+                            fieldLabel = 'SPIRITUEL';
+                            const spirituelFields = [
+                                {key: "Texte medité", label: "Texte médité"},
+                                {key: "Ce que j'ai retenu aujourd'hui dans la méditation", label: "Retenu de la méditation"},
+                                {key: "Résolution du jour/décision", label: "Résolution du jour/décision"},
+                                {key: "Fampianarana biblique du jour", label: "Fampianarana biblique du jour"},
+                                {key: "Autres méditation du jour", label: "Autres méditation du jour"},
+                                {key: "Leçon spirituelle du jour", label: "Leçon spirituelle du jour"},
+                                {key: "Partage spirituel", label: "Partage spirituel"},
+                                {key: "Sujet de Louange,reconnaissance", label: "Sujet de Louange,reconnaissance"},
+                                {key: "Intercession", label: "Intercession"},
+                                {key: "Détails intercession", label: "Détails intercession"}
+                            ];
                             
-                            if (activitesSpirituelles && activitesSpirituelles.length > 0) {
-                                activitesSpirituelles.forEach((item, index) => {
-                                    if (item.value && item.value.trim() !== '') {
-                                        const match = item.header.match(/\[([^\]]+)\]/);
-                                        const activityName = match ? match[1] : `Activité ${index + 1}`;
-                                        fieldContent += `<div><strong>${activityName}:</strong> ${formatValue(item.value)}</div>`;
-                                    }
-                                });
-                            }
-                            
-                            if (texteMedite) {
-                                fieldContent += `<div><strong>Texte médité:</strong> ${formatValue(texteMedite)}</div>`;
-                            }
-                            if (retenuMeditation) {
-                                fieldContent += `<div><strong>Retenu méditation:</strong> ${formatValue(retenuMeditation)}</div>`;
-                            }
+                            spirituelFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    const valueClass = subField.key.includes("Texte medité") || subField.key.includes("retenu") ? 
+                                        (subField.key.includes("Texte medité") ? "texte-medite" : "retenu-meditation") : "";
+                                    fieldContent += `<div><strong>${subField.label}:</strong> <span class="${valueClass}">${formatValue(entry.rawData[key])}</span></div>`;
+                                }
+                            });
                             break;
                             
                         case 'bilan':
-                            fieldLabel = 'Bilan personnel';
-                            const pensees = entry.rawData[normalizeKey("Mes pensées et analyse du jour")];
-                            const lecons = entry.rawData[normalizeKey("Leçons du jour")];
-                            const deroulement = entry.rawData[normalizeKey("Déroulement journée")];
+                            fieldLabel = 'BILAN PERSONNEL';
+                            const bilanFields = [
+                                {key: "Stress ressenti, pensée dominante, quelque chose de positif aujourd'hui", label: "Stress/positif du jour"},
+                                {key: "Difficultés rencontrées", label: "Difficultés rencontrées"},
+                                {key: "Erreur à ne pas répéter", label: "Erreur à ne pas répéter"},
+                                {key: "Leçons du jour", label: "Leçons du jour"},
+                                {key: "Inhabituel", label: "Inhabituel"},
+                                {key: "Rêve la veille", label: "Rêve la veille"},
+                                {key: "Nuit la veille", label: "Nuit la veille"},
+                                {key: "Mes pensées et analyse du jour", label: "Mes pensées et analyse"},
+                                {key: "Partage du jour", label: "Partage du jour"},
+                                {key: "Ce que j'ai reçu en cadeau aujourd'hui", label: "Cadeau reçu", class: "cadeau-recu"},
+                                {key: "Etat mental et emotionnel", label: "État mental et émotionnel"},
+                                {key: "Fatigue", label: "Fatigue"},
+                                {key: "Photos du jour", label: "Photos du jour"}
+                            ];
                             
-                            if (pensees) {
-                                fieldContent += `<div><strong>Pensées et analyse:</strong> ${formatValue(pensees)}</div>`;
-                            }
-                            if (lecons) {
-                                fieldContent += `<div><strong>Leçons du jour:</strong> ${formatValue(lecons)}</div>`;
-                            }
-                            if (deroulement) {
-                                fieldContent += `<div><strong>Déroulement journée:</strong> ${formatValue(deroulement)}</div>`;
-                            }
-                            break;
-                            
-                        case 'petit-dejeuner':
-                            fieldLabel = 'Petit déjeuner';
-                            const petitDej = entry.rawData[normalizeKey("Petit déjeuner")];
-                            if (petitDej) {
-                                fieldContent += `<div>${formatValue(petitDej)}</div>`;
-                            }
-                            break;
-                            
-                        case 'dejeuner':
-                            fieldLabel = 'Déjeuner';
-                            const dej = entry.rawData[normalizeKey("Déjeuner")];
-                            if (dej) {
-                                fieldContent += `<div>${formatValue(dej)}</div>`;
-                            }
-                            break;
-                            
-                        case 'diner':
-                            fieldLabel = 'Dîner';
-                            const diner = entry.rawData[normalizeKey("Dîner")];
-                            if (diner) {
-                                fieldContent += `<div>${formatValue(diner)}</div>`;
-                            }
-                            break;
-                            
-                        case 'collation-am':
-                            fieldLabel = 'Collation AM';
-                            const collationAM = entry.rawData[normalizeKey("Collation AM")];
-                            if (collationAM) {
-                                fieldContent += `<div>${formatValue(collationAM)}</div>`;
-                            }
-                            break;
-                            
-                        case 'collation-pm':
-                            fieldLabel = 'Collation PM';
-                            const collationPM = entry.rawData[normalizeKey("Collation PM")];
-                            if (collationPM) {
-                                fieldContent += `<div>${formatValue(collationPM)}</div>`;
-                            }
-                            break;
-                            
-                        case 'sommeil':
-                            fieldLabel = 'Sommeil';
-                            const reveil = entry.rawData[normalizeKey("Heure de réveil")];
-                            const coucher = entry.rawData[normalizeKey("Heure de coucher")];
-                            const qualite = entry.rawData[normalizeKey("Qualité de sommeil la veille")];
-                            
-                            if (reveil) fieldContent += `<div><strong>Réveil:</strong> ${reveil}</div>`;
-                            if (coucher) fieldContent += `<div><strong>Coucher:</strong> ${coucher}</div>`;
-                            if (qualite) fieldContent += `<div><strong>Qualité:</strong> ${qualite}</div>`;
-                            break;
-                            
-                        case 'matin':
-                            fieldLabel = 'Au matin';
-                            const auReveil = entry.groupedData.au_reveil;
-                            const misAuPoint = entry.rawData[normalizeKey("Mis au point")];
-                            
-                            if (auReveil && auReveil.length > 0) {
-                                auReveil.forEach((item, index) => {
-                                    if (item.value && item.value.trim() !== '') {
-                                        fieldContent += `<div>${index + 1}- ${formatValue(item.value)}</div>`;
+                            bilanFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    const valueClass = subField.class || "";
+                                    if (subField.key === "Fatigue") {
+                                        const fatigueStars = createStars(entry.rawData[key]);
+                                        fieldContent += `<div><strong>${subField.label}:</strong> ${fatigueStars || entry.rawData[key]}</div>`;
+                                    } else {
+                                        fieldContent += `<div><strong>${subField.label}:</strong> <span class="${valueClass}">${formatValue(entry.rawData[key])}</span></div>`;
                                     }
-                                });
-                            }
-                            if (misAuPoint) {
-                                fieldContent += `<div><strong>Mis au point:</strong> ${formatValue(misAuPoint)}</div>`;
-                            }
+                                }
+                            });
                             break;
                             
-                        default:
-                            // Pour les autres sections, afficher les principaux champs
-                            const sectionKey = normalizeKey(field);
-                            fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                        case 'finance':
+                            fieldLabel = 'FINANCE';
+                            const financeFields = [
+                                {key: "Dépenses en nourriture", label: "Dépenses en nourriture"},
+                                {key: "Achats autres", label: "Achats autres"},
+                                {key: "Achats matériel(+-durable)", label: "Achats matériel"},
+                                {key: "Frais divers", label: "Frais divers"},
+                                {key: "Frais travail", label: "Frais travail"},
+                                {key: "Autres depenses non achat du jour", label: "Autres dépenses"},
+                                {key: "Entrée espèce", label: "Entrée espèce"},
+                                {key: "Source entrée", label: "Source entrée"}
+                            ];
                             
-                            // Chercher les principaux champs de cette section
-                            const mainFields = {
-                                'alimentation': ['Petit déjeuner', 'Déjeuner', 'Dîner', 'Collation AM', 'Collation PM'],
-                                'travail': ['Type', 'Contenu', 'Heure Travail'],
-                                'lecture': ['type de lecture', 'Titre', 'Détails lecture'],
-                                'activites': ['Occupation', 'Activité extra'],
-                                'physique': ['Activité physique', 'Durée activité physique'],
-                                'menagere': ['Durée activités ménagère'],
-                                'programme': ['Pro avec des amis', 'Avec la famille', 'Evenement special / Fête'],
-                                'nyako': ['Programme avec ny ako'],
-                                'finance': ['Dépenses en nourriture', 'Entrée espèce'],
-                                'deplacement': ['Lieux du jour', 'Moyen de locomotion'],
-                                'relation': ['Famille interaction', 'Rencontre du jour', 'Relation avec mmr'],
-                                'periodique': ['Monstruation'],
-                                'sante': ['Lavage', 'Maladie', 'Santé'],
-                                'poids': ['Poids', 'Tour de taille']
-                            };
+                            financeFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    fieldContent += `<div><strong>${subField.label}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                                }
+                            });
+                            break;
                             
-                            if (mainFields[field]) {
-                                mainFields[field].forEach(subField => {
-                                    const key = normalizeKey(subField);
-                                    if (entry.rawData[key]) {
-                                        fieldContent += `<div><strong>${subField}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                        case 'poids':
+                            fieldLabel = 'POIDS & MENSURATIONS';
+                            const poidsFields = [
+                                {key: "Poids", label: "Poids"},
+                                {key: "Tour de hanche", label: "Tour de hanche"},
+                                {key: "Tour du haut des cuisse", label: "Tour haut cuisses"},
+                                {key: "Tour de jambe", label: "Tour de jambe"},
+                                {key: "Tour de taille", label: "Tour de taille"},
+                                {key: "Tour de ventre", label: "Tour de ventre"},
+                                {key: "Tour de poitrine", label: "Tour de poitrine"},
+                                {key: "Tour de bras", label: "Tour de bras"}
+                            ];
+                            
+                            poidsFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    fieldContent += `<div><strong>${subField.label}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                                }
+                            });
+                            break;
+                            
+                        case 'sante':
+                            fieldLabel = 'SANTÉ';
+                            const santeFields = [
+                                {key: "Lavage", label: "Lavage"},
+                                {key: "Extra", label: "Extra"},
+                                {key: "Bijou inhabituel", label: "Bijou inhabituel"},
+                                {key: "Details soin du jour", label: "Détails soin"},
+                                {key: "Maladie", label: "Maladie"},
+                                {key: "Suivi santé", label: "Suivi santé"},
+                                {key: "Santé", label: "Santé"}
+                            ];
+                            
+                            santeFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    fieldContent += `<div><strong>${subField.label}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                                }
+                            });
+                            break;
+                            
+                        case 'alimentation':
+                            fieldLabel = 'ALIMENTATION';
+                            const alimentationFields = [
+                                {key: "Petit déjeuner", label: "Petit déjeuner"},
+                                {key: "Déjeuner", label: "Déjeuner"},
+                                {key: "Dîner", label: "Dîner"},
+                                {key: "Eau bue dans la journee", label: "Eau bue"},
+                                {key: "Collation AM", label: "Collation AM"},
+                                {key: "Collation PM", label: "Collation PM"}
+                            ];
+                            
+                            alimentationFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    if (subField.key === "Eau bue dans la journee") {
+                                        const waterCalculation = calculateWaterDrunk(entry.rawData[key]);
+                                        fieldContent += `<div><strong>${subField.label}:</strong> ${waterCalculation.display || formatValue(entry.rawData[key])}</div>`;
+                                    } else {
+                                        fieldContent += `<div><strong>${subField.label}:</strong> ${formatValue(entry.rawData[key])}</div>`;
                                     }
-                                });
-                            }
+                                }
+                            });
+                            break;
+                            
+                        case 'relation':
+                            fieldLabel = 'RELATION';
+                            const relationFields = [
+                                {key: "Famille interaction", label: "Interaction famille"},
+                                {key: "Rencontre du jour", label: "Rencontre du jour"},
+                                {key: "Relation avec mmr", label: "Relation avec mmr"},
+                                {key: "Discussion en réseau/sms/mail du jour", label: "Discussions réseau"},
+                                {key: "Message", label: "Message"},
+                                {key: "Appel", label: "Appel"},
+                                {key: "Détails comm", label: "Détails comm"}
+                            ];
+                            
+                            relationFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    fieldContent += `<div><strong>${subField.label}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                                }
+                            });
+                            break;
+                            
+                        case 'periodique':
+                            fieldLabel = 'PÉRIODIQUE';
+                            const periodiqueFields = [
+                                {key: "Lavage oreille", label: "Lavage oreille"},
+                                {key: "Detartrage", label: "Détartrage"},
+                                {key: "Bilan santé", label: "Bilan santé"},
+                                {key: "Nettoyage", label: "Nettoyage"},
+                                {key: "Lunette", label: "Lunette"},
+                                {key: "Details lunette", label: "Détails lunette"},
+                                {key: "Anti parasite", label: "Anti parasite"},
+                                {key: "Jirama", label: "Jirama"},
+                                {key: "Crédit", label: "Crédit"}
+                            ];
+                            
+                            periodiqueFields.forEach(subField => {
+                                const key = normalizeKey(subField.key);
+                                if (entry.rawData[key]) {
+                                    fieldContent += `<div><strong>${subField.label}:</strong> ${formatValue(entry.rawData[key])}</div>`;
+                                }
+                            });
                             break;
                     }
                     
@@ -6989,7 +7494,149 @@
         
         // Charger les données au démarrage (maintenant après le mot de passe)
         passwordInput.focus();
-        
+      // Galerie photo globale
+let currentPhotos = [];
+let currentPhotoIndex = 0;
+
+// Initialiser la galerie
+function initPhotoGallery() {
+    // Créer le modal s'il n'existe pas
+    if (!document.getElementById('photoModal')) {
+        const modalHTML = `
+            <div id="photoModal" class="photo-modal">
+                <button class="close-modal">&times;</button>
+                <div class="gallery-controls">
+                    <button class="gallery-btn prev-btn" id="prevPhotoBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery-btn next-btn" id="nextPhotoBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <img class="modal-photo" id="modalPhoto" src="" alt="Photo">
+                    <div class="modal-caption" id="modalCaption"></div>
+                    <div class="gallery-counter" id="galleryCounter"></div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+    
+    const photoModal = document.getElementById('photoModal');
+    const closeModal = photoModal.querySelector('.close-modal');
+    const prevBtn = document.getElementById('prevPhotoBtn');
+    const nextBtn = document.getElementById('nextPhotoBtn');
+    
+    // Fermer le modal
+    closeModal.addEventListener('click', () => {
+        photoModal.style.display = 'none';
+    });
+    
+    // Fermer en cliquant à l'extérieur
+    photoModal.addEventListener('click', (e) => {
+        if (e.target === photoModal) {
+            photoModal.style.display = 'none';
+        }
+    });
+    
+    // Fermer avec Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && photoModal.style.display === 'flex') {
+            photoModal.style.display = 'none';
+        }
+    });
+    
+    // Navigation
+    prevBtn.addEventListener('click', showPrevPhoto);
+    nextBtn.addEventListener('click', showNextPhoto);
+    
+    // Navigation clavier
+    document.addEventListener('keydown', (e) => {
+        if (photoModal.style.display === 'flex') {
+            if (e.key === 'ArrowLeft') showPrevPhoto();
+            if (e.key === 'ArrowRight') showNextPhoto();
+        }
+    });
+    
+    // Déléguation d'événements pour les aperçus photo
+    document.addEventListener('click', function(e) {
+        const thumbnailLink = e.target.closest('.photo-thumbnail-link');
+        if (thumbnailLink && thumbnailLink.dataset.url) {
+            e.preventDefault();
+            
+            // Récupérer toutes les photos de la section actuelle
+            const section = thumbnailLink.closest('.section-bilan, [class*="section-"]');
+            const allLinks = section ? 
+                Array.from(section.querySelectorAll('.photo-thumbnail-link[data-url]')) : 
+                Array.from(document.querySelectorAll('.photo-thumbnail-link[data-url]'));
+            
+            currentPhotos = allLinks.map(link => ({
+                url: link.dataset.url,
+                thumbnail: link.dataset.thumbnail,
+                title: link.title || 'Photo'
+            }));
+            
+            const clickedIndex = parseInt(thumbnailLink.dataset.index) || 0;
+            openPhotoGallery(clickedIndex);
+        }
+    });
+}
+
+// Ouvrir la galerie
+function openPhotoGallery(index) {
+    currentPhotoIndex = index;
+    const photoModal = document.getElementById('photoModal');
+    const modalPhoto = document.getElementById('modalPhoto');
+    const modalCaption = document.getElementById('modalCaption');
+    const galleryCounter = document.getElementById('galleryCounter');
+    
+    if (currentPhotos.length === 0) return;
+    
+    const currentPhoto = currentPhotos[currentPhotoIndex];
+    modalPhoto.src = currentPhoto.url;
+    modalPhoto.alt = currentPhoto.title;
+    modalCaption.textContent = currentPhoto.title;
+    galleryCounter.textContent = `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
+    
+    photoModal.style.display = 'flex';
+    
+    // Mettre à jour les boutons de navigation
+    updateGalleryButtons();
+}
+
+// Photo précédente
+function showPrevPhoto() {
+    if (currentPhotos.length === 0) return;
+    currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
+    openPhotoGallery(currentPhotoIndex);
+}
+
+// Photo suivante
+function showNextPhoto() {
+    if (currentPhotos.length === 0) return;
+    currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
+    openPhotoGallery(currentPhotoIndex);
+}
+
+// Mettre à jour les boutons de la galerie
+function updateGalleryButtons() {
+    const prevBtn = document.getElementById('prevPhotoBtn');
+    const nextBtn = document.getElementById('nextPhotoBtn');
+    
+    if (currentPhotos.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+    } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+    }
+}
+
+// Initialiser la galerie après le chargement
+document.addEventListener('DOMContentLoaded', function() {
+    initPhotoGallery();
+});  
     </script>
 </body>
 </html>
