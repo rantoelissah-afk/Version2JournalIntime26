@@ -1230,26 +1230,57 @@ h1 {
             color: black;
         }
         
-        .no-entry {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 350px;
-            color: #aaa;
-            text-align: center;
-        }
-        
-        .no-entry i {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            color: #fce4ec;
-        }
-        
-        .no-entry p {
-            font-size: 1.1rem;
-            max-width: 280px;
-        }
+      .no-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    color: white;
+    text-align: center;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 30px;
+    
+    /* PHOTO DIRECTE - pas de dégradé par-dessus */
+    background-image: url('https://lh3.googleusercontent.com/d/1yU7IksQr6TSxQe7d-e_mWh76N5MWLg4U=s2000');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 
+        inset 0 0 100px rgba(0, 0, 0, 0.3), /* Ombre intérieure pour le texte */
+        0 8px 25px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+/* Texte avec fond semi-transparent pour être lisible */
+.no-entry-content {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.no-entry i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #e91e63;
+}
+
+.no-entry h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.no-entry p {
+    color: #555;
+    line-height: 1.6;
+}
         
         .data-source {
             margin-top: 15px;
