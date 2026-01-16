@@ -55,11 +55,66 @@ body::before {
 }
         
         header {
-            background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
-            color: white;
-            padding: 25px 35px;
-            text-align: center;
-        }
+    background: linear-gradient(135deg, #e91e63 0%, #f8bbd9 100%);
+    color: white;
+    padding: 20px 25px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.header-photo {
+    width: 140px;
+    height: 160px;
+    background: white;
+    padding: 10px 10px 30px 10px;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.header-photo:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.profile-photo-header {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+/* Légende style polaroid */
+.header-photo::after {
+    content: 'Mon Journal';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.95;
+    font-weight: 300;
+    max-width: 600px;
+}
         
         h1 {
             font-size: 2.3rem;
@@ -94,14 +149,42 @@ body::before {
     padding: 25px;
     max-height: 750px;
     overflow-y: auto;
+    position: relative;
+    
+    /* SUPPRIMEZ le fond ligné et ajoutez la photo */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('https://drive.google.com/thumbnail?id=1s6f1gTMjejn51gy5mqpQ0QbgCKOG2yJx&sz=w2000');
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+/* Gardez l'effet de lignes POUR LE TEXTE seulement */
+.journal-section::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
     background-image: repeating-linear-gradient(
-        rgba(255, 255, 255, 0.8),
-        rgba(255, 255, 255, 0.8) 27px,
-        rgba(233, 30, 99, 0.08) 27px,
-        rgba(233, 30, 99, 0.08) 28px
+        transparent,
+        transparent 27px,
+        rgba(233, 30, 99, 0.05) 27px,
+        rgba(233, 30, 99, 0.05) 28px
     );
-    background-position: 0 25px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-position: 0 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Conteneur pour le contenu */
+.entry-content {
+    position: relative;
+    z-index: 2;
 }
         
         h2 {
@@ -112,12 +195,38 @@ body::before {
             font-size: 1.6rem;
         }
         
-        .calendar {
-            background-color: white;
-            border-radius: 8px;
-            padding: 18px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
+      .calendar-section {
+    flex: 1;
+    min-width: 280px;
+    padding: 25px;
+    background-color: transparent; /* Supprime le fond */
+    border-right: 1px solid rgba(240, 240, 240, 0.6);
+    
+    /* PHOTO EN FOND DE TOUTE LA SECTION CALENDRIER */
+    background-image: url('https://lh3.googleusercontent.com/d/1wOQdg0g9v4PWfiWV-5sFR3aIQW9Szzcq=s800');
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    position: relative;
+}
+
+/* Couche semi-transparente */
+.calendar-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 249, 251, 0.7);
+    z-index: 1;
+}
+
+/* Le calendrier au-dessus */
+.calendar-section > * {
+    position: relative;
+    z-index: 2;
+}
         
         .calendar-header {
             display: flex;
@@ -3497,9 +3606,22 @@ body::before {
     
     <div class="container">
         <header>
+    <div class="header-content">
+        <!-- Photo à gauche -->
+        <div class="header-photo">
+            <img src="https://drive.google.com/thumbnail?id=1ZiGtik9b0BgidR_k-YLuZj_ZarUd8-Y1&sz=w400" 
+                 alt="Ma photo" 
+                 class="profile-photo-header"
+                 onerror="this.src='https://via.placeholder.com/150/cccccc/666666?text=Photo'">
+        </div>
+        
+        <!-- Titre à droite -->
+        <div class="header-text">
             <h1><i class="fas fa-book-open"></i> Mon Journal Intime</h1>
             <p class="subtitle">Feuilleter les pages de ma vie, jour après jour</p>
-        </header>
+        </div>
+    </div>
+</header>
         
         <div class="main-content">
             <section class="calendar-section">
