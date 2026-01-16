@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Journal Intime</title>
+    <title> Ranto Journal 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
@@ -80,7 +80,28 @@ body::before {
 .header-photo:hover {
     transform: rotate(0deg) scale(1.05);
 }
+header::before {
+    content: '🌸🌼🌺🌷🌹🌻💐🌸🌼🌺🌷🌹🌻💐';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.2rem;
+    opacity: 0.3;
+    letter-spacing: 15px;
+    animation: fall 10s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
 
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(200px) rotate(360deg);
+    }
+}
 .profile-photo-header {
     width: 100%;
     height: 120px;
@@ -100,7 +121,60 @@ body::before {
     font-size: 0.8rem;
     font-family: 'Dancing Script', cursive;
 }
+/* STYLES POUR LES FLEURS DU TITRE */
 
+.flower-left, .flower-right {
+    display: inline-block;
+    font-size: 1.4rem;
+    animation: float 3s ease-in-out infinite;
+    vertical-align: middle;
+    margin: 0 15px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.flower-left {
+    animation-delay: 0s;
+}
+
+.flower-right {
+    animation-delay: 1.5s;
+}
+
+/* Animation de flottement */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+}
+
+/* Fleurs du sous-titre */
+.subtitle-flowers {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.subtitle-flowers:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.subtitle-flowers:nth-child(2) {
+    animation-delay: 1s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
 h1 {
     font-size: 2.2rem;
     margin-bottom: 10px;
@@ -3559,7 +3633,7 @@ h1 {
                 <div class="profile-overlay">📸 Cliquez pour agrandir</div>
             </a>
             <div class="profile-info">
-                <i class="fas fa-user-circle"></i> Mon Journal Intime Personnel
+                <i class="fas fa-user-circle"></i> Ranto Journal
             </div>
         </div>
         
@@ -3617,9 +3691,17 @@ h1 {
         
         <!-- Titre à droite -->
         <div class="header-text">
-            <h1><i class="fas fa-book-open"></i> Mon Journal Intime</h1>
-            <p class="subtitle">Feuilleter les pages de ma vie, jour après jour</p>
-        </div>
+    <h1>
+        <span class="flower-left">🌺🌸🌷🌼🌹🌻💐</span>
+        <i class="fas fa-book-open"></i> Ranto Journal 2026
+        <span class="flower-right">💐🌻🌹🌼🌷🌸🌺</span>
+    </h1>
+    <p class="subtitle">
+        <span class="subtitle-flowers">🌿🌱✨</span> 
+        Feuilleter les pages de ma vie, jour après jour 
+        <span class="subtitle-flowers">✨🌱🌿</span>
+    </p>
+</div>
     </div>
 </header>
         
