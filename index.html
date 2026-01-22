@@ -3315,7 +3315,66 @@ h1 {
         padding: 5px 10px;
     }
 }
-        
+ /* MODIFICATION POUR LES DURÉES DE TRANSPORT EN MOBILE */
+@media (max-width: 768px) {
+    /* Section activité physique - alignement des durées transport */
+    .section-physique .triple-row {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .section-physique .triple-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .section-physique .triple-item .compact-label {
+        min-width: 120px;
+        margin-right: 10px;
+    }
+    
+    .section-physique .triple-item .compact-value {
+        text-align: right;
+        flex-grow: 1;
+    }
+}   
+/* Styles pour les durées de transport en mobile */
+@media (max-width: 768px) {
+    .transport-durations {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+    }
+    
+    .transport-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f5f5f5;
+        padding: 10px 12px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        width: 100%;
+    }
+    
+    .transport-item .compact-label {
+        min-width: 100px;
+        margin-right: 15px;
+        font-size: 0.85rem;
+    }
+    
+    .transport-item .compact-value {
+        text-align: right;
+        flex-grow: 1;
+        font-size: 0.9rem;
+    }
+}    
         /* Styles pour le calcul de l'eau bue */
         .eau-bue-calculation {
             margin-top: 5px;
@@ -6141,16 +6200,22 @@ if (entry.rawData[heureTravailKey] || entry.rawData[dureeTravailKey]) {
                     entryHTML += `</div>`;
                 }
                 
-               // SECTION: ACTIVITE PHYSIQUE
+              // SECTION: ACTIVITE PHYSIQUE
 const activitePhysiqueKey = normalizeKey("Activité physique");
 if (entry.rawData[activitePhysiqueKey]) {
     entryHTML += `<div class="section-physique" id="section-physique">`;
     entryHTML += `<div class="section-title"><i class="fas fa-running"></i> ACTIVITE PHYSIQUE</div>`;
     entryHTML += `<div class="section-decoration decoration-physique"><i class="fas fa-running"></i></div>`;
     
+    // Activité physique avec label au-dessus
     entryHTML += `<div class="entry-row">
         <div class="entry-label"><i class="fas fa-running"></i> Activité physique</div>
-        <div class="entry-value">${formatValue(entry.rawData[activitePhysiqueKey])}</div>
+        <div class="entry-value">
+            <div style="font-weight: 600; color: #009688; margin-bottom: 8px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
+                Description de l'activité
+            </div>
+            ${formatValue(entry.rawData[activitePhysiqueKey])}
+        </div>
     </div>`;
     
     // Ligne avec Durée activité physique et Durée Debout (avec calcul automatique)
@@ -6221,69 +6286,81 @@ if (entry.rawData[tempsDeboutMatinKey] || entry.rawData[tempsAssiseKey]) {
     entryHTML += `</div>`;
 }
     
-    if (entry.rawData[dureePhysiqueKey] || entry.rawData[dureeDeboutKey]) {
-        entryHTML += `<div class="double-row">`;
-        
-        if (entry.rawData[dureePhysiqueKey]) {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
-                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureePhysiqueKey], "durée activité")}</div>
-            </div>`;
-        } else {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
-                <div class="compact-value"></div>
-            </div>`;
-        }
-        
-        if (entry.rawData[dureeDeboutKey]) {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
-                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeDeboutKey], "durée debout")}</div>
-            </div>`;
-        } else {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
-                <div class="compact-value"></div>
-            </div>`;
-        }
-        
-        entryHTML += `</div>`;
-    }
+    
     
     // Ligne avec Durée Marche Lente,normale et Durée Marche Rapide,modérée (avec calcul automatique)
-    const dureeMarcheLenteKey = normalizeKey("Durée Marche Lente,normale");
-    const dureeMarcheRapideKey = normalizeKey("Durée Marche Rapide,modérée");
+const dureeMarcheLenteKey = normalizeKey("Durée Marche Lente,normale");
+const dureeMarcheRapideKey = normalizeKey("Durée Marche Rapide,modérée");
+
+if (entry.rawData[dureeMarcheLenteKey] || entry.rawData[dureeMarcheRapideKey]) {
+    entryHTML += `<div class="double-row">`;
     
-    if (entry.rawData[dureeMarcheLenteKey] || entry.rawData[dureeMarcheRapideKey]) {
-        entryHTML += `<div class="double-row">`;
-        
-        if (entry.rawData[dureeMarcheLenteKey]) {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
-                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMarcheLenteKey], "marche lente")}</div>
-            </div>`;
-        } else {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
-                <div class="compact-value"></div>
-            </div>`;
-        }
-        
-        if (entry.rawData[dureeMarcheRapideKey]) {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
-                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMarcheRapideKey], "marche rapide")}</div>
-            </div>`;
-        } else {
-            entryHTML += `<div class="double-item">
-                <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
-                <div class="compact-value"></div>
-            </div>`;
-        }
-        
-        entryHTML += `</div>`;
+    if (entry.rawData[dureeMarcheLenteKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMarcheLenteKey], "marche lente")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
+            <div class="compact-value"></div>
+        </div>`;
     }
+    
+    if (entry.rawData[dureeMarcheRapideKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMarcheRapideKey], "marche rapide")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
+
+// NOUVELLE LIGNE : Durées en bus, voiture, moto - CHACUNE SUR SA PROPRE LIGNE
+const dureeBusKey = normalizeKey("Durée en bus");
+const dureeVoitureKey = normalizeKey("Durée en voiture");
+const dureeMotoKey = normalizeKey("Durée en moto");
+
+if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawData[dureeMotoKey]) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-bus-alt"></i> Durée transport</div>
+        <div class="entry-value">`;
+    
+    // Bus
+    if (entry.rawData[dureeBusKey]) {
+        const busDuration = calculateTotalDurationFromRanges(entry.rawData[dureeBusKey]);
+        entryHTML += `<div style="margin-bottom: 5px;">
+            <span style="font-weight: 600; color: #ffc107;">Bus:</span> 
+            <span class="duration-value">${busDuration || entry.rawData[dureeBusKey]}</span>
+        </div>`;
+    }
+    
+    // Voiture
+    if (entry.rawData[dureeVoitureKey]) {
+        const voitureDuration = calculateTotalDurationFromRanges(entry.rawData[dureeVoitureKey]);
+        entryHTML += `<div style="margin-bottom: 5px;">
+            <span style="font-weight: 600; color: #2196f3;">Voiture:</span> 
+            <span class="duration-value">${voitureDuration || entry.rawData[dureeVoitureKey]}</span>
+        </div>`;
+    }
+    
+    // Moto
+    if (entry.rawData[dureeMotoKey]) {
+        const motoDuration = calculateTotalDurationFromRanges(entry.rawData[dureeMotoKey]);
+        entryHTML += `<div style="margin-bottom: 5px;">
+            <span style="font-weight: 600; color: #ff5722;">Moto:</span> 
+            <span class="duration-value">${motoDuration || entry.rawData[dureeMotoKey]}</span>
+        </div>`;
+    }
+    
+    entryHTML += `</div></div>`;
+}
     
     // Détails activité physique
     const detailsPhysiqueKey = normalizeKey("Détails activité physique");
@@ -6673,43 +6750,28 @@ if (entry.rawData[dureeMenagereKey]) {
                         </div>`;
                     }
                     
-                    // Durées en bus, voiture, moto (avec calcul automatique)
+                   // Durées en bus, voiture, moto (avec calcul automatique) - CHACUNE SUR SA PROPRE LIGNE EN MOBILE
 if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawData[dureeMotoKey]) {
-    entryHTML += `<div class="triple-row">`;
+    entryHTML += `<div class="transport-durations">`;
     
     if (entry.rawData[dureeBusKey]) {
-        entryHTML += `<div class="triple-item">
+        entryHTML += `<div class="transport-item">
             <div class="compact-label"><i class="fas fa-bus-alt"></i> Bus</div>
             <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeBusKey], "durée bus")}</div>
-        </div>`;
-    } else {
-        entryHTML += `<div class="triple-item">
-            <div class="compact-label"><i class="fas fa-bus-alt"></i> Bus</div>
-            <div class="compact-value"></div>
         </div>`;
     }
     
     if (entry.rawData[dureeVoitureKey]) {
-        entryHTML += `<div class="triple-item">
+        entryHTML += `<div class="transport-item">
             <div class="compact-label"><i class="fas fa-car-side"></i> Voiture</div>
             <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeVoitureKey], "durée voiture")}</div>
-        </div>`;
-    } else {
-        entryHTML += `<div class="triple-item">
-            <div class="compact-label"><i class="fas fa-car-side"></i> Voiture</div>
-            <div class="compact-value"></div>
         </div>`;
     }
     
     if (entry.rawData[dureeMotoKey]) {
-        entryHTML += `<div class="triple-item">
+        entryHTML += `<div class="transport-item">
             <div class="compact-label"><i class="fas fa-motorcycle"></i> Moto</div>
             <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMotoKey], "durée moto")}</div>
-        </div>`;
-    } else {
-        entryHTML += `<div class="triple-item">
-            <div class="compact-label"><i class="fas fa-motorcycle"></i> Moto</div>
-            <div class="compact-value"></div>
         </div>`;
     }
     
