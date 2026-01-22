@@ -3013,6 +3013,7 @@ h1 {
         .fa-envelope { color: #9c27b0; }
         .fa-toothbrush { color: #00bcd4; }
         .fa-brain-circuit { color: #673ab7; }
+.fa-chair { color: #795548; }
         
         /* Cacher le message d'erreur CORS */
         .hidden {
@@ -3644,6 +3645,125 @@ h1 {
         background: rgba(0, 0, 0, 0.6);
     }
 }
+/* Styles pour les boutons d'export */
+.export-btn {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(156, 39, 176, 0.4);
+}
+
+/* Modal styles */
+.modal {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cancel-btn:hover {
+    background: #f5f5f5;
+}
+
+.confirm-btn:hover {
+    background: #f8bbd9;
+}
+/* Styles pour les raccourcis de date */
+.date-shortcut {
+    transition: all 0.2s ease;
+}
+
+.date-shortcut:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Style pour le bouton d'export principal */
+.export-btn {
+    background: linear-gradient(135deg, #e91e63, #f8bbd9);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+    background: linear-gradient(135deg, #f8bbd9, #e91e63);
+}
+
+/* Style pour les dates avec données */
+.has-entry-date {
+    background-color: #f8bbd9;
+    color: white;
+    border: 2px solid #e91e63;
+}
+/* Styles pour le bouton de copie */
+.copy-btn {
+    background: linear-gradient(135deg, #4caf50, #8bc34a) !important;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #8bc34a, #4caf50) !important;
+}
+
+/* Animation de notification */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Styles pour les liens chatbots */
+.chatbot-link {
+    transition: all 0.2s ease;
+}
+
+.chatbot-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
     </style>
 </head>
 <body>
@@ -3723,13 +3843,13 @@ h1 {
         <!-- Titre à droite -->
         <div class="header-text">
     <h1>
-        <span class="flower-left">🌹🌻💐</span>
-        <i class="fas fa-book-open"></i>     𝑅𝒶𝓃𝓉🌸 𝒥🌸𝓊𝓇𝓃𝒶𝓁 𝟤0𝟤𝟨  
-        <span class="flower-right">🌼🌷🌸🌺</span>
+        <span class="flower-left"></span>
+        <i class="fas fa-book-open"></i> RANTO _ 𝒥o𝓊𝓇𝓃𝒶𝓁 𝟤0𝟤𝟨  
+<span class="subtitle-flowers">🌺🌺</span> 
     </h1>
     <p class="subtitle">
-        <span class="subtitle-flowers">🌿</span> 
-        ꧁༺  𝕁é𝕤𝕦𝕤 𝕞𝕒 𝕍𝕚𝕖 ༻꧂
+        <span class="subtitle-flowers">🌼🌷🌺🌹🌻💐</span> 
+        ꧁༺  𝕁é𝕤𝕦𝕤 𝕞𝕒 𝕍𝕚𝕖🧡 ༻꧂
         <span class="subtitle-flowers">✨🌱🌿</span>
     </p>
 </div>
@@ -3781,6 +3901,97 @@ h1 {
                 </div>
             </section>
         </div>
+    </div>
+        <!-- Boutons pour export et copie -->
+    <div class="export-controls" style="position: fixed; bottom: 20px; right: 120px; z-index: 1000; display: flex; flex-direction: column; gap: 10px;">
+        <button class="export-btn copy-btn" id="copy-data-btn" title="Copier les données en texte brut">
+            <i class="fas fa-copy"></i> Copier Texte
+        </button>
+        <button class="export-btn" id="export-pdf-btn" title="Exporter une date en PDF">
+            <i class="fas fa-file-pdf"></i> Export PDF
+        </button>
+    </div>
+
+    <div id="date-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 30px; border-radius: 10px; max-width: 600px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+            <h3 style="color: #e91e63; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-calendar-alt"></i> Exporter ou copier une date
+            </h3>
+            
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; margin-bottom: 10px; color: #666; font-weight: 500;">Sélectionnez une date :</label>
+                <input type="date" id="export-date-input" style="width: 100%; padding: 12px; border: 2px solid #f8bbd9; border-radius: 8px; font-size: 16px; background: #fff9fb;">
+            </div>
+            
+            <div style="margin-bottom: 20px; padding: 15px; background: #f5f5f5; border-radius: 6px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                    <i class="fas fa-bolt" style="color: #ff9800;"></i>
+                    <span style="font-weight: 600; color: #333;">Raccourcis :</span>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="date-shortcut" data-days="0" style="padding: 6px 12px; background: #e91e63; color: white; border: none; border-radius: 4px; font-size: 13px; cursor: pointer;">
+                        Aujourd'hui
+                    </button>
+                    <button class="date-shortcut" data-days="-1" style="padding: 6px 12px; background: #2196f3; color: white; border: none; border-radius: 4px; font-size: 13px; cursor: pointer;">
+                        Hier
+                    </button>
+                    <button class="date-shortcut" data-days="-7" style="padding: 6px 12px; background: #4caf50; color: white; border: none; border-radius: 4px; font-size: 13px; cursor: pointer;">
+                        -7 jours
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Section pour choisir l'action -->
+            <div style="margin-bottom: 25px; padding: 15px; background: #f0f7ff; border-radius: 6px; border: 2px solid #e3f2fd;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <i class="fas fa-cogs" style="color: #2196f3;"></i>
+                    <span style="font-weight: 600; color: #333;">Action souhaitée :</span>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 8px 12px; background: white; border-radius: 6px; border: 2px solid #e91e63;">
+                        <input type="radio" name="export-action" value="pdf" checked style="accent-color: #e91e63;">
+                        <span>Générer PDF</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 8px 12px; background: white; border-radius: 6px; border: 2px solid #4caf50;">
+                        <input type="radio" name="export-action" value="copy" style="accent-color: #4caf50;">
+                        <span>Copier Texte</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Liens vers les chatbots -->
+            <div style="margin-bottom: 25px; padding: 15px; background: #fff3e0; border-radius: 6px; border: 2px solid #ff9800;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <i class="fas fa-robot" style="color: #ff9800;"></i>
+                    <span style="font-weight: 600; color: #333;">Coller dans :</span>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="https://chatgpt.com/c/695f3885-4f94-8330-905f-5f14b1f653a3" target="_blank" style="padding: 8px 12px; background: #10a37f; color: white; text-decoration: none; border-radius: 6px; font-size: 13px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fab fa-openai"></i> ChatGPT
+                    </a>
+                    <a href="https://gemini.google.com/u/1/app/798040edd7a8520d?pageId=none" target="_blank" style="padding: 8px 12px; background: #4285f4; color: white; text-decoration: none; border-radius: 6px; font-size: 13px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fab fa-google"></i> Gemini
+                    </a>
+                    <a href="https://chat.deepseek.com/a/chat/s/7b5f3404-7197-480c-bf8d-972174904391" target="_blank" style="padding: 8px 12px; background: #0d9488; color: white; text-decoration: none; border-radius: 6px; font-size: 13px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-brain"></i> DeepSeek
+                    </a>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="cancel-btn" id="cancel-export" style="padding: 10px 20px; border: 1px solid #ccc; background: white; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                    Annuler
+                </button>
+                <button class="confirm-btn" id="confirm-export" style="padding: 10px 25px; background: #e91e63; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-play"></i> Exécuter
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification de copie -->
+    <div id="copy-notification" style="display: none; position: fixed; bottom: 100px; right: 20px; background: #4caf50; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 3000; animation: slideIn 0.3s ease;">
+        <i class="fas fa-check-circle"></i> Données copiées dans le presse-papier !
     </div>
     <!-- Modal pour aperçu photo -->
     <div id="photoModal" class="photo-modal">
@@ -4751,7 +4962,90 @@ function generatePhotoPreview(photoUrls) {
             
             return date;
         }
+     // Fonction pour calculer la durée totale à partir de plages horaires multiples
+// Fonction pour calculer la durée totale à partir de plages horaires multiples
+function calculateTotalDurationFromRanges(timeString) {
+    if (!timeString) return null;
+    
+    let totalMinutes = 0;
+    
+    // Nettoyer la chaîne
+    const cleanString = timeString.trim();
+    
+    // Diviser par lignes (saut de ligne) ou points-virgules
+    const lines = cleanString.split(/[\n;]/).filter(line => line.trim() !== '');
+    
+    lines.forEach(line => {
+        const trimmedLine = line.trim();
         
+        // Chercher les plages horaires comme "7h-12h", "7h00-12h00", "7:00-12:00", "7h-12h00", etc.
+        const rangeMatch = trimmedLine.match(/(\d{1,2})(?:[:h]?(\d{0,2}))?\s*[-à]\s*(\d{1,2})(?:[:h]?(\d{0,2}))?/i);
+        
+        if (rangeMatch) {
+            // Extraire les heures et minutes de début
+            const startHour = parseInt(rangeMatch[1]) || 0;
+            const startMinute = parseInt(rangeMatch[2]) || 0;
+            
+            // Extraire les heures et minutes de fin
+            const endHour = parseInt(rangeMatch[3]) || 0;
+            const endMinute = parseInt(rangeMatch[4]) || 0;
+            
+            // Calculer les minutes totales
+            const startTotalMinutes = startHour * 60 + startMinute;
+            const endTotalMinutes = endHour * 60 + endMinute;
+            
+            // Calculer la différence
+            let diffMinutes = endTotalMinutes - startTotalMinutes;
+            
+            // Si la différence est négative, on suppose que c'est le lendemain
+            if (diffMinutes < 0) {
+                diffMinutes += 24 * 60; // Ajouter 24 heures
+            }
+            
+            totalMinutes += diffMinutes;
+            
+            console.log(`Plage: ${trimmedLine} → ${startHour}:${startMinute} à ${endHour}:${endMinute} = ${diffMinutes} min`);
+        } else {
+            // Si ce n'est pas une plage, chercher si c'est une durée simple
+            const durationMatch = trimmedLine.match(/(\d+)\s*(?:h|heure)?\s*(?:(\d+)\s*(?:min|minutes)?)?/i);
+            
+            if (durationMatch) {
+                const hours = parseInt(durationMatch[1]) || 0;
+                const minutes = parseInt(durationMatch[2]) || 0;
+                totalMinutes += hours * 60 + minutes;
+                
+                console.log(`Durée simple: ${trimmedLine} = ${hours}h${minutes}min`);
+            }
+        }
+    });
+    
+    if (totalMinutes === 0) return null;
+    
+    // Formater le résultat
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    
+    if (hours > 0 && minutes > 0) {
+        return `${hours}h${minutes < 10 ? '0' : ''}${minutes}`;
+    } else if (hours > 0) {
+        return `${hours}h`;
+    } else if (minutes > 0) {
+        return `${minutes}min`;
+    }
+    
+    return null;
+}
+// Fonction pour afficher la durée avec calcul automatique
+function displayDurationWithCalculation(value, fieldName) {
+    if (!value) return '';
+    
+    const totalDuration = calculateTotalDurationFromRanges(value);
+    if (totalDuration) {
+        return `${value} <span class="duration-value" style="float: right; margin-left: 10px;">${totalDuration}</span>`;
+    }
+    
+    return value;
+}   
         // Afficher une entrée de journal
         function showEntryForDate(date) {
             const normalizedDate = normalizeDate(date);
@@ -4894,83 +5188,131 @@ function generatePhotoPreview(photoUrls) {
                 }
                 
                 // Durée totale activité au lit (calculée automatiquement)
-                if (dureeActiviteLit) {
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-clock"></i> Durée activité au lit</div>
-                        <div class="entry-value duration-value">${dureeActiviteLit}</div>
-                    </div>`;
-                }
-                
-                entryHTML += `</div>`;
+if (dureeActiviteLit) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-clock"></i> Durée activité au lit</div>
+        <div class="entry-value duration-value">${dureeActiviteLit}</div>
+    </div>`;
+}
+
+// Durée nuit (peut être une durée simple ou une plage horaire)
+const dureeNuitKey = normalizeKey("Durée nuit");
+if (entry.rawData[dureeNuitKey]) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-moon"></i> Durée nuit</div>
+        <div class="entry-value">${displayDurationWithCalculation(entry.rawData[dureeNuitKey], "durée nuit")}</div>
+    </div>`;
+} else if (heureCoucher && heureReveil) {
+    // Fallback: calcul automatique à partir des heures de coucher et réveil
+    const dureeNuitText = `${heureReveil}-${heureCoucher}`;
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-moon"></i> Durée nuit</div>
+        <div class="entry-value">${displayDurationWithCalculation(dureeNuitText, "durée nuit")}</div>
+    </div>`;
+}
+
+// Où je dors ce soir (anciennement Objectif du jour)
+const ouJeDorsKey = normalizeKey("Où je dors ce soir");
+const objectifKey = normalizeKey("Objectif du jour"); // Ancien nom pour compatibilité
+const ouJeDorsValue = entry.rawData[ouJeDorsKey] || entry.rawData[objectifKey];
+if (ouJeDorsValue) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-bed"></i> Où je dors ce soir</div>
+        <div class="entry-value">${ouJeDorsValue}</div>
+    </div>`;
+}
+
+entryHTML += `</div>`;
                 
                 // SECTION: AU MATIN avec durée journée
-                entryHTML += `<div class="section-matin" id="section-matin">`;
-                entryHTML += `<div class="section-title"><i class="fas fa-sun"></i> AU MATIN</div>`;
-                entryHTML += `<div class="section-decoration decoration-matin"><i class="fas fa-sun"></i></div>`;
-                
-                if (entry.groupedData.au_reveil && entry.groupedData.au_reveil.length > 0) {                    
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-list-ol"></i> Au réveil</div>
-                        <div class="entry-value">`;
-                    
-                    const auReveilItems = entry.groupedData.au_reveil
-                        .filter(item => item.value && item.value.trim() !== '')
-                        .sort((a, b) => {
-                            const numA = parseInt(a.header.match(/\[(\d+)\]/)?.[1] || 0);
-                            const numB = parseInt(b.header.match(/\[(\d+)\]/)?.[1] || 0);
-                            return numA - numB;
-                        });
-                    
-                    auReveilItems.forEach((item, index) => {
-                        entryHTML += `<div class="aureveil-item">${index + 1}- ${item.value}</div>`;
-                    });
-                    
-                    entryHTML += `</div></div>`;
-                }
-                
-                // Déroulement au lit
-                const deroulementLitKey = normalizeKey("Déroulement au lit");
-                if (entry.rawData[deroulementLitKey]) {
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-bed"></i> Déroulement au lit</div>
-                        <div class="entry-value">${entry.rawData[deroulementLitKey]}</div>
-                    </div>`;
-                }
-                
-                // Heure de lever
-                const heureLeverKey = normalizeKey("Heure de lever");
-                if (entry.rawData[heureLeverKey]) {
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-user-clock"></i> Heure lever</div>
-                        <div class="entry-value time-value">${entry.rawData[heureLeverKey]}</div>
-                    </div>`;
-                }
-                
-                // Durée journée (calculée)
-                if (dureeJournee) {
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-clock"></i> Durée journée</div>
-                        <div class="entry-value duration-value">${dureeJournee}</div>
-                    </div>`;
-                }
-                
-                // Mis au point
-                const misAuPointKey = normalizeKey("Mis au point");
-                if (entry.rawData[misAuPointKey]) {
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-tasks"></i> Mis au point</div>
-                        <div class="entry-value">${entry.rawData[misAuPointKey]}</div>
-                    </div>`;
-                }
-                
-                // Objectif du jour
-                const objectifKey = normalizeKey("Objectif du jour");
-                if (entry.rawData[objectifKey]) {
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-bullseye"></i> Objectif du jour</div>
-                        <div class="entry-value">${entry.rawData[objectifKey]}</div>
-                    </div>`;
-                }
+entryHTML += `<div class="section-matin" id="section-matin">`;
+entryHTML += `<div class="section-title"><i class="fas fa-sun"></i> AU MATIN</div>`;
+entryHTML += `<div class="section-decoration decoration-matin"><i class="fas fa-sun"></i></div>`;
+
+if (entry.groupedData.au_reveil && entry.groupedData.au_reveil.length > 0) {                    
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-list-ol"></i> Au réveil</div>
+        <div class="entry-value">`;
+    
+    const auReveilItems = entry.groupedData.au_reveil
+        .filter(item => item.value && item.value.trim() !== '')
+        .sort((a, b) => {
+            const numA = parseInt(a.header.match(/\[(\d+)\]/)?.[1] || 0);
+            const numB = parseInt(b.header.match(/\[(\d+)\]/)?.[1] || 0);
+            return numA - numB;
+        });
+    
+    auReveilItems.forEach((item, index) => {
+        entryHTML += `<div class="aureveil-item">${index + 1}- ${item.value}</div>`;
+    });
+    
+    entryHTML += `</div></div>`;
+}
+
+// Heure de lever et Durée journée sur une même ligne
+const heureLeverKey = normalizeKey("Heure de lever");
+if (entry.rawData[heureLeverKey] || dureeJournee) {
+    entryHTML += `<div class="double-row">`;
+    
+    if (entry.rawData[heureLeverKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-user-clock"></i> Heure lever</div>
+            <div class="compact-value time-value">${entry.rawData[heureLeverKey]}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-user-clock"></i> Heure lever</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    if (dureeJournee) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-clock"></i> Durée journée</div>
+            <div class="compact-value duration-value">${dureeJournee}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-clock"></i> Durée journée</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
+
+// Déroulement matinée (anciennement Déroulement au lit)
+const deroulementMatinKey = normalizeKey("Déroulement matinée");
+const deroulementLitKey = normalizeKey("Déroulement au lit"); // Ancien nom pour compatibilité
+const deroulementValue = entry.rawData[normalizeKey("Déroulement matinée")] || entry.rawData[deroulementLitKey];
+if (deroulementValue) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-sun"></i> Déroulement matinée</div>
+        <div class="entry-value">${deroulementValue}</div>
+    </div>`;
+}
+
+// Vécu,ressenti,pensées… (anciennement Mis au point)
+const vecuKey = normalizeKey("Vécu,ressenti,pensées…");
+const misAuPointKey = normalizeKey("Mis au point"); // Ancien nom pour compatibilité
+const vecuValue = entry.rawData[vecuKey] || entry.rawData[misAuPointKey];
+if (vecuValue) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-heart"></i> Vécu,ressenti,pensées…</div>
+        <div class="entry-value">${vecuValue}</div>
+    </div>`;
+}
+
+// Rite du matin
+const riteMatinKey = normalizeKey("Rite du matin");
+if (entry.rawData[riteMatinKey]) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-spa"></i> Rite du matin</div>
+        <div class="entry-value">${entry.rawData[riteMatinKey]}</div>
+    </div>`;
+}
+
+entryHTML += `</div>`;
                 
                 entryHTML += `</div>`;
                 
@@ -5487,7 +5829,7 @@ function generatePhotoPreview(photoUrls) {
                         {key: "Details Repas extra", label: "Détails repas extra", icon: "fa-info-circle"},
                         {key: "Détails cuisine", label: "Détails cuisine", icon: "fa-clipboard-list"},
                         {key: "Recette à retenir", label: "Recette à retenir", icon: "fa-bookmark"},
-                        {key: "Durée cuisine", label: "Durée cuisine", icon: "fa-clock"}
+                        {key: "Durée cuisine", label: "Durée cuisine", icon: "fa-clock", customDisplay: "duration"}
                     ];
                     
                     foodFields.forEach(field => {
@@ -5518,39 +5860,39 @@ function generatePhotoPreview(photoUrls) {
                         </div>`;
                     }
                     
-                    // Heure et durée travail
-                    const heureTravailKey = normalizeKey("Heure Travail");
-                    const dureeTravailKey = normalizeKey("Durée Travail");
-                    
-                    if (entry.rawData[heureTravailKey] || entry.rawData[dureeTravailKey]) {
-                        entryHTML += `<div class="travail-time-container">`;
-                        
-                        if (entry.rawData[heureTravailKey]) {
-                            entryHTML += `<div class="travail-time-card">
-                                <div class="compact-label"><i class="fas fa-clock"></i> Heure</div>
-                                <div class="compact-value time-value">${entry.rawData[heureTravailKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="travail-time-card">
-                                <div class="compact-label"><i class="fas fa-clock"></i> Heure</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        if (entry.rawData[dureeTravailKey]) {
-                            entryHTML += `<div class="travail-time-card">
-                                <div class="compact-label"><i class="fas fa-hourglass"></i> Durée</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeTravailKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="travail-time-card">
-                                <div class="compact-label"><i class="fas fa-hourglass"></i> Durée</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        entryHTML += `</div>`;
-                    }
+                   // Heure et durée travail
+const heureTravailKey = normalizeKey("Heure Travail");
+const dureeTravailKey = normalizeKey("Durée Travail");
+
+if (entry.rawData[heureTravailKey] || entry.rawData[dureeTravailKey]) {
+    entryHTML += `<div class="travail-time-container">`;
+    
+    if (entry.rawData[heureTravailKey]) {
+        entryHTML += `<div class="travail-time-card">
+            <div class="compact-label"><i class="fas fa-clock"></i> Heure</div>
+            <div class="compact-value time-value">${entry.rawData[heureTravailKey]}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="travail-time-card">
+            <div class="compact-label"><i class="fas fa-clock"></i> Heure</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeTravailKey]) {
+        entryHTML += `<div class="travail-time-card">
+            <div class="compact-label"><i class="fas fa-hourglass"></i> Durée</div>
+            <div class="compact-value duration-value">${entry.rawData[dureeTravailKey]}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="travail-time-card">
+            <div class="compact-label"><i class="fas fa-hourglass"></i> Durée</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
                     
                     // Contenu et à faire periodique
                     const aFaireKey = normalizeKey("A faire periodique");
@@ -5800,97 +6142,161 @@ function generatePhotoPreview(photoUrls) {
                     entryHTML += `</div>`;
                 }
                 
-                // SECTION: ACTIVITE PHYSIQUE
-                const activitePhysiqueKey = normalizeKey("Activité physique");
-                if (entry.rawData[activitePhysiqueKey]) {
-                    entryHTML += `<div class="section-physique" id="section-physique">`;
-                    entryHTML += `<div class="section-title"><i class="fas fa-running"></i> ACTIVITE PHYSIQUE</div>`;
-                    entryHTML += `<div class="section-decoration decoration-physique"><i class="fas fa-running"></i></div>`;
-                    
-                    entryHTML += `<div class="entry-row">
-                        <div class="entry-label"><i class="fas fa-running"></i> Activité physique</div>
-                        <div class="entry-value">${formatValue(entry.rawData[activitePhysiqueKey])}</div>
-                    </div>`;
-                    
-                    // Ligne avec Durée activité physique et Durée Debout
-                    const dureePhysiqueKey = normalizeKey("Durée activité physique");
-                    const dureeDeboutKey = normalizeKey("Durée Debout");
-                    
-                    if (entry.rawData[dureePhysiqueKey] || entry.rawData[dureeDeboutKey]) {
-                        entryHTML += `<div class="double-row">`;
-                        
-                        if (entry.rawData[dureePhysiqueKey]) {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureePhysiqueKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        if (entry.rawData[dureeDeboutKey]) {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeDeboutKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        entryHTML += `</div>`;
-                    }
-                    
-                    // Ligne avec Durée Marche Lente,normale et Durée Marche Rapide,modérée
-                    const dureeMarcheLenteKey = normalizeKey("Durée Marche Lente,normale");
-                    const dureeMarcheRapideKey = normalizeKey("Durée Marche Rapide,modérée");
-                    
-                    if (entry.rawData[dureeMarcheLenteKey] || entry.rawData[dureeMarcheRapideKey]) {
-                        entryHTML += `<div class="double-row">`;
-                        
-                        if (entry.rawData[dureeMarcheLenteKey]) {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeMarcheLenteKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        if (entry.rawData[dureeMarcheRapideKey]) {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeMarcheRapideKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="double-item">
-                                <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        entryHTML += `</div>`;
-                    }
-                    
-                    // Détails activité physique
-                    const detailsPhysiqueKey = normalizeKey("Détails activité physique");
-                    if (entry.rawData[detailsPhysiqueKey]) {
-                        entryHTML += `<div class="entry-row">
-                            <div class="entry-label"><i class="fas fa-info-circle"></i> Détails</div>
-                            <div class="entry-value">${formatValue(entry.rawData[detailsPhysiqueKey])}</div>
-                        </div>`;
-                    }
-                    
-                    entryHTML += `</div>`;
-                }
+               // SECTION: ACTIVITE PHYSIQUE
+const activitePhysiqueKey = normalizeKey("Activité physique");
+if (entry.rawData[activitePhysiqueKey]) {
+    entryHTML += `<div class="section-physique" id="section-physique">`;
+    entryHTML += `<div class="section-title"><i class="fas fa-running"></i> ACTIVITE PHYSIQUE</div>`;
+    entryHTML += `<div class="section-decoration decoration-physique"><i class="fas fa-running"></i></div>`;
+    
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-running"></i> Activité physique</div>
+        <div class="entry-value">${formatValue(entry.rawData[activitePhysiqueKey])}</div>
+    </div>`;
+    
+    // Ligne avec Durée activité physique et Durée Debout (avec calcul automatique)
+const dureePhysiqueKey = normalizeKey("Durée activité physique");
+const dureeDeboutKey = normalizeKey("Durée Debout");
+
+if (entry.rawData[dureePhysiqueKey] || entry.rawData[dureeDeboutKey]) {
+    entryHTML += `<div class="double-row">`;
+    
+    if (entry.rawData[dureePhysiqueKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureePhysiqueKey], "durée activité")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeDeboutKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeDeboutKey], "durée debout")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
+
+// Nouvelle ligne: Temps debout matin et Temps assise
+const tempsDeboutMatinKey = normalizeKey("Temps debout matin");
+const tempsAssiseKey = normalizeKey("Temps assise");
+
+if (entry.rawData[tempsDeboutMatinKey] || entry.rawData[tempsAssiseKey]) {
+    entryHTML += `<div class="double-row">`;
+    
+    if (entry.rawData[tempsDeboutMatinKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-sun"></i> Debout matin</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[tempsDeboutMatinKey], "temps debout matin")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-sun"></i> Debout matin</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tempsAssiseKey]) {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-chair"></i> Temps assise</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[tempsAssiseKey], "temps assise")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="double-item">
+            <div class="compact-label"><i class="fas fa-chair"></i> Temps assise</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
+    
+    if (entry.rawData[dureePhysiqueKey] || entry.rawData[dureeDeboutKey]) {
+        entryHTML += `<div class="double-row">`;
+        
+        if (entry.rawData[dureePhysiqueKey]) {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
+                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureePhysiqueKey], "durée activité")}</div>
+            </div>`;
+        } else {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-stopwatch"></i> Durée activité</div>
+                <div class="compact-value"></div>
+            </div>`;
+        }
+        
+        if (entry.rawData[dureeDeboutKey]) {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
+                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeDeboutKey], "durée debout")}</div>
+            </div>`;
+        } else {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-standing"></i> Durée debout</div>
+                <div class="compact-value"></div>
+            </div>`;
+        }
+        
+        entryHTML += `</div>`;
+    }
+    
+    // Ligne avec Durée Marche Lente,normale et Durée Marche Rapide,modérée (avec calcul automatique)
+    const dureeMarcheLenteKey = normalizeKey("Durée Marche Lente,normale");
+    const dureeMarcheRapideKey = normalizeKey("Durée Marche Rapide,modérée");
+    
+    if (entry.rawData[dureeMarcheLenteKey] || entry.rawData[dureeMarcheRapideKey]) {
+        entryHTML += `<div class="double-row">`;
+        
+        if (entry.rawData[dureeMarcheLenteKey]) {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
+                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMarcheLenteKey], "marche lente")}</div>
+            </div>`;
+        } else {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-walking"></i> Marche lente</div>
+                <div class="compact-value"></div>
+            </div>`;
+        }
+        
+        if (entry.rawData[dureeMarcheRapideKey]) {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
+                <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMarcheRapideKey], "marche rapide")}</div>
+            </div>`;
+        } else {
+            entryHTML += `<div class="double-item">
+                <div class="compact-label"><i class="fas fa-running"></i> Marche rapide</div>
+                <div class="compact-value"></div>
+            </div>`;
+        }
+        
+        entryHTML += `</div>`;
+    }
+    
+    // Détails activité physique
+    const detailsPhysiqueKey = normalizeKey("Détails activité physique");
+    if (entry.rawData[detailsPhysiqueKey]) {
+        entryHTML += `<div class="entry-row">
+            <div class="entry-label"><i class="fas fa-info-circle"></i> Détails</div>
+            <div class="entry-value">${formatValue(entry.rawData[detailsPhysiqueKey])}</div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
                 
                 // SECTION: ACTIVITE MENAGERE
                 const detailsMenagereKey3 = normalizeKey("Détails sur activités ménagère");
@@ -5920,13 +6326,13 @@ function generatePhotoPreview(photoUrls) {
                     entryHTML += `<div class="section-title"><i class="fas fa-broom"></i> ACTIVITE MENAGERE</div>`;
                     entryHTML += `<div class="section-decoration decoration-menagere"><i class="fas fa-broom"></i></div>`;
                     
-                    // Durée activités ménagère
-                    if (entry.rawData[dureeMenagereKey]) {
-                        entryHTML += `<div class="entry-row">
-                            <div class="entry-label"><i class="fas fa-stopwatch"></i> Durée activités ménagère</div>
-                            <div class="entry-value duration-value">${entry.rawData[dureeMenagereKey]}</div>
-                        </div>`;
-                    }
+                   // Durée activités ménagère (avec calcul automatique)
+if (entry.rawData[dureeMenagereKey]) {
+    entryHTML += `<div class="entry-row">
+        <div class="entry-label"><i class="fas fa-stopwatch"></i> Durée activités ménagère</div>
+        <div class="entry-value">${displayDurationWithCalculation(entry.rawData[dureeMenagereKey], "durée ménagère")}</div>
+    </div>`;
+}
                     
                     // Tâches ménagères
                     if (entry.groupedData.activite_menagere && entry.groupedData.activite_menagere.length > 0) {
@@ -6268,48 +6674,48 @@ function generatePhotoPreview(photoUrls) {
                         </div>`;
                     }
                     
-                    // Durées en bus, voiture, moto
-                    if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawData[dureeMotoKey]) {
-                        entryHTML += `<div class="triple-row">`;
-                        
-                        if (entry.rawData[dureeBusKey]) {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-bus-alt"></i> Bus</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeBusKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-bus-alt"></i> Bus</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        if (entry.rawData[dureeVoitureKey]) {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-car-side"></i> Voiture</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeVoitureKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-car-side"></i> Voiture</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        if (entry.rawData[dureeMotoKey]) {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-motorcycle"></i> Moto</div>
-                                <div class="compact-value duration-value">${entry.rawData[dureeMotoKey]}</div>
-                            </div>`;
-                        } else {
-                            entryHTML += `<div class="triple-item">
-                                <div class="compact-label"><i class="fas fa-motorcycle"></i> Moto</div>
-                                <div class="compact-value"></div>
-                            </div>`;
-                        }
-                        
-                        entryHTML += `</div>`;
-                    }
+                    // Durées en bus, voiture, moto (avec calcul automatique)
+if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawData[dureeMotoKey]) {
+    entryHTML += `<div class="triple-row">`;
+    
+    if (entry.rawData[dureeBusKey]) {
+        entryHTML += `<div class="triple-item">
+            <div class="compact-label"><i class="fas fa-bus-alt"></i> Bus</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeBusKey], "durée bus")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="triple-item">
+            <div class="compact-label"><i class="fas fa-bus-alt"></i> Bus</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeVoitureKey]) {
+        entryHTML += `<div class="triple-item">
+            <div class="compact-label"><i class="fas fa-car-side"></i> Voiture</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeVoitureKey], "durée voiture")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="triple-item">
+            <div class="compact-label"><i class="fas fa-car-side"></i> Voiture</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeMotoKey]) {
+        entryHTML += `<div class="triple-item">
+            <div class="compact-label"><i class="fas fa-motorcycle"></i> Moto</div>
+            <div class="compact-value">${displayDurationWithCalculation(entry.rawData[dureeMotoKey], "durée moto")}</div>
+        </div>`;
+    } else {
+        entryHTML += `<div class="triple-item">
+            <div class="compact-label"><i class="fas fa-motorcycle"></i> Moto</div>
+            <div class="compact-value"></div>
+        </div>`;
+    }
+    
+    entryHTML += `</div>`;
+}
                     
                     entryHTML += `</div>`;
                 }
@@ -6695,7 +7101,7 @@ function generatePhotoPreview(photoUrls) {
                     
                     const bilanFields = [
                         {key: "Stress ressenti, pensée dominante, quelque chose de positif aujourd'hui", label: "Stress/positif du jour", icon: "fa-brain"},
-                        {key: "Difficultés rencontrées", label: "Difficultés rencontrées", icon: "fa-exclamation-triangle"},
+                        {key: "Vécu,expérience…", label: "Vécu,expérience…", icon: "fa-exclamation-triangle"},
                         {key: "Erreur à ne pas répéter", label: "Erreur à ne pas répéter", icon: "fa-times-circle"},
                         {key: "Leçons du jour", label: "Leçons du jour", icon: "fa-graduation-cap"},
                         {key: "Inhabituel", label: "Inhabituel", icon: "fa-star"},
@@ -7917,13 +8323,828 @@ function generatePhotoPreview(photoUrls) {
             backToTopBtn.style.opacity = '1';
             backToTopBtn.style.visibility = 'visible';
         }
-        
-        // Initialiser le journal après le mot de passe
-        function initializeJournal() {
-            loadJournalData();
-            initializeSearch();
+      // Initialiser les boutons d'export
+// Initialiser les boutons d'export
+function initExportButtons() {
+    const exportPdfBtn = document.getElementById('export-pdf-btn');
+    const copyDataBtn = document.getElementById('copy-data-btn');
+    const dateModal = document.getElementById('date-modal');
+    const cancelExportBtn = document.getElementById('cancel-export');
+    const confirmExportBtn = document.getElementById('confirm-export');
+    const exportDateInput = document.getElementById('export-date-input');
+    const dateShortcuts = document.querySelectorAll('.date-shortcut');
+    
+    if (!exportPdfBtn) return;
+    
+    // Ouvrir modal pour sélection de date (depuis les deux boutons)
+    exportPdfBtn.addEventListener('click', function(e) {
+        dateModal.style.display = 'flex';
+        // Sélectionner PDF par défaut
+        document.querySelector('input[name="export-action"][value="pdf"]').checked = true;
+        // Pré-remplir avec la date actuelle
+        const today = new Date().toISOString().split('T')[0];
+        exportDateInput.value = today;
+        exportDateInput.focus();
+    });
+    
+    // Bouton copier directement
+    copyDataBtn.addEventListener('click', function(e) {
+        dateModal.style.display = 'flex';
+        // Sélectionner Copier par défaut
+        document.querySelector('input[name="export-action"][value="copy"]').checked = true;
+        // Pré-remplir avec la date actuelle
+        const today = new Date().toISOString().split('T')[0];
+        exportDateInput.value = today;
+        exportDateInput.focus();
+    });
+    
+    // Gestion des raccourcis de date
+    dateShortcuts.forEach(shortcut => {
+        shortcut.addEventListener('click', function() {
+            const days = parseInt(this.getAttribute('data-days'));
+            const date = new Date();
+            date.setDate(date.getDate() + days);
+            exportDateInput.value = date.toISOString().split('T')[0];
+        });
+    });
+    
+    // Annuler l'export
+    cancelExportBtn.addEventListener('click', function() {
+        dateModal.style.display = 'none';
+    });
+    
+    // Confirmer l'export ou la copie
+    confirmExportBtn.addEventListener('click', function() {
+        const selectedDate = new Date(exportDateInput.value);
+        if (isNaN(selectedDate.getTime())) {
+            alert('Veuillez sélectionner une date valide.');
+            return;
         }
         
+        // Vérifier si la date a des données
+        const normalizedDate = normalizeDate(selectedDate);
+        const entry = journalData.find(e => datesAreEqual(e.date, normalizedDate));
+        
+        if (!entry || !entry.rawData) {
+            alert(`Aucune donnée trouvée pour la date ${selectedDate.toLocaleDateString('fr-FR')}`);
+            return;
+        }
+        
+        const action = document.querySelector('input[name="export-action"]:checked').value;
+        dateModal.style.display = 'none';
+        
+        if (action === 'pdf') {
+            exportToPDF(selectedDate);
+        } else if (action === 'copy') {
+            const textContent = generateTextContent(selectedDate);
+            copyToClipboard(textContent);
+        }
+    });
+    
+    // Fermer modal en cliquant à l'extérieur
+    dateModal.addEventListener('click', function(e) {
+        if (e.target === dateModal) {
+            dateModal.style.display = 'none';
+        }
+    });
+    
+    // Fermer modal avec Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && dateModal.style.display === 'flex') {
+            dateModal.style.display = 'none';
+        }
+    });
+}// Fonction pour afficher les dates disponibles dans le modal
+function updateDatePickerWithAvailableDates() {
+    const exportDateInput = document.getElementById('export-date-input');
+    if (!exportDateInput) return;
+    
+    // Créer une datalist pour les suggestions
+    const datalistId = 'available-dates-list';
+    let datalist = document.getElementById(datalistId);
+    
+    if (!datalist) {
+        datalist = document.createElement('datalist');
+        datalist.id = datalistId;
+        document.body.appendChild(datalist);
+        exportDateInput.setAttribute('list', datalistId);
+    }
+    
+    // Vider les options existantes
+    datalist.innerHTML = '';
+    
+    // Ajouter les dates disponibles
+    journalData.forEach(entry => {
+        const option = document.createElement('option');
+        const dateStr = entry.date.toISOString().split('T')[0];
+        const displayDate = entry.date.toLocaleDateString('fr-FR');
+        option.value = dateStr;
+        option.textContent = `${displayDate} ✓`;
+        datalist.appendChild(option);
+    });
+    
+    console.log(`${journalData.length} dates disponibles pour l'export`);
+}
+// Fonction pour exporter en PDF
+function exportToPDF(date) {
+    const normalizedDate = normalizeDate(date);
+    const entry = journalData.find(e => datesAreEqual(e.date, normalizedDate));
+    
+    if (!entry || !entry.rawData) {
+        alert(`Aucune donnée trouvée pour la date ${date.toLocaleDateString('fr-FR')}`);
+        return;
+    }
+    
+    // Préparer le contenu HTML pour le PDF
+    const formattedDate = date.toLocaleDateString('fr-FR', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    let pdfHTML = `
+        <html>
+        <head>
+            <title>Résumé Journal - ${formattedDate}</title>
+            <style>
+                body { font-family: Arial, sans-serif; padding: 20px; color: #333; }
+                .pdf-header { text-align: center; margin-bottom: 30px; border-bottom: 3px solid #e91e63; padding-bottom: 20px; }
+                .pdf-section { margin: 20px 0; padding: 15px; border-left: 4px solid #f8bbd9; background: #f9f9f9; border-radius: 5px; }
+                .pdf-row { display: flex; margin: 10px 0; padding: 6px 0; }
+                .pdf-label { font-weight: 600; color: #e91e63; min-width: 180px; }
+                .pdf-value { color: #333; flex: 1; }
+                .pdf-title { color: #e91e63; font-size: 18px; margin: 20px 0 10px 0; padding-bottom: 5px; border-bottom: 2px solid #f8bbd9; }
+                .stars { color: #ffc107; letter-spacing: 3px; }
+                @media print { .no-print { display: none; } }
+            </style>
+        </head>
+        <body>
+            <div class="pdf-header">
+                <h1 style="color: #e91e63; margin-bottom: 10px;">📊 RÉSUMÉ DU JOUR</h1>
+                <h2 style="color: #666; margin: 0;">${formattedDate}</h2>
+                <p style="color: #888; margin-top: 10px; font-size: 14px;">Généré le ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}</p>
+            </div>
+    `;
+    
+    // SECTION 1: SOMMEIL & LEVER
+    pdfHTML += `<div class="pdf-section">
+        <div class="pdf-title">🌙 SOMMEIL & LEVER</div>`;
+    
+    // Réveil
+    const reveilKey = normalizeKey("Heure de réveil");
+    if (entry.rawData[reveilKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Réveil :</div>
+            <div class="pdf-value">${entry.rawData[reveilKey]}</div>
+        </div>`;
+    }
+    
+    // Qualité de sommeil
+    const qualiteSommeilKey = normalizeKey("Qualité de sommeil la veille");
+    if (entry.rawData[qualiteSommeilKey]) {
+        const qualityNum = parseInt(entry.rawData[qualiteSommeilKey]);
+        let stars = '';
+        if (!isNaN(qualityNum) && qualityNum >= 1 && qualityNum <= 5) {
+            stars = '★'.repeat(qualityNum) + '☆'.repeat(5 - qualityNum);
+        }
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Qualité sommeil :</div>
+            <div class="pdf-value">${stars || entry.rawData[qualiteSommeilKey]}</div>
+        </div>`;
+    }
+    
+    // Durée nuit
+    const dureeNuitKey = normalizeKey("Durée nuit");
+    const heureCoucherKey = normalizeKey("Heure de coucher");
+    let dureeNuitValue = entry.rawData[dureeNuitKey];
+    
+    if (!dureeNuitValue && entry.rawData[reveilKey] && entry.rawData[heureCoucherKey]) {
+        const dureeNuitText = `${entry.rawData[reveilKey]}-${entry.rawData[heureCoucherKey]}`;
+        dureeNuitValue = calculateTotalDurationFromRanges(dureeNuitText);
+    }
+    
+    if (dureeNuitValue) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée nuit :</div>
+            <div class="pdf-value">${dureeNuitValue}</div>
+        </div>`;
+    }
+    
+    // Heure lever
+    const heureLeverKey = normalizeKey("Heure de lever");
+    if (entry.rawData[heureLeverKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Heure lever :</div>
+            <div class="pdf-value">${entry.rawData[heureLeverKey]}</div>
+        </div>`;
+    }
+    
+    pdfHTML += `</div>`;
+    
+    // SECTION 2: ALIMENTATION
+    pdfHTML += `<div class="pdf-section">
+        <div class="pdf-title">🍽️ ALIMENTATION</div>`;
+    
+    // Durée jeûne
+    const dernierRepasKey = normalizeKey("Dernier repas de la veille");
+    const heurePetitDejKey = normalizeKey("Heure Petit déjeuner");
+    if (entry.rawData[dernierRepasKey] && entry.rawData[heurePetitDejKey]) {
+        const dureeJeune = calculateDuration(entry.rawData[dernierRepasKey], entry.rawData[heurePetitDejKey]);
+        if (dureeJeune) {
+            pdfHTML += `<div class="pdf-row">
+                <div class="pdf-label">Durée jeûne :</div>
+                <div class="pdf-value">${dureeJeune}</div>
+            </div>`;
+        }
+    }
+    
+    // Petit déjeuner
+    const petitDejKey = normalizeKey("Petit déjeuner");
+    if (entry.rawData[heurePetitDejKey] || entry.rawData[petitDejKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Petit déjeuner :</div>
+            <div class="pdf-value">${entry.rawData[heurePetitDejKey] || ''} ${entry.rawData[petitDejKey] ? ' - ' + entry.rawData[petitDejKey] : ''}</div>
+        </div>`;
+    }
+    
+    // Déjeuner
+    const heureDejKey = normalizeKey("Heure Déjeuner");
+    const dejKey = normalizeKey("Déjeuner");
+    if (entry.rawData[heureDejKey] || entry.rawData[dejKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Déjeuner :</div>
+            <div class="pdf-value">${entry.rawData[heureDejKey] || ''} ${entry.rawData[dejKey] ? ' - ' + entry.rawData[dejKey] : ''}</div>
+        </div>`;
+    }
+    
+    // Dîner
+    const heureDinerKey = normalizeKey("Heure Dîner");
+    const dinerKey = normalizeKey("Dîner");
+    if (entry.rawData[heureDinerKey] || entry.rawData[dinerKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Dîner :</div>
+            <div class="pdf-value">${entry.rawData[heureDinerKey] || ''} ${entry.rawData[dinerKey] ? ' - ' + entry.rawData[dinerKey] : ''}</div>
+        </div>`;
+    }
+    
+    // Collations
+    const collationAMKey = normalizeKey("Collation AM");
+    const collationPMKey = normalizeKey("Collation PM");
+    if (entry.rawData[collationAMKey] || entry.rawData[collationPMKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Collations :</div>
+            <div class="pdf-value">${entry.rawData[collationAMKey] || ''} ${entry.rawData[collationPMKey] ? ' / ' + entry.rawData[collationPMKey] : ''}</div>
+        </div>`;
+    }
+    
+    // Eau bue
+    const eauBueKey = normalizeKey("Eau bue dans la journee");
+    if (entry.rawData[eauBueKey]) {
+        const waterCalculation = calculateWaterDrunk(entry.rawData[eauBueKey]);
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Eau bue :</div>
+            <div class="pdf-value">${waterCalculation.totalLiters ? waterCalculation.totalLiters.toFixed(2) + 'L' : entry.rawData[eauBueKey]}</div>
+        </div>`;
+    }
+    
+    pdfHTML += `</div>`;
+    
+    // SECTION 3: ACTIVITÉS
+    pdfHTML += `<div class="pdf-section">
+        <div class="pdf-title">📝 ACTIVITÉS</div>`;
+    
+    // Durée cuisine
+    const dureeCuisineKey = normalizeKey("Durée cuisine");
+    if (entry.rawData[dureeCuisineKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée cuisine :</div>
+            <div class="pdf-value">${displayDurationWithCalculation(entry.rawData[dureeCuisineKey], "cuisine")}</div>
+        </div>`;
+    }
+    
+    // Type de travail
+    const typeKey = normalizeKey("Type");
+    if (entry.rawData[typeKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Type travail :</div>
+            <div class="pdf-value">${entry.rawData[typeKey]}</div>
+        </div>`;
+    }
+    
+    // Durée travail
+    const heureTravailKey = normalizeKey("Heure Travail");
+    if (entry.rawData[heureTravailKey]) {
+        const travailDuree = calculateTotalDurationFromRanges(entry.rawData[heureTravailKey]);
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée travail :</div>
+            <div class="pdf-value">${travailDuree || entry.rawData[heureTravailKey]}</div>
+        </div>`;
+    }
+    
+    // Occupation
+    const occupationKey = normalizeKey("Occupation");
+    if (entry.rawData[occupationKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Occupation :</div>
+            <div class="pdf-value">${entry.rawData[occupationKey].substring(0, 100)}${entry.rawData[occupationKey].length > 100 ? '...' : ''}</div>
+        </div>`;
+    }
+    
+    // Activité extra
+    const activiteExtraKey = normalizeKey("Activité extra");
+    if (entry.rawData[activiteExtraKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Activité extra :</div>
+            <div class="pdf-value">${entry.rawData[activiteExtraKey]}</div>
+        </div>`;
+    }
+    
+    // Apprentissage
+    const apprentissageKey = normalizeKey("Apprentissage/formation");
+    if (entry.rawData[apprentissageKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Apprentissage :</div>
+            <div class="pdf-value">${entry.rawData[apprentissageKey]}</div>
+        </div>`;
+    }
+    
+    // Activité physique
+    const activitePhysiqueKey = normalizeKey("Activité physique");
+    if (entry.rawData[activitePhysiqueKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Activité physique :</div>
+            <div class="pdf-value">${entry.rawData[activitePhysiqueKey]}</div>
+        </div>`;
+    }
+    
+    // Durées physiques
+    const dureePhysiqueKey = normalizeKey("Durée activité physique");
+    const dureeDeboutKey = normalizeKey("Durée Debout");
+    const tempsDeboutMatinKey = normalizeKey("Temps debout matin");
+    const tempsAssiseKey = normalizeKey("Temps assise");
+    const dureeMarcheLenteKey = normalizeKey("Durée Marche Lente,normale");
+    const dureeMarcheRapideKey = normalizeKey("Durée Marche Rapide,modérée");
+    
+    if (entry.rawData[dureePhysiqueKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée activité :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureePhysiqueKey]) || entry.rawData[dureePhysiqueKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeDeboutKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée debout :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeDeboutKey]) || entry.rawData[dureeDeboutKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tempsDeboutMatinKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Debout matin :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[tempsDeboutMatinKey]) || entry.rawData[tempsDeboutMatinKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tempsAssiseKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Temps assise :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[tempsAssiseKey]) || entry.rawData[tempsAssiseKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeMarcheLenteKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Marche lente :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeMarcheLenteKey]) || entry.rawData[dureeMarcheLenteKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeMarcheRapideKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Marche rapide :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeMarcheRapideKey]) || entry.rawData[dureeMarcheRapideKey]}</div>
+        </div>`;
+    }
+    
+    // Tâches ménagères
+    if (entry.groupedData.activite_menagere && entry.groupedData.activite_menagere.length > 0) {
+        let menagereText = '';
+        entry.groupedData.activite_menagere.forEach(item => {
+            if (item.value && item.value.trim() !== '') {
+                menagereText += item.header.replace('Activité ménagère: ', '') + ': ' + item.value + '; ';
+            }
+        });
+        if (menagereText) {
+            pdfHTML += `<div class="pdf-row">
+                <div class="pdf-label">Tâches ménagères :</div>
+                <div class="pdf-value">${menagereText}</div>
+            </div>`;
+        }
+    }
+    
+    // Durée activités ménagère
+    const dureeMenagereKey = normalizeKey("Durée activités ménagère");
+    if (entry.rawData[dureeMenagereKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée ménagère :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeMenagereKey]) || entry.rawData[dureeMenagereKey]}</div>
+        </div>`;
+    }
+    
+    pdfHTML += `</div>`;
+    
+    // SECTION 4: DÉPLACEMENT
+    pdfHTML += `<div class="pdf-section">
+        <div class="pdf-title">🚗 DÉPLACEMENT</div>`;
+    
+    // Lieux du jour
+    const lieuxKey = normalizeKey("Lieux du jour");
+    if (entry.rawData[lieuxKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Lieux du jour :</div>
+            <div class="pdf-value">${entry.rawData[lieuxKey]}</div>
+        </div>`;
+    }
+    
+    // Moyen de locomotion
+    const moyenKey = normalizeKey("Moyen de locomotion");
+    if (entry.rawData[moyenKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Moyen locomotion :</div>
+            <div class="pdf-value">${entry.rawData[moyenKey]}</div>
+        </div>`;
+    }
+    
+    // Durées transport
+    const dureeBusKey = normalizeKey("Durée en bus");
+    const dureeVoitureKey = normalizeKey("Durée en voiture");
+    const dureeMotoKey = normalizeKey("Durée en moto");
+    
+    if (entry.rawData[dureeBusKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée bus :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeBusKey]) || entry.rawData[dureeBusKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeVoitureKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée voiture :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeVoitureKey]) || entry.rawData[dureeVoitureKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[dureeMotoKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Durée moto :</div>
+            <div class="pdf-value">${calculateTotalDurationFromRanges(entry.rawData[dureeMotoKey]) || entry.rawData[dureeMotoKey]}</div>
+        </div>`;
+    }
+    
+    pdfHTML += `</div>`;
+    
+    // SECTION 5: SANTÉ
+    pdfHTML += `<div class="pdf-section">
+        <div class="pdf-title">❤️ SANTÉ</div>`;
+    
+    // Menstruation
+    if (entry.groupedData.monstruation && entry.groupedData.monstruation.length > 0) {
+        let menstruationText = '';
+        entry.groupedData.monstruation.forEach(item => {
+            if (item.value && item.value.trim() !== '' && item.value.toLowerCase() !== 'non') {
+                const match = item.header.match(/\[([^\]]+)\]/);
+                if (match) {
+                    menstruationText += match[1] + ': ' + item.value + '; ';
+                }
+            }
+        });
+        if (menstruationText) {
+            pdfHTML += `<div class="pdf-row">
+                <div class="pdf-label">Menstruation :</div>
+                <div class="pdf-value">${menstruationText}</div>
+            </div>`;
+        }
+    }
+    
+    // Maladie
+    const maladieKey = normalizeKey("Maladie");
+    if (entry.rawData[maladieKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Maladie :</div>
+            <div class="pdf-value">${entry.rawData[maladieKey]}</div>
+        </div>`;
+    }
+    
+    // Poids et mensurations
+    const poidsKey = normalizeKey("Poids");
+    const tourHancheKey = normalizeKey("Tour de hanche");
+    const tourCuissesKey = normalizeKey("Tour du haut des cuisse");
+    const tourVentreKey = normalizeKey("Tour de ventre");
+    const tourTailleKey = normalizeKey("Tour de taille");
+    
+    if (entry.rawData[poidsKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Poids :</div>
+            <div class="pdf-value">${entry.rawData[poidsKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tourHancheKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Tour de hanche :</div>
+            <div class="pdf-value">${entry.rawData[tourHancheKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tourCuissesKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Tour de cuisse :</div>
+            <div class="pdf-value">${entry.rawData[tourCuissesKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tourVentreKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Tour de ventre :</div>
+            <div class="pdf-value">${entry.rawData[tourVentreKey]}</div>
+        </div>`;
+    }
+    
+    if (entry.rawData[tourTailleKey]) {
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Tour de taille :</div>
+            <div class="pdf-value">${entry.rawData[tourTailleKey]}</div>
+        </div>`;
+    }
+    
+    // Fatigue
+    const fatigueKey = normalizeKey("Fatigue");
+    if (entry.rawData[fatigueKey]) {
+        const fatigueNum = parseInt(entry.rawData[fatigueKey]);
+        let fatigueStars = '';
+        if (!isNaN(fatigueNum) && fatigueNum >= 1 && fatigueNum <= 5) {
+            fatigueStars = '★'.repeat(fatigueNum) + '☆'.repeat(5 - fatigueNum);
+        }
+        pdfHTML += `<div class="pdf-row">
+            <div class="pdf-label">Fatigue :</div>
+            <div class="pdf-value">${fatigueStars || entry.rawData[fatigueKey]}</div>
+        </div>`;
+    }
+    
+    pdfHTML += `</div>`;
+    
+    // Fin du document
+    pdfHTML += `
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #888; font-size: 12px;">
+                Journal Ranto - Résumé généré automatiquement
+            </div>
+        </body>
+        </html>
+    `;
+    
+    // Ouvrir une nouvelle fenêtre pour impression
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(pdfHTML);
+    printWindow.document.close();
+    
+    // Attendre que le contenu soit chargé puis imprimer
+    setTimeout(() => {
+        printWindow.print();
+        // printWindow.close(); // Optionnel: fermer après impression
+    }, 500);
+}  
+// Fonction pour générer le texte brut à copier
+function generateTextContent(date) {
+    const normalizedDate = normalizeDate(date);
+    const entry = journalData.find(e => datesAreEqual(e.date, normalizedDate));
+    
+    if (!entry || !entry.rawData) {
+        return `Aucune donnée trouvée pour la date ${date.toLocaleDateString('fr-FR')}`;
+    }
+    
+    const formattedDate = date.toLocaleDateString('fr-FR', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    let textContent = `📊 RÉSUMÉ DU JOURNAL - ${formattedDate}\n`;
+    textContent += `Généré le ${new Date().toLocaleDateString('fr-FR')}\n`;
+    textContent += '═'.repeat(50) + '\n\n';
+    
+    // SECTION 1: SOMMEIL & LEVER
+    textContent += '🌙 SOMMEIL & LEVER\n';
+    textContent += '─'.repeat(30) + '\n';
+    
+    const reveilKey = normalizeKey("Heure de réveil");
+    const qualiteSommeilKey = normalizeKey("Qualité de sommeil la veille");
+    const dureeNuitKey = normalizeKey("Durée nuit");
+    const heureLeverKey = normalizeKey("Heure de lever");
+    const heureCoucherKey = normalizeKey("Heure de coucher");
+    
+    if (entry.rawData[reveilKey]) textContent += `• Réveil : ${entry.rawData[reveilKey]}\n`;
+    if (entry.rawData[qualiteSommeilKey]) textContent += `• Qualité sommeil : ${entry.rawData[qualiteSommeilKey]}/5\n`;
+    
+    let dureeNuitValue = entry.rawData[dureeNuitKey];
+    if (!dureeNuitValue && entry.rawData[reveilKey] && entry.rawData[heureCoucherKey]) {
+        const dureeNuitText = `${entry.rawData[reveilKey]}-${entry.rawData[heureCoucherKey]}`;
+        dureeNuitValue = calculateTotalDurationFromRanges(dureeNuitText);
+    }
+    if (dureeNuitValue) textContent += `• Durée nuit : ${dureeNuitValue}\n`;
+    if (entry.rawData[heureLeverKey]) textContent += `• Heure lever : ${entry.rawData[heureLeverKey]}\n`;
+    
+    textContent += '\n';
+    
+    // SECTION 2: ALIMENTATION
+    textContent += '🍽️ ALIMENTATION\n';
+    textContent += '─'.repeat(30) + '\n';
+    
+    const dernierRepasKey = normalizeKey("Dernier repas de la veille");
+    const heurePetitDejKey = normalizeKey("Heure Petit déjeuner");
+    const petitDejKey = normalizeKey("Petit déjeuner");
+    const heureDejKey = normalizeKey("Heure Déjeuner");
+    const dejKey = normalizeKey("Déjeuner");
+    const heureDinerKey = normalizeKey("Heure Dîner");
+    const dinerKey = normalizeKey("Dîner");
+    const collationAMKey = normalizeKey("Collation AM");
+    const collationPMKey = normalizeKey("Collation PM");
+    const eauBueKey = normalizeKey("Eau bue dans la journee");
+    
+    // Durée jeûne
+    if (entry.rawData[dernierRepasKey] && entry.rawData[heurePetitDejKey]) {
+        const dureeJeune = calculateDuration(entry.rawData[dernierRepasKey], entry.rawData[heurePetitDejKey]);
+        if (dureeJeune) textContent += `• Durée jeûne : ${dureeJeune}\n`;
+    }
+    
+    if (entry.rawData[heurePetitDejKey] || entry.rawData[petitDejKey]) {
+        textContent += `• Petit déjeuner : ${entry.rawData[heurePetitDejKey] || ''} ${entry.rawData[petitDejKey] ? '- ' + entry.rawData[petitDejKey] : ''}\n`;
+    }
+    
+    if (entry.rawData[heureDejKey] || entry.rawData[dejKey]) {
+        textContent += `• Déjeuner : ${entry.rawData[heureDejKey] || ''} ${entry.rawData[dejKey] ? '- ' + entry.rawData[dejKey] : ''}\n`;
+    }
+    
+    if (entry.rawData[heureDinerKey] || entry.rawData[dinerKey]) {
+        textContent += `• Dîner : ${entry.rawData[heureDinerKey] || ''} ${entry.rawData[dinerKey] ? '- ' + entry.rawData[dinerKey] : ''}\n`;
+    }
+    
+    if (entry.rawData[collationAMKey] || entry.rawData[collationPMKey]) {
+        textContent += `• Collations : ${entry.rawData[collationAMKey] || ''} ${entry.rawData[collationPMKey] ? '/ ' + entry.rawData[collationPMKey] : ''}\n`;
+    }
+    
+    if (entry.rawData[eauBueKey]) {
+        const waterCalculation = calculateWaterDrunk(entry.rawData[eauBueKey]);
+        textContent += `• Eau bue : ${waterCalculation.totalLiters ? waterCalculation.totalLiters.toFixed(2) + 'L' : entry.rawData[eauBueKey]}\n`;
+    }
+    
+    textContent += '\n';
+    
+    // SECTION 3: ACTIVITÉS
+    textContent += '📝 ACTIVITÉS\n';
+    textContent += '─'.repeat(30) + '\n';
+    
+    const dureeCuisineKey = normalizeKey("Durée cuisine");
+    const typeKey = normalizeKey("Type");
+    const heureTravailKey = normalizeKey("Heure Travail");
+    const occupationKey = normalizeKey("Occupation");
+    const activiteExtraKey = normalizeKey("Activité extra");
+    const apprentissageKey = normalizeKey("Apprentissage/formation");
+    const activitePhysiqueKey = normalizeKey("Activité physique");
+    const dureePhysiqueKey = normalizeKey("Durée activité physique");
+    const dureeDeboutKey = normalizeKey("Durée Debout");
+    const tempsDeboutMatinKey = normalizeKey("Temps debout matin");
+    const tempsAssiseKey = normalizeKey("Temps assise");
+    const dureeMarcheLenteKey = normalizeKey("Durée Marche Lente,normale");
+    const dureeMarcheRapideKey = normalizeKey("Durée Marche Rapide,modérée");
+    const dureeMenagereKey = normalizeKey("Durée activités ménagère");
+    
+    if (entry.rawData[dureeCuisineKey]) textContent += `• Durée cuisine : ${calculateTotalDurationFromRanges(entry.rawData[dureeCuisineKey]) || entry.rawData[dureeCuisineKey]}\n`;
+    if (entry.rawData[typeKey]) textContent += `• Type travail : ${entry.rawData[typeKey]}\n`;
+    if (entry.rawData[heureTravailKey]) textContent += `• Durée travail : ${calculateTotalDurationFromRanges(entry.rawData[heureTravailKey]) || entry.rawData[heureTravailKey]}\n`;
+    if (entry.rawData[occupationKey]) textContent += `• Occupation : ${entry.rawData[occupationKey].substring(0, 80)}${entry.rawData[occupationKey].length > 80 ? '...' : ''}\n`;
+    if (entry.rawData[activiteExtraKey]) textContent += `• Activité extra : ${entry.rawData[activiteExtraKey]}\n`;
+    if (entry.rawData[apprentissageKey]) textContent += `• Apprentissage : ${entry.rawData[apprentissageKey]}\n`;
+    if (entry.rawData[activitePhysiqueKey]) textContent += `• Activité physique : ${entry.rawData[activitePhysiqueKey]}\n`;
+    if (entry.rawData[dureePhysiqueKey]) textContent += `• Durée activité : ${calculateTotalDurationFromRanges(entry.rawData[dureePhysiqueKey]) || entry.rawData[dureePhysiqueKey]}\n`;
+    if (entry.rawData[dureeDeboutKey]) textContent += `• Durée debout : ${calculateTotalDurationFromRanges(entry.rawData[dureeDeboutKey]) || entry.rawData[dureeDeboutKey]}\n`;
+    if (entry.rawData[tempsDeboutMatinKey]) textContent += `• Debout matin : ${calculateTotalDurationFromRanges(entry.rawData[tempsDeboutMatinKey]) || entry.rawData[tempsDeboutMatinKey]}\n`;
+    if (entry.rawData[tempsAssiseKey]) textContent += `• Temps assise : ${calculateTotalDurationFromRanges(entry.rawData[tempsAssiseKey]) || entry.rawData[tempsAssiseKey]}\n`;
+    if (entry.rawData[dureeMarcheLenteKey]) textContent += `• Marche lente : ${calculateTotalDurationFromRanges(entry.rawData[dureeMarcheLenteKey]) || entry.rawData[dureeMarcheLenteKey]}\n`;
+    if (entry.rawData[dureeMarcheRapideKey]) textContent += `• Marche rapide : ${calculateTotalDurationFromRanges(entry.rawData[dureeMarcheRapideKey]) || entry.rawData[dureeMarcheRapideKey]}\n`;
+    
+    // Tâches ménagères
+    if (entry.groupedData.activite_menagere && entry.groupedData.activite_menagere.length > 0) {
+        textContent += `• Tâches ménagères : `;
+        entry.groupedData.activite_menagere.forEach((item, index) => {
+            if (item.value && item.value.trim() !== '') {
+                if (index > 0) textContent += ', ';
+                textContent += item.header.replace('Activité ménagère: ', '');
+            }
+        });
+        textContent += '\n';
+    }
+    
+    if (entry.rawData[dureeMenagereKey]) textContent += `• Durée ménagère : ${calculateTotalDurationFromRanges(entry.rawData[dureeMenagereKey]) || entry.rawData[dureeMenagereKey]}\n`;
+    
+    textContent += '\n';
+    
+    // SECTION 4: DÉPLACEMENT
+    textContent += '🚗 DÉPLACEMENT\n';
+    textContent += '─'.repeat(30) + '\n';
+    
+    const lieuxKey = normalizeKey("Lieux du jour");
+    const moyenKey = normalizeKey("Moyen de locomotion");
+    const dureeBusKey = normalizeKey("Durée en bus");
+    const dureeVoitureKey = normalizeKey("Durée en voiture");
+    const dureeMotoKey = normalizeKey("Durée en moto");
+    
+    if (entry.rawData[lieuxKey]) textContent += `• Lieux : ${entry.rawData[lieuxKey]}\n`;
+    if (entry.rawData[moyenKey]) textContent += `• Moyen : ${entry.rawData[moyenKey]}\n`;
+    if (entry.rawData[dureeBusKey]) textContent += `• Bus : ${calculateTotalDurationFromRanges(entry.rawData[dureeBusKey]) || entry.rawData[dureeBusKey]}\n`;
+    if (entry.rawData[dureeVoitureKey]) textContent += `• Voiture : ${calculateTotalDurationFromRanges(entry.rawData[dureeVoitureKey]) || entry.rawData[dureeVoitureKey]}\n`;
+    if (entry.rawData[dureeMotoKey]) textContent += `• Moto : ${calculateTotalDurationFromRanges(entry.rawData[dureeMotoKey]) || entry.rawData[dureeMotoKey]}\n`;
+    
+    textContent += '\n';
+    
+    // SECTION 5: SANTÉ
+    textContent += '❤️ SANTÉ\n';
+    textContent += '─'.repeat(30) + '\n';
+    
+    const maladieKey = normalizeKey("Maladie");
+    const poidsKey = normalizeKey("Poids");
+    const tourHancheKey = normalizeKey("Tour de hanche");
+    const tourCuissesKey = normalizeKey("Tour du haut des cuisse");
+    const tourVentreKey = normalizeKey("Tour de ventre");
+    const tourTailleKey = normalizeKey("Tour de taille");
+    const fatigueKey = normalizeKey("Fatigue");
+    
+    // Menstruation
+    if (entry.groupedData.monstruation && entry.groupedData.monstruation.length > 0) {
+        textContent += '• Menstruation : ';
+        entry.groupedData.monstruation.forEach(item => {
+            if (item.value && item.value.trim() !== '' && item.value.toLowerCase() !== 'non') {
+                const match = item.header.match(/\[([^\]]+)\]/);
+                if (match) {
+                    textContent += `${match[1]}: ${item.value}; `;
+                }
+            }
+        });
+        textContent += '\n';
+    }
+    
+    if (entry.rawData[maladieKey]) textContent += `• Maladie : ${entry.rawData[maladieKey]}\n`;
+    if (entry.rawData[poidsKey]) textContent += `• Poids : ${entry.rawData[poidsKey]}\n`;
+    if (entry.rawData[tourHancheKey]) textContent += `• Hanche : ${entry.rawData[tourHancheKey]}\n`;
+    if (entry.rawData[tourCuissesKey]) textContent += `• Cuisse : ${entry.rawData[tourCuissesKey]}\n`;
+    if (entry.rawData[tourVentreKey]) textContent += `• Ventre : ${entry.rawData[tourVentreKey]}\n`;
+    if (entry.rawData[tourTailleKey]) textContent += `• Taille : ${entry.rawData[tourTailleKey]}\n`;
+    if (entry.rawData[fatigueKey]) textContent += `• Fatigue : ${entry.rawData[fatigueKey]}/5\n`;
+    
+    textContent += '\n' + '═'.repeat(50) + '\n';
+    textContent += '📝 Fin du résumé\n';
+    textContent += '🔗 Généré depuis Journal Ranto\n';
+    
+    return textContent;
+}
+
+// Fonction pour copier le texte dans le presse-papier
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Afficher la notification
+        const notification = document.getElementById('copy-notification');
+        if (notification) {
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.style.animation = '';
+                }, 300);
+            }, 3000);
+        }
+    }).catch(err => {
+        console.error('Erreur lors de la copie :', err);
+        alert('Erreur lors de la copie dans le presse-papier. Vous pouvez sélectionner et copier manuellement.');
+    });
+}
+
+// Initialiser le journal après le mot de passe
+function initializeJournal() {
+    loadJournalData();
+    initializeSearch();
+    initExportButtons();
+    
+    // Mettre à jour la liste des dates disponibles après chargement
+    setTimeout(() => {
+        if (journalData.length > 0) {
+            updateDatePickerWithAvailableDates();
+        }
+    }, 1000);
+}
+
         // Charger les données au démarrage (maintenant après le mot de passe)
         passwordInput.focus();
       // Galerie photo globale
