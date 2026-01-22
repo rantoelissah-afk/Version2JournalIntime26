@@ -2686,7 +2686,14 @@ h1 {
         #search-access-btn:hover {
             background: linear-gradient(135deg, #64B5F6, #2196F3);
         }
-        
+        /* NOUVEAU BOUTON EXPORT */
+#export-access-btn {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    color: white;
+}
+#export-access-btn:hover {
+    background: linear-gradient(135deg, #FFB74D, #FF9800);
+}
         #calendar-access-btn:hover {
             background: linear-gradient(135deg, #81C784, #4CAF50);
         }
@@ -3902,15 +3909,7 @@ h1 {
             </section>
         </div>
     </div>
-        <!-- Boutons pour export et copie -->
-    <div class="export-controls" style="position: fixed; bottom: 20px; right: 120px; z-index: 1000; display: flex; flex-direction: column; gap: 10px;">
-        <button class="export-btn copy-btn" id="copy-data-btn" title="Copier les données en texte brut">
-            <i class="fas fa-copy"></i> Copier Texte
-        </button>
-        <button class="export-btn" id="export-pdf-btn" title="Exporter une date en PDF">
-            <i class="fas fa-file-pdf"></i> Export PDF
-        </button>
-    </div>
+      
 
     <div id="date-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center;">
         <div class="modal-content" style="background: white; padding: 30px; border-radius: 10px; max-width: 600px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
@@ -8282,6 +8281,9 @@ if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawDat
                 <button class="floating-btn tooltip" id="home-access-btn" data-tooltip="Accueil">
                     <i class="fas fa-home"></i>
                 </button>
+ <button class="floating-btn tooltip" id="export-access-btn" data-tooltip="Exporter/Copier">
+        <i class="fas fa-download"></i>
+    </button>
                 <button class="floating-btn tooltip" id="form-btn" data-tooltip="Nouvelle entrée journal">
                     <i class="fas fa-plus"></i>
                 </button>
@@ -8305,6 +8307,21 @@ if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawDat
             document.getElementById('home-access-btn').addEventListener('click', function() {
                 showHomeInterface();
             });
+document.getElementById('export-access-btn').addEventListener('click', function() {
+    const dateModal = document.getElementById('date-modal');
+    if (dateModal) {
+        dateModal.style.display = 'flex';
+        // Sélectionner PDF par défaut
+        document.querySelector('input[name="export-action"][value="pdf"]').checked = true;
+        // Pré-remplir avec la date actuelle
+        const today = new Date().toISOString().split('T')[0];
+        const exportDateInput = document.getElementById('export-date-input');
+        if (exportDateInput) {
+            exportDateInput.value = today;
+            exportDateInput.focus();
+        }
+    }
+});
             
             document.getElementById('form-btn').addEventListener('click', function() {
                 window.open('https://docs.google.com/forms/d/e/1FAIpQLSf7RjIpkua5-T-5K-YgrcPPyW_9ujfv3KpVmFZMuFMY72rJ4g/viewform?usp=publish-editor', '_blank');
