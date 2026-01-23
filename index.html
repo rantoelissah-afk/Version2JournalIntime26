@@ -7129,6 +7129,7 @@ if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawDat
                 }
                 
                 // SECTION: BILAN PERSONNEL DE LA JOURNEE (CORRIGÉE)
+
                 const stressKey = normalizeKey("Stress ressenti, pensée dominante, quelque chose de positif aujourd'hui");
                 const difficultesKey = normalizeKey("Difficultés rencontrées");
                 const erreurKey = normalizeKey("Erreur à ne pas répéter");
@@ -7173,6 +7174,7 @@ if (entry.rawData[dureeBusKey] || entry.rawData[dureeVoitureKey] || entry.rawDat
                         {key: "Fatigue", label: "Fatigue", icon: "fa-bed"},
                         {key: "Photos du jour", label: "Photos du jour", icon: "fa-camera"},
                         {key: "rohy fiche", label: "Lien fiche", icon: "fa-link"}
+
                     ];
                     
                     bilanFields.forEach(field => {
@@ -8374,13 +8376,20 @@ document.getElementById('export-access-btn').addEventListener('click', function(
     if (dateModal) {
         dateModal.style.display = 'flex';
         // Sélectionner PDF par défaut
-        document.querySelector('input[name="export-action"][value="pdf"]').checked = true;
+        const pdfRadio = document.querySelector('input[name="export-action"][value="pdf"]');
+        if (pdfRadio) pdfRadio.checked = true;
         // Pré-remplir avec la date actuelle
         const today = new Date().toISOString().split('T')[0];
         const exportDateInput = document.getElementById('export-date-input');
         if (exportDateInput) {
             exportDateInput.value = today;
             exportDateInput.focus();
+        }
+        
+        // Initialiser les boutons si ce n'est pas déjà fait
+        if (!window.exportButtonsInitialized) {
+            initExportModalButtons();
+            window.exportButtonsInitialized = true;
         }
     }
 });
@@ -9209,12 +9218,95 @@ function copyToClipboard(text) {
         alert('Erreur lors de la copie dans le presse-papier. Vous pouvez sélectionner et copier manuellement.');
     });
 }
-
+// Fonction pour initialiser les boutons d'export APRES le chargement du DOM
+function initExportModalButtons() {
+    const dateModal = document.getElementById('date-modal');
+    const cancelExportBtn = document.getElementById('cancel-export');
+    const confirmExportBtn = document.getElementById('confirm-export');
+    const exportDateInput = document.getElementById('export-date-input');
+    const dateShortcuts = document.querySelectorAll('.date-shortcut');
+    
+    if (!dateModal) {
+        console.log("Modale d'export non trouvée");
+        return;
+    }
+    
+    console.log("Initialisation des boutons d'export...");
+    
+    // Annuler l'export
+    if (cancelExportBtn) {
+        cancelExportBtn.addEventListener('click', function() {
+            dateModal.style.display = 'none';
+        });
+    }
+    
+    // Confirmer l'export ou la copie
+    if (confirmExportBtn) {
+        confirmExportBtn.addEventListener('click', function() {
+            const selectedDate = new Date(exportDateInput.value);
+            if (isNaN(selectedDate.getTime())) {
+                alert('Veuillez sélectionner une date valide.');
+                return;
+            }
+            
+            // Vérifier si la date a des données
+            const normalizedDate = normalizeDate(selectedDate);
+            const entry = journalData.find(e => datesAreEqual(e.date, normalizedDate));
+            
+            if (!entry || !entry.rawData) {
+                alert(`Aucune donnée trouvée pour la date ${selectedDate.toLocaleDateString('fr-FR')}`);
+                return;
+            }
+            
+            const action = document.querySelector('input[name="export-action"]:checked').value;
+            dateModal.style.display = 'none';
+            
+            if (action === 'pdf') {
+                exportToPDF(selectedDate);
+            } else if (action === 'copy') {
+                const textContent = generateTextContent(selectedDate);
+                copyToClipboard(textContent);
+            }
+        });
+    }
+    
+    // Gestion des raccourcis de date
+    if (dateShortcuts.length > 0) {
+        dateShortcuts.forEach(shortcut => {
+            shortcut.addEventListener('click', function() {
+                const days = parseInt(this.getAttribute('data-days'));
+                const date = new Date();
+                date.setDate(date.getDate() + days);
+                if (exportDateInput) {
+                    exportDateInput.value = date.toISOString().split('T')[0];
+                }
+            });
+        });
+    }
+    
+    // Fermer modal en cliquant à l'extérieur
+    dateModal.addEventListener('click', function(e) {
+        if (e.target === dateModal) {
+            dateModal.style.display = 'none';
+        }
+    });
+    
+    // Fermer modal avec Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && dateModal.style.display === 'flex') {
+            dateModal.style.display = 'none';
+        }
+    });
+    
+    console.log("Boutons d'export initialisés avec succès");
+}
 // Initialiser le journal après le mot de passe
 function initializeJournal() {
     loadJournalData();
     initializeSearch();
-    initExportButtons();
+    
+    // ATTENTION : NE PAS appeler initExportButtons() ici encore
+    // On l'appellera après que le DOM soit complètement chargé
     
     // Mettre à jour la liste des dates disponibles après chargement
     setTimeout(() => {
