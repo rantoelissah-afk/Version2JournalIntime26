@@ -410,36 +410,19 @@ h1 {
             font-weight: 700;
         }
         
-       /* POIDS EN BLEU SANS FOND */
-.day-weight {
-    font-size: 0.75rem;
-    font-weight: 800;
-    margin: -2px 0 0 0 !important; /* Négatif pour remonter */
-    color: #2196F3 !important;
-    background-color: transparent !important;
-    padding: 0 !important;
-    display: block;
-    text-align: center;
-    position: relative;
-    top: -1px; /* Décalage supplémentaire */
-}
-/* JOURS AVEC DONNÉES EN ROSE (cadre seulement) */
-.day.has-entry {
-    background: transparent;
-    color: #EC407A;
-    border: 2px solid rgba(236, 64, 122, 0.7);
-}
-
-/* Option : changement de couleur au survol */
-.day:hover .day-weight {
-    color: #0D47A1 !important; /* Bleu plus foncé */
-}
-
-/* Pour distinguer les jours sélectionnés */
-.day.selected .day-weight {
-    color: #1565C0 !important;
-    font-weight: 900;
-}
+        .day-weight {
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-top: 2px;
+            color: #ffeb3b !important;
+            background-color: rgba(255, 235, 59, 0.2) !important;
+            padding: 1px 4px;
+            border-radius: 3px;
+            display: inline-block;
+            min-width: 30px;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        }
         
         .day-menstruation {
             position: absolute;
@@ -2710,6 +2693,7 @@ h1 {
 #reload-btn:hover {
     background: linear-gradient(135deg, #EF9A9A, #F44336);
 }
+
         /* NOUVEAU BOUTON EXPORT */
 #export-access-btn {
     background: linear-gradient(135deg, #00FF00, #7CFC00);
@@ -2743,30 +2727,7 @@ h1 {
 #export-access-btn i {
     color: #003300;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
-}
-
-#export-access-btn:hover {
-    background: linear-gradient(135deg, #7CFC00, #00FF00);
-    color: #001100;
-    transform: translateY(-3px);
-    box-shadow: 
-        0 6px 20px rgba(0, 255, 0, 0.7),
-        0 0 30px rgba(0, 255, 0, 0.5);
-    border-color: #ADFF2F;
-}
-
-#export-access-btn:active {
-    transform: translateY(0);
-    box-shadow: 
-        0 2px 10px rgba(0, 255, 0, 0.4),
-        0 0 15px rgba(0, 255, 0, 0.2);
-}
-
-#export-access-btn i {
-    color: #003300;
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
-}
-        #calendar-access-btn:hover {
+}        #calendar-access-btn:hover {
             background: linear-gradient(135deg, #81C784, #4CAF50);
         }
         
@@ -4831,7 +4792,7 @@ function generatePhotoPreview(photoUrls) {
             try {
                 showLoading(true);
                 
-                const proxyUrl = 'https://corsproxy.io/?';
+                const proxyUrl = 'https://api.allorigins.win/raw?url=';
                 const encodedSheetUrl = encodeURIComponent(sheetUrl);
                 
                 const response = await fetch(proxyUrl + encodedSheetUrl, {
@@ -8476,51 +8437,49 @@ document.getElementById('export-access-btn').addEventListener('click', function(
             document.getElementById('sheet-btn').addEventListener('click', function() {
                 window.open('https://docs.google.com/spreadsheets/d/1sqFSBaJqghgJdcKcuYfYOtPLA-xmRyAnbp0XMgV6qNU/edit?resourcekey=&pli=1&gid=114511576#gid=114511576', '_blank');
             });
-          // BOUTON DE RECHARGEMENT CORRIGÉ
-document.getElementById('reload-btn').addEventListener('click', async function() {
+
+// Bouton de rechargement
+document.getElementById('reload-btn').addEventListener('click', function() {
     const btn = this;
     const originalHTML = btn.innerHTML;
     
-    try {
-        // 1. Sauvegarder l'état actuel du calendrier
-        const savedMonth = currentMonth;
-        const savedYear = currentYear;
-        const savedDate = currentDate;
-        
-        console.log("🔄 Rechargement démarré...");
-        console.log("État sauvegardé:", { savedMonth, savedYear });
-        
-        // 2. Animation
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-        btn.disabled = true;
-        
-        // 3. Réinitialiser PROPREMENT
-        journalData.length = 0; // Vider le tableau sans le réaffecter
-        searchIndex.length = 0;
-        
-        // 4. Recharger
-        await loadJournalData();
-        
-        // 5. RESTAURER l'état du calendrier
-        currentMonth = savedMonth;
-        currentYear = savedYear;
-        currentDate = savedDate;
-        
-        // 6. Re-rendre le calendrier
-        renderCalendar(currentMonth, currentYear);
-        
-        console.log("✅ Rechargement terminé. Calendrier restauré.");
-        
-    } catch (error) {
-        console.error("❌ Erreur rechargement:", error);
-    } finally {
-        // 7. Réactiver le bouton
+    // Afficher l'animation de chargement
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+    
+    // Réinitialiser les données
+    journalData = [];
+    
+    // Recharger les données
+    loadJournalData().finally(() => {
+        // Réactiver le bouton après 1 seconde
         setTimeout(() => {
             btn.innerHTML = originalHTML;
             btn.disabled = false;
-        }, 500);
-    }
+            
+            // Afficher un message de confirmation
+            const journalDisplay = document.getElementById('journal-display');
+            if (journalDisplay) {
+                const successMsg = document.createElement('div');
+                successMsg.className = 'loading';
+                successMsg.innerHTML = `<i class="fas fa-check-circle"></i> Données rechargées (${journalData.length} entrées)`;
+                successMsg.style.background = '#4CAF50';
+                successMsg.style.color = 'white';
+                successMsg.style.padding = '10px';
+                successMsg.style.borderRadius = '5px';
+                successMsg.style.margin = '10px 0';
+                
+                journalDisplay.prepend(successMsg);
+                
+                // Supprimer le message après 3 secondes
+                setTimeout(() => {
+                    successMsg.remove();
+                }, 3000);
+            }
+        }, 1000);
+    });
 });
+            
             setTimeout(() => {
                 floatingButtons.style.display = 'flex';
             }, 1000);
@@ -9582,4 +9541,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });  
     </script>
 </body>
-</html>
+</html>  
